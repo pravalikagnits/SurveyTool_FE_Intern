@@ -1,0 +1,16 @@
+.loginpage{
+
+
+  background:rgba(0,0,0,0.7);
+
+}
+h1{
+  color: black;
+}
+.logintext{
+  color:white;
+  opacity: 1;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: black;
+}

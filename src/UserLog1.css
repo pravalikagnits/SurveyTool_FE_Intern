@@ -1,0 +1,48 @@
+.Index6{
+  padding: 10px;
+  background-image: url('/images/back10.jpeg');
+  font-size: 40px;
+  font-family: serif;
+  color:	#CFB53B;
+
+
+}
+
+.surveymain{
+  background: url('/images/login image.jpg');
+}
+button{
+  background-color: #E0FFFF;
+  color:black;
+  font-weight: bold;
+  border-radius: 15px;
+}
+input[type=checkbox] {
+    zoom: 1.5;
+}
+.anchor{
+  color: black;
+}
+
+
+th,.td1{
+
+border: 1px solid black;
+}
+.moduleSection {
+
+    border: 1px solid black;
+
+    border-radius: 6px;
+    width: 100%;
+}
+
+table,td{
+border: 1px;
+  color: black;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  border-top-left-radius: 10px 5px;
+border-bottom-right-radius: 10% 5%;
+border-top-right-radius: 10px;
+}

@@ -1,0 +1,45 @@
+.UsrNewEntry{
+  padding: 100px;
+  background:rgba(0,0,0,0.4);
+  font-size: 15px;
+  font-family: serif;
+  font-weight: bold;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+
+}
+
+
+#upload{
+position: absolute;
+right: 40;
+}
+
+.textbox,.ampm{
+
+
+    float: right;;
+   display: inline-block;
+   clear: left;
+   width: 150px;
+   text-align: right;
+}
+.map{
+
+  height: 200px;
+  width: 200px;
+  margin-left: 90px;
+  align-items: center;
+
+}
+.image{
+  float: right;
+}
+#para{
+  text-align: justify;
+}
+ .UsrNewEntry label{
+   font-size: 20px;
+   color: white;
+ }

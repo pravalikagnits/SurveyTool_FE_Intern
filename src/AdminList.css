@@ -1,0 +1,58 @@
+.card {
+    background:rgba(0,5,0,0.4);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 85%;
+    border-radius: 5px;
+    margin: auto;
+    text-align: justify;
+    margin-top: 10px;
+
+}
+
+.AdminList{
+  background-image: url('/images/back17.jpeg');
+}
+
+
+hr{
+  border:1px solid black;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.container1 {
+
+    padding: 15px 10px;
+}
+h3{
+  color: black;
+}
+
+.col-sm-4,.col-sm-8{
+  color: black;
+}
+
+.button1{
+ visibility: hidden;
+ color:green;
+}
+.card:hover .button1,{
+  visibility: visible;
+}
+#map{
+  height: 400px;
+  width: 400px;
+  margin-left: 90px;
+  align-items: center;
+
+}
+
+.button2{
+  color:red;
+  visibility: hidden;
+}
+.card:hover .button2{
+  visibility: visible;
+}

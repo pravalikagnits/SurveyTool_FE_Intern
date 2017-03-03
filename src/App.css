@@ -2,7 +2,20 @@
   padding: 10px;
 }
 
-p {
-  color: #aaa;
-  font-size: 5rem;
+h1{
+  color: yellow;
+}
+p{
+  color: white;
+}
+/*button.contactbtn,.news,.home,.signup1,.login1,.aboutus{
+background-color: black;
+color: white;
+border: 0;
+font-size: 20px;
+border-radius: 12px;
+
+}*/
+button:hover{
+  background-color:dimgray;
 }

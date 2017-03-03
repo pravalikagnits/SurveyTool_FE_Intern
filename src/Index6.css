@@ -1,0 +1,10 @@
+.newsurveycreate{
+  margin-top: -200px;
+  margin-left: -10px;
+  top: 50%;
+  left: 60%;
+  background:rgba(0,0,0,0.4);
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: black;
+}

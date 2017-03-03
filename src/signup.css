@@ -1,0 +1,17 @@
+.Signup{
+
+  background:rgba(0,0,0,0.7);
+
+}
+
+.Signup p{
+  color: white;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: black;
+}
+
+.signuptext{
+  color:white;
+  opacity: 1;
+}

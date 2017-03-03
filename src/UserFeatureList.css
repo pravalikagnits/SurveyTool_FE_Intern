@@ -1,0 +1,92 @@
+
+.UserFeatureList label{
+  font-style: italic;
+  font-family: cursive;
+  color: black;
+}
+
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: black;
+}
+
+.updatetext{
+  color:white;
+  opacity: 1;
+}
+.delete{
+  visibility: hidden;
+}
+tr:hover button{
+   visibility: visible;
+ }
+ .update{
+   visibility: hidden;
+ }
+
+
+
+
+ .card {
+
+
+
+     box-shadow: 0 4px 8px 0 rgba(245,255,250,0.2);
+     transition: 0.3s;
+     width: 85%;
+     height:auto;
+     border-radius: 5px;
+     margin: auto;
+     text-align: justify
+
+ }
+
+ .card:hover {
+     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+ }
+ .container1 {
+
+     padding: 15px 10px;
+ }
+
+ .col-sm-4,.col-sm-8{
+   color: black;
+ }
+
+
+
+
+.imagetext img{
+
+  float:left;
+  height:70px;
+  width:70px;
+  background-repeat: no-repeat;
+
+}
+.image p{
+  margin-left: 40px;
+  margin-top: 10px;
+}
+
+.image{
+  height: 90px;
+  width:90px;
+}
+.moduleSection {
+
+    border: 1px solid black;
+
+    border-radius: 6px;
+    width: 100%;
+}
+
+/*.tablerow:hover{
+  background:#c0c0c0;
+}*/
+/*
+.td1 label{
+
+  color:#1A0C52;
+
+}*/

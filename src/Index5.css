@@ -1,0 +1,94 @@
+
+
+.surveymain{
+
+  background-image: url('/images/back17.jpeg');
+}
+button{
+  background-color: #E0FFFF;
+  color:black;
+  font-weight: bold;
+  border-radius: 15px;
+}
+
+.fa-close{
+  background-color:inherit;
+  color: red;
+}
+
+.fa-refresh{
+    color:green;
+}
+
+
+
+.anchor{
+  color: black;
+}
+.td1,.anchor{
+  font-size: 20px;
+}
+.moduleSection th{
+  font-size: 20px;
+  color: black;
+}
+
+
+
+tr td .td2{
+  border: 0;
+}
+
+
+
+th,.td1{
+
+  border: 1px solid black;
+}
+
+.td2{
+  border: 0;
+}
+
+.moduleSection td,th,a{
+  color:white;
+}
+
+.moduleSection {
+
+  border: 1px solid black;
+  border-radius: 6px;
+  width: 100%;
+}
+
+i{
+  background-color:none;
+}
+
+.delete{
+  visibility: hidden;
+}
+tr:hover button{
+   visibility: visible;
+ }
+ .update{
+   visibility: hidden;
+ }
+
+
+ td.delete{
+    border: none;
+ }
+.visible{
+   border: none;
+ }
+
+table,td{
+  border: 1px;
+  color: black;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  border-top-left-radius: 10px 5px;
+  border-bottom-right-radius: 10% 5%;
+  border-top-right-radius: 10px;
+}
