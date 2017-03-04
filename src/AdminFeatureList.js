@@ -66,7 +66,7 @@ class AdminFeatureList extends Component {
 
       <div className="row">
       <div className="col-sm-4" ><strong>Latitude:</strong></div>
-      <div className="col-sm-8"><strong> {this.state.item.latitude}</strong></div><br/>
+      <div className="col-sm-6"><strong> {this.state.item.latitude}</strong></div>
       </div>
 
       <div className="row">
@@ -125,9 +125,10 @@ class AdminFeatureList extends Component {
 
       </div>
       </div>
+      <center>
 
       <button  className="w3-btn w3-round-large w3-large back" onClick={()=>this.handleBack()}>Back</button>&nbsp;&nbsp;&nbsp;
-
+      </center>
       </div>
 
 

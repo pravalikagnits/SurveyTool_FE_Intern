@@ -4,7 +4,7 @@ import './UserList.css';
 import Index6 from './Index6.js';
 import UsrNewEntry from './UsrNewEntry.js';
 import UserFeatureList from './UserFeatureList.js';
-import UpdateFeatureList2 from './UpdateFeatureList.js';
+import UpdateFeatureList2 from './UpdateFeatureList2.js';
 
 
 class UserList extends Component {
@@ -137,9 +137,9 @@ class UserList extends Component {
 
                     <br/>
                   </center></div>
-
+                  <center>
                   <button className="w3-btn w3-round-large w3-large" onClick={()=>this.AddNewEntry()}>Add New Entry</button>
-
+                  </center>
             </div>
 
            );

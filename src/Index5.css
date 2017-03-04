@@ -2,7 +2,10 @@
 
 .surveymain{
 
-  background-image: url('/images/back17.jpeg');
+  background:rgb(160,160,160);
+  height:auto;
+  width: 600px;
+margin-left: 350px;
 }
 button{
   background-color: #E0FFFF;
@@ -12,11 +15,12 @@ button{
 }
 
 .fa-close{
-  background-color:inherit;
+  background: none;
   color: red;
 }
 
 .fa-refresh{
+  background: none;
     color:green;
 }
 
@@ -30,7 +34,7 @@ button{
 }
 .moduleSection th{
   font-size: 20px;
-  color: black;
+  color:;
 }
 
 
@@ -51,7 +55,7 @@ th,.td1{
 }
 
 .moduleSection td,th,a{
-  color:white;
+  color:black;
 }
 
 .moduleSection {

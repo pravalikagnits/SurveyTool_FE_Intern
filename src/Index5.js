@@ -103,7 +103,7 @@ class Index5 extends Component {
 
       <div><center>
       <br/>
-      <table className="moduleSection">
+      &nbsp;<table className="moduleSection">
       <tbody className="border">
       <tr> <th>Survey Name</th>  <th>Survey Description</th>  <th>Deadline</th></tr>
       {this.state.surveys.length ?

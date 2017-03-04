@@ -20,6 +20,7 @@ class AdminList extends Component {
                             this.handleUpdate=this.handleUpdate.bind(this);
                             this.handleDelete=this.handleDelete.bind(this);
                               this.mapview=this.mapview.bind(this);
+                              this.exportGeoJson=this.exportGeoJson.bind(this);
                }
 
 
@@ -116,7 +117,7 @@ class AdminList extends Component {
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
 
-    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    var map = new google.maps.Map(document.getElementById("map1"), mapOptions);
 
     var i=0;
     var json=new Array();
@@ -124,7 +125,7 @@ class AdminList extends Component {
 
     for(i=0;i<this.state.Features.length;i++)
     {
-      json[i]={lat:this.state.Features[i].latitude,long:this.state.Features[i].longitude,name:this.state.Features[i].name}
+      json[i]={lat:this.state.Features[i].latitude,long:this.state.Features[i].longitude,name:this.state.Features[i].name,image:this.state.Features[i].image}
 
     }
 
@@ -143,7 +144,7 @@ class AdminList extends Component {
 
 
                (function(marker, data) {
-                 var contents='<img src="/images/back2.jpeg" alt="image"/><br/><br/>'+'<b>Name:</b>'+data.name+'<br/><b>Latitude:</b>'+data.lat+'<br/><b>Longitude:</b>'+data.long+' ';
+                 var contents='<img src='+data.image+' alt="image" id="simage"/><br/><br/>'+'<b>Name:</b>'+data.name+'<br/><b>Latitude:</b>'+data.lat+'<br/><b>Longitude:</b>'+data.long+' ';
 
                                  // Attaching a click event to the current marker
                        google.maps.event.addListener(marker, "click", function(e) {
@@ -157,6 +158,32 @@ class AdminList extends Component {
 
 
   }
+  exportGeoJson() {
+    var json=new Array();
+  var geoJson = {
+    "type": "FeatureCollection",
+    "features": []
+  };
+
+  for (var i = 0; i<this.state.Features.length;i++) {
+    var polylineFeature = {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": []
+      },
+      "properties": {}
+      };
+    json[i]={lat:this.state.Features[i].latitude,long:this.state.Features[i].longitude,name:this.state.Features[i].name}
+      polylineFeature.geometry.coordinates.push(
+      json[i].lat,json[i].long
+    );
+    polylineFeature.properties={"name:":json[i].name};
+      geoJson.features.push(polylineFeature);
+  }
+
+  console.log(JSON.stringify(geoJson));
+}
 
   render() {
       return (
@@ -214,9 +241,12 @@ class AdminList extends Component {
 
                     <br/>
                   </center></div>
-                  <button  className="w3-btn w3-round-large w3-large" onClick={()=>this.mapview()}>map view</button>&nbsp;&nbsp;<button  className="w3-btn w3-round-large w3-large">EXPORT</button>&nbsp;&nbsp;&nbsp;
+                  <center>
+                  <button  className="w3-btn w3-round-large w3-large" onClick={()=>this.mapview()}>map view</button>&nbsp;&nbsp;
+                  <button  className="w3-btn w3-round-large w3-large" onClick={()=>this.exportGeoJson()}>EXPORT</button>&nbsp;&nbsp;&nbsp;
 
-                     <div id="map" className="map" ref="map"> </div>
+                     <div id="map1" className="map1" ref="map"> </div>
+                     </center>
 
             </div>
 

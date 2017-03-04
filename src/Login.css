@@ -1,8 +1,11 @@
 .loginpage{
 
 
-  background:rgba(0,0,0,0.7);
+  background:rgba(0,0,0,0.8);
 
+  height: 400px;
+  width: 500px;
+margin-left: 400px;
 }
 h1{
   color: black;

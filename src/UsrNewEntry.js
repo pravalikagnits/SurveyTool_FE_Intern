@@ -113,9 +113,16 @@ class UsrNewEntry extends React.Component {
                                 var map = new google.maps.Map(document.getElementById("map"), mapOptions);
                                 var marker = new google.maps.Marker({
                                 position:this.state.position,
-                                map: map
+                                map: map,
+                                draggable:true
                           });
+                          google.maps.event.addListener(marker,"click",function(e){
+                            console.log(e);
+                            // document.getElementById("lat").value=e.LatLng.lat();
+                            // document.getElementById("long").value=e.LatLng.lng();
 
+
+                          })
 
                         }
 

@@ -42,7 +42,7 @@ class App extends Component {
   render() {
 
     return (
-      <div className="App">
+      <div id="App" className="App">
       <nav id="mainNav" className="navbar navbar-default navbar-custom navbar-fixed-top">
         <div className="container">
             <div className="navbar-header page-scroll">

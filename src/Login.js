@@ -9,6 +9,10 @@ import App from './App.js';
 import UserLog from './UserLog.js';
 import GoogleMap from './GoogleMap.js';
 
+var SHA256 = require("sha256");
+
+
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -39,30 +43,45 @@ class Login extends React.Component {
 
   }
 
-
   validate(username,password){
-    console.log(username);
-    var i,flag=0;
-    for(i=0;i<this.state.items.length;i++){
-      if(username =="admin" && password =="123"){
-        flag=1;
-        var c=document.getElementById("content");
-        ReactDOM.render(<Index5 />,c);
-        break;
-      }
-      else if(username==this.state.items[i].uname && password==this.state.items[i].upwd){
-        flag=1;
-        var c=document.getElementById("content");
-        ReactDOM.render(<UserLog uid={this.state.items[i].uid}/>,c);
-        break;
-      }
+
+     var i,flag=0;
+     for(i=0;i<this.state.items.length;i++){
+       if(username =="admin" && password =="123"){
+         flag=1;
+         console.log(SHA256(password));
+         var c=document.getElementById("content");
+         ReactDOM.render(<Index5 />,c);
+         break;
+       }
+       else if(username==this.state.items[i].uname)
+       {
+         var salt=this.state.items[i].salt;
+           var repeat=this.state.items[i].num;
+         console.log(salt);
+         var sec_pass=SHA256(password+salt);
+
+         for(var j=1;j<repeat;j++)
+         {
+           var sec_pass=SHA256(sec_pass +salt);
+         }
+
+         if(sec_pass==this.state.items[i].upwd){
+           flag=1;
+
+           var c=document.getElementById("content");
+           ReactDOM.render(<UserLog uid={this.state.items[i].uid}/>,c);
+           break;
+         }
+       }
 
 
-    }
-    if(flag==0)
-    alert("please check your username or password!!");
+     }
+     if(flag==0)
+     alert("please check your username or password!!");
 
-  }
+   }
+
 
 
   render(){

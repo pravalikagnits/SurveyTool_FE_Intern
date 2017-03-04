@@ -24,7 +24,7 @@ class UserFeatureList extends Component {
 
 
 
-     // 
+     //
      //
     //  handleUpdate(fid,name,lat,long,country,state,district,deities,festivals,archstyle,datebuilt,image,creator,guides,eateries){
     //     this.state.fid=fid
@@ -91,7 +91,7 @@ class UserFeatureList extends Component {
 
                            <div className="row">
                               <div className="col-sm-4" ><strong>Latitude:</strong></div>
-                              <div className="col-sm-8"><strong> {this.state.item.latitude}</strong></div><br/>
+                              <div className="col-sm-6"><strong> {this.state.item.latitude}</strong></div><br/>
                            </div>
 
                            <div className="row">
@@ -147,9 +147,9 @@ class UserFeatureList extends Component {
                               <div className="col-sm-4" ><strong>Eateries:</strong></div>
                               <div className="col-sm-8"><strong> {this.state.item.eateries}</strong></div><br/>
                            </div>
-
+                           <center>
                            <button  className="w3-btn w3-round-large w3-large button2" onClick={()=>this.handleBack()}>Back</button>&nbsp;&nbsp;&nbsp;
-
+                           </center>
 
 
 
