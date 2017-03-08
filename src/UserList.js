@@ -5,6 +5,7 @@ import Index6 from './Index6.js';
 import UsrNewEntry from './UsrNewEntry.js';
 import UserFeatureList from './UserFeatureList.js';
 import UpdateFeatureList2 from './UpdateFeatureList2.js';
+import UserMyEntry from './UserMyEntry.js';
 
 
 class UserList extends Component {
@@ -21,15 +22,33 @@ class UserList extends Component {
                             this.handleUpdate=this.handleUpdate.bind(this);
                             this.AddNewEntry=this.AddNewEntry.bind(this);
                             this.AddNewEntry=this.AddNewEntry.bind(this);
+                            this.MyEntries=this.MyEntries.bind(this);
 
                }
+
+
+
+               MyEntries(){
+                  var id=this.props.uid;
+                  console.log(id);
+
+                  var c=document.getElementById("content");
+                  ReactDOM.render(<UserMyEntry uid={this.props.uid}/>,c);
+
+
+
+
+               }
+
+
 
 
                AddNewEntry(id){
                   this.state.sid=id;
                   console.log(this.state.sid);
+                  console.log(this.props.uid);
                   var c=document.getElementById("content");
-                  ReactDOM.render(<UsrNewEntry sid={this.state.sid}/>,c);
+                  ReactDOM.render(<UsrNewEntry sid={this.state.sid} uid={this.props.uid}/>,c);
                }
 
 
@@ -138,7 +157,8 @@ class UserList extends Component {
                     <br/>
                   </center></div>
                   <center>
-                  <button className="w3-btn w3-round-large w3-large" onClick={()=>this.AddNewEntry()}>Add New Entry</button>
+                  <button className="w3-btn w3-round-large w3-large" onClick={()=>this.MyEntries()}>My Entries</button>
+                  <button className="w3-btn w3-round-large w3-large" onClick={()=>this.AddNewEntry()}>Add Entry</button>
                   </center>
             </div>
 

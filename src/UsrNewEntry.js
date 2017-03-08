@@ -116,7 +116,7 @@ class UsrNewEntry extends React.Component {
                                 map: map,
                                 draggable:true
                           });
-                          google.maps.event.addListener(marker,"click",function(e){
+                          google.maps.event.addListener(marker,"dragend",function(e){
                             console.log(e);
                             // document.getElementById("lat").value=e.LatLng.lat();
                             // document.getElementById("long").value=e.LatLng.lng();
@@ -130,6 +130,8 @@ class UsrNewEntry extends React.Component {
 
             handleFeature(id){
               this.state.sid=id;
+              var id=this.props.uid;
+              console.log(id);
 
                       fetch('http://localhost:9000/Features', {
                                     method: 'POST',
@@ -152,6 +154,7 @@ class UsrNewEntry extends React.Component {
                                                     image:this.state.image,
                                                     creator:Creator.value,
                                                     guides:Guides.value,
+                                                    uid:id,
                                                     eateries:Eateries.value,
                                                     s_id:this.state.id
                                     })

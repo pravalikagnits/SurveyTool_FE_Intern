@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import ReactDOM from 'react-dom';
-
+import './agency.css';
+import './agency.min.css';
 import './App.css';
 
 import Signup from './Signup.js';
@@ -10,8 +11,7 @@ import Login from  './Login.js';
 
 
 
-import './agency.css';
-import './agency.min.css';
+
 
 
 class App extends Component {
@@ -20,9 +20,6 @@ class App extends Component {
 
     this.HandleSignin=this.HandleSignin.bind(this);
     this.Handlelogin=this.Handlelogin.bind(this);
-
-
-
   }
 
 
@@ -49,7 +46,7 @@ class App extends Component {
                 <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span className="sr-only">Toggle navigation</span> Menu <i className="fa fa-bars"></i>
                 </button>
-                <a className="navbar-brand page-scroll" href="#content">Map Survey Tool</a>
+                <a className="mapsurvey page-scroll" href="#content">Map Survey Tool</a>
             </div>
 
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -58,19 +55,19 @@ class App extends Component {
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a className="page-scroll" href="#services">Services</a>
+                        <a className="page-scroll"  id="link" href="#services">Services</a>
                     </li>
                     <li>
-                        <a className="page-scroll" href="#portfolio">About</a>
+                        <a className="page-scroll" id="link" href="#about">About</a>
                     </li>
                     <li>
-                        <a className="page-scroll" href="#contact">Contact</a>
+                        <a className="page-scroll"  id="link" href="#contact">Contact</a>
                     </li>
                     <li>
-                        <a className="page-scroll" onClick = {()=>this.HandleSignin()}>SignUp</a>
+                        <a className="page-scroll" id="link" onClick = {()=>this.HandleSignin()}>SignUp</a>
                     </li>
                     <li>
-                        <a className="page-scroll"  onClick = {()=>this.Handlelogin()}>LogIn</a>
+                        <a className="page-scroll" id="link"  onClick = {()=>this.Handlelogin()}>LogIn</a>
                     </li>
                 </ul>
             </div>
@@ -128,6 +125,48 @@ class App extends Component {
             </div>
         </div>
     </section>
+
+    <section id="about">
+        <div className="container">
+            <div className="row">
+                <div className="col-lg-12 text-center">
+                    <h2 className="section-heading">About</h2>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-lg-12">
+                    <ul className="timeline">
+                        <li>
+                            <div className="timeline-image">
+                                <img className="img-circle img-responsive" src="img/about/5.png" alt="image not available"/>
+                            </div>
+                            <div className="timeline-panel">
+                                <div className="timeline-heading">
+                                    <h4></h4>
+                                </div>
+                                <div className="timeline-body">
+                                    <p className="text-muted">Map Survey Tool is basically used to peform surveys online.It allows the users to add entries to the survey</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li className="timeline-inverted">
+                            <div className="timeline-image">
+                                <img className="img-circle img-responsive" src="img/about/8.jpg" alt=""/>
+                            </div>
+                            <div className="timeline-panel">
+
+                                <div className="timeline-body">
+                                    <p className="text-muted">Map Survey Tool allows user to specify the location.</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 
 
 

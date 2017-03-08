@@ -19,3 +19,61 @@ border-radius: 12px;
 button:hover{
   background-color:dimgray;
 }
+
+.navbar-custom .navbar-brand {
+  color: #fed136;
+  font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+}
+
+.mapsurvey{
+  color: #fed136;
+  font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial;
+  text-decoration: none;
+  font-size: 2em;
+  text-shadow: 0 0 7px white;
+}
+.mapsurvey:hover{
+  color: #fed136;
+
+  text-decoration: none;
+}
+
+#mainNav{
+  background-color: rgb(0,0,0);
+}
+#link{
+  color: #fed136;
+
+}
+
+.link page-scroll{
+  color: #fed136;
+
+}
+
+
+
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus,
+.navbar-custom .navbar-brand:active,
+.navbar-custom .navbar-brand.active {
+  color: #fec503;
+}
+.navbar-custom .navbar-collapse {
+  border-color: rgba(255, 255, 255, 0.02);
+}
+
+
+
+.navbar-custom .navbar-toggle {
+  background-color: #fed136;
+  border-color: #fed136;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  color: white;
+  font-size: 12px;
+}
+.navbar-custom .navbar-toggle:hover,
+.navbar-custom .navbar-toggle:focus {
+  background-color: #fed136;
+}

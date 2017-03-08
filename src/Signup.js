@@ -2,12 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './signup.css';
 import Login from './Login.js';
+var SHA256 = require("sha256");
+
 
 //import Login from './Login.js';
 
 class Signup extends React.Component {
   constructor(props) {
-  super(props);
+    super(props);
 
 
     this.state={data:'', passwd:'',cnfpasswd:'',res:''};
@@ -15,7 +17,7 @@ class Signup extends React.Component {
     this.updatePasswd=this.updatePasswd.bind(this);
     this.updatecnfPasswd=this.updatecnfPasswd.bind(this);
     this.validate=this.validate.bind(this);
-  //this.handlesubmit=this.handlesubmit.bind(this);
+    //this.handlesubmit=this.handlesubmit.bind(this);
   }
 
   updateState(e){
@@ -33,76 +35,90 @@ class Signup extends React.Component {
 
   componentWillUpdate(){
 
-              fetch(`http://localhost:9000/users`)
-             .then(response => response.json())
-             .then(json=>this.setState({items:json}))
+    fetch(`http://localhost:9000/users`)
+    .then(response => response.json())
+    .then(json=>this.setState({items:json}))
 
   }
 
   validate(username,password,confirmp){
-      if(username==''|| password==''||confirmp=='')
-          this.setState({res:'username or password cannot be empty'})
-      var l=username.length;
-      if(l<5 && username!='')
-          this.setState({res:'username is too short(min 8 char)'})
-      var m=password.length;
-      var n=confirmp.length;
-      if((m < 5 || n < 5)&&(password!=''&&confirmp!=''))
-          this.setState({res:'password too short'})
-
-      if(password!=confirmp)
-          this.setState({res:'password doesnt match'})
+    var salt=Math.random().toString(36).substr(2, 15);
+    var sec_pass=SHA256(password +salt);
+    //  console.log(sec_pass);
+    var repeat=100;
+    for(var i=1;i<repeat;i++)
+    {
+      var sec_pass=SHA256(sec_pass +salt);
+    }
+    //  console.log(sec_pass);
 
 
-    fetch('http://localhost:9000/users', {
-                  method: 'POST',
-                  headers: {
-                      "Content-Type": "application/json",
-                      "Accept":"application/json"
+    var l=username.length;
+    var m=password.length;
+    var n=confirmp.length;
 
-                  },
-                  body: JSON.stringify({
+    if(username==''|| password==''||confirmp=='')
+    this.setState({res:'username or password cannot be empty'})
+    else if(l<5 && username!='')
+    this.setState({res:'username is too short(min 8 char)'})
+    else if((m < 5 || n < 5)&&(password!=''&&confirmp!=''))
+    this.setState({res:'password too short'})
+    else if(password!=confirmp)
+    this.setState({res:'password doesnt match'})
+    else{
 
-                      uname: this.state.data,
-                      upwd:this.state.passwd
-                  })
-                })
+      fetch('http://localhost:9000/users', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+          "Accept":"application/json"
 
-                if(l>=5 && m>=5 && n>=5 && password==confirmp)
-                  {
-                    alert('Successful registation!!you can login now!!');
-                  }
+        },
+        body: JSON.stringify({
 
+          uname: this.state.data,
+          upwd:sec_pass,
+          salt:salt,
+          num:repeat
+        })
+      }).then(alert('Successful registation!!you can login now!!')
+    )
   }
 
 
 
 
-  render(){
+}
 
-    return(
-        <div className="Signup w3-container w3-animate-top ">
-            <center>
-            <br/><br/><br/>
-              <form>
-                <h1 className="signuptext">
-                  Sign Up
-                  <br/>
-                </h1>
-                <br/>
-                <p>{this.state.res}</p>
-                <input type="text" id="username" value = {this.state.data} onChange = {this.updateState} className="w3-input" placeholder="username"  /><br/><br/>
-                <input type="password" id="password" value ={this.state.passwd} onChange = {this.updatePasswd} className="w3-input" placeholder="password" /><br/><br/>
-                <input type="password" id="confirm" value ={this.state.cnfpasswd} onChange = {this.updatecnfPasswd} className="w3-input" placeholder="confirm password"  /><br/><br/>
-                <button  className="w3-btn w3-square-large w3-large" onClick={()=>this.validate(this.state.data,this.state.passwd,this.state.cnfpasswd)}>Sign Up</button><br/><br/>
 
-            </form>
 
-          </center>
 
-      </div>
-    );
-  }
+
+render(){
+
+  return(
+    <div className="Signup w3-container w3-animate-top ">
+    <center>
+    <br/><br/><br/>
+    <form>
+    <h1 className="signuptext">
+    Sign Up
+    <br/>
+    </h1>
+    <br/>
+    <p>{this.state.res}</p>
+    <input type="text" id="username" value = {this.state.data} onChange = {this.updateState} className="w3-input" placeholder="username"  /><br/><br/>
+    <input type="password" id="password" value ={this.state.passwd} onChange = {this.updatePasswd} className="w3-input" placeholder="password" /><br/><br/>
+    <input type="password" id="confirm" value ={this.state.cnfpasswd} onChange = {this.updatecnfPasswd} className="w3-input" placeholder="confirm password"  /><br/><br/>
+    <button  className="w3-btn w3-square-large w3-large" onClick={()=>this.validate(this.state.data,this.state.passwd,this.state.cnfpasswd)}>Sign Up</button><br/><br/>
+
+    </form>
+
+    </center>
+
+    </div>
+  );
+}
 }
 
 export default Signup;

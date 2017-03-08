@@ -22,8 +22,10 @@ class UserLog extends Component {
      }
 
      handleanchor(){
+
+       console.log(this.props.uid);
         var c=document.getElementById("content");
-        ReactDOM.render(<UserList />,c);
+        ReactDOM.render(<UserList uid={this.props.uid}/>,c);
      }
 
 

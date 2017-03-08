@@ -12,10 +12,11 @@ body {
 }
 .text-primary {
   color: #fed136;
+
 }
 p {
-  font-size: 14px;
   line-height: 1.75;
+  font-size: 14px;
 }
 p.large {
   font-size: 16px;

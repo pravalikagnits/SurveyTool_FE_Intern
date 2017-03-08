@@ -20,37 +20,6 @@ class UserFeatureList extends Component {
      }
 
 
-
-
-
-
-     //
-     //
-    //  handleUpdate(fid,name,lat,long,country,state,district,deities,festivals,archstyle,datebuilt,image,creator,guides,eateries){
-    //     this.state.fid=fid
-    //     this.state.name=name;
-    //     this.state.lat=lat;
-    //     this.state.long=long;
-    //     this.state.country=country;
-    //     this.state.state=state;
-    //     this.state.district=district;
-    //     this.state.deities=deities;
-    //     this.state.festivals=festivals;
-    //     this.state.archstyle=archstyle;
-    //     this.state.datebuilt=datebuilt;
-    //     this.state.image=image;
-    //     this.state.creator=creator;
-    //     this.state.guides=guides;
-    //     this.state.eateries=eateries;
-     //
-    //    console.log("UserFeatureList",this.state.fid);
-    //    var c=document.getElementById("content");
-    //    ReactDOM.render(<UpdateFeatureList fid={this.state.fid} name={this.state.name} latitude={this.state.lat} longitude={this.state.long} country={this.state.country} state={this.state.state} district={this.state.district} festivals={this.state.festivals}  deities={this.state.deities} archstyle={this.state.archstyle}
-    //      datebuilt={this.state.datebuilt}  image={this.state.image} creator={this.state.creator} guides={this.state.guides} eateries={this.state.eateries}  />,c);
-     //
-    //  }
-
-
      handleBack(){
        var c=document.getElementById("content");
         ReactDOM.render(<UserList />,c);

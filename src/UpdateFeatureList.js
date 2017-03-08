@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import ReactDOM from 'react-dom';
-import './UpdateEntry.css';
 import './UpdateFeatureList.css';
 
 import Index6 from './Index6.js';
@@ -108,7 +107,8 @@ class UpdateFeatureList extends Component {
     return (
 
 
-      <div className="UpdateEntry w3-container">
+      <div className="UpdateFeatureList w3-container">
+      <center>
 
       <h1 className="Updatefeature">Update Feature</h1><br/><br/>
       <input type="text" id="names" defaultValue={this.props.name}  className="w3-input"  placeholder="name"/><br/><br/>
@@ -129,6 +129,7 @@ class UpdateFeatureList extends Component {
       <button className="w3-btn w3-round-large w3-large" onClick={()=>this.handleBack()}>Back</button>
 
       <br/>
+      </center>
 
       </div>
 

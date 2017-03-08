@@ -243,7 +243,7 @@ class AdminList extends Component {
                   </center></div>
                   <center>
                   <button  className="w3-btn w3-round-large w3-large" onClick={()=>this.mapview()}>map view</button>&nbsp;&nbsp;
-                  <button  className="w3-btn w3-round-large w3-large" onClick={()=>this.exportGeoJson()}>EXPORT</button>&nbsp;&nbsp;&nbsp;
+                  <button  className="w3-btn w3-round-large w3-large" onClick={()=>this.exportGeoJson()}>EXPORT</button>&nbsp;&nbsp;&nbsp;<br/><br/>
 
                      <div id="map1" className="map1" ref="map"> </div>
                      </center>

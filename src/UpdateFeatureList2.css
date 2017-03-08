@@ -6,7 +6,7 @@ label{
   color:white;
 }
 
-.UpdateFeatureList{
+.UpdateFeatureList2{
 
     background:rgba(0,0,0,0.7);
   height:auto;
@@ -16,4 +16,15 @@ margin-left: 350px;
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: black;
+}
+
+.UpdateFeatureList2 label{
+    margin-left: 20px;
+
+}
+
+#para1{
+
+  text-align: justify;
+
 }
