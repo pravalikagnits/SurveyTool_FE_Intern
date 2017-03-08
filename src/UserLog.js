@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import ReactDOM from 'react-dom';
-import './Index5.css';
+import SurveyList from './UserLog.css'
 import Index6 from './Index6.js';
 import Index7 from './Index7.js';
 import UsrNewEntry from './UsrNewEntry.js';
@@ -41,14 +41,16 @@ class UserLog extends Component {
   render() {
       return (
 
+              <div className="SurveyList">
+                <center>
 
           <div className="surveymain w3-container">
 
 
                    <div><center>
                    <br/>
-                   <h3>List Of Surveys</h3>
-                   <br/>
+                   <h1><b>LIST OF SURVEYS</b></h1>
+                   <br/><center>
                     <table className="moduleSection">
 
                       <tr> <th>Survey Name</th>  <th>Survey Description</th>  <th>Deadline</th> </tr>
@@ -66,11 +68,13 @@ class UserLog extends Component {
                                       : <p> loading..</p>
                             }
                     </table>
-      <br/>
+      <br/></center>
                    </center></div>
 
-
+                   </div>
+                  </center>
              </div>
+
 
 
 

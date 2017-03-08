@@ -3,7 +3,8 @@
   background:rgba(0,0,0,0.8);
   height: 400px;
   width: 500px;
-margin-left: 400px;
+  font-size: auto;
+/*margin-left: 400px;*/
 
 }
 
@@ -11,10 +12,24 @@ margin-left: 400px;
   color: white;
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: black;
+  color: rgb(128,128,128);
 }
 
 .signuptext{
   color:white;
   opacity: 1;
+}
+.SignUp{
+  background-image: url('/src/images/back1.jpeg');
+  background-size: auto ;
+  background-repeat: no-repeat;
+}
+.SignUp button{
+  //*background-color:	rgb(255,255,0);*/
+  color:black;
+  background-color: green;
+	background-image: linear-gradient(green,lightgreen);
+  border-radius: 10px;
+  font-size: 15px;
+
 }

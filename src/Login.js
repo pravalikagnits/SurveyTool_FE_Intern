@@ -87,6 +87,8 @@ class Login extends React.Component {
   render(){
 
     return(
+      <div className="Login">
+      <br/><br/><br/><br/><center>
       <div className="loginpage w3-container w3-animate-top">
       <center>
       <br/>  <br/><br/> <br/>
@@ -109,9 +111,10 @@ class Login extends React.Component {
       <br/>
       <br/>
 
-
       </center>
-
+      </div>
+      <br/><br/>
+      </center>
       </div>
     );
   }

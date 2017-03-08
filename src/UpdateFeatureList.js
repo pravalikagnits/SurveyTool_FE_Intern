@@ -111,20 +111,21 @@ class UpdateFeatureList extends Component {
       <center>
 
       <h1 className="Updatefeature">Update Feature</h1><br/><br/>
-      <input type="text" id="names" defaultValue={this.props.name}  className="w3-input"  placeholder="name"/><br/><br/>
-      <input type="text" id="latitude" defaultValue ={this.props.latitude}    className="w3-input" placeholder="latitude"/><br/><br/>
-      <input type="text" id="longitude" defaultValue={this.props.longitude}  className="w3-input"  placeholder="longitude"/><br/><br/>
-      <input type="text" id="country" defaultValue={this.props.country}  className="w3-input"  placeholder="country"/><br/><br/>
-      <input type="text" id="state" defaultValue={this.props.state}  className="w3-input"  placeholder="state"/><br/><br/>
-      <input type="text" id="district" defaultValue={this.props.district}  className="w3-input"  placeholder="district"/><br/><br/>
-      <input type="text" id="deities" defaultValue={this.props.deities}  className="w3-input"  placeholder="primary deities"/><br/><br/>
-      <input type="text" id="festivals" defaultValue={this.props.festivals}  className="w3-input"  placeholder="Important festivals"/><br/><br/>
-      <input type="text" id="archstyle" defaultValue={this.props.archstyle}  className="w3-input"  placeholder="architecture"/><br/><br/>
-      <input type="text" id="datebuilt" defaultValue={this.props.datebuilt}  className="w3-input"  placeholder="datebuilt"/><br/><br/>
-      <input type="text" id="creator" defaultValue={this.props.creator}  className="w3-input"  placeholder="creator"/><br/><br/>
+       <div className="col-sm-6" ><label><b>Name</b></label></div>
+       <div className="col-sm-6" ><input type="text" id="names" defaultValue={this.props.name}  className="w3-input"  placeholder="name"/><br/><br/></div>
+       <div className="col-sm-6" ><label><b>Latitude</b></label></div><div className="col-sm-4" ><input type="text" id="latitude" defaultValue ={this.props.latitude}    className="w3-input" placeholder="latitude"/><br/><br/></div>
+       <div className="col-sm-6" ><label><b>Longitude</b></label></div><div className="col-sm-4" ><input type="text" id="longitude" defaultValue={this.props.longitude}  className="w3-input"  placeholder="longitude"/><br/><br/></div>
+       <div className="col-sm-6" ><label><b>Country</b></label></div><div className="col-sm-4" ><input type="text" id="country" defaultValue={this.props.country}  className="w3-input"  placeholder="country"/><br/><br/></div>
+       <div className="col-sm-6" ><label><b>District</b></label></div><div className="col-sm-4" ><input type="text" id="state" defaultValue={this.props.state}  className="w3-input"  placeholder="state"/><br/><br/></div>
+       <div className="col-sm-6" ><label><b>State</b></label></div><div className="col-sm-4" ><input type="text" id="district" defaultValue={this.props.district}  className="w3-input"  placeholder="district"/><br/><br/></div>
+       <div className="col-sm-6" ><label><b>Deities</b></label></div><div className="col-sm-4" ><input type="text" id="deities" defaultValue={this.props.deities}  className="w3-input"  placeholder="primary deities"/><br/><br/></div>
+       <div className="col-sm-6" ><label><b>Festivals</b></label></div><div className="col-sm-4" ><input type="text" id="festivals" defaultValue={this.props.festivals}  className="w3-input"  placeholder="Important festivals"/><br/><br/></div>
+       <div className="col-sm-6" ><label><b>Architecture</b></label></div><div className="col-sm-4" ><input type="text" id="archstyle" defaultValue={this.props.archstyle}  className="w3-input"  placeholder="architecture"/><br/><br/></div>
+       <div className="col-sm-6" ><label><b>Date Built</b></label></div><div className="col-sm-4" ><input type="text" id="datebuilt" defaultValue={this.props.datebuilt}  className="w3-input"  placeholder="datebuilt"/><br/><br/></div>
+       <div className="col-sm-6" ><label><b>Creator</b></label></div><div className="col-sm-4" ><input type="text" id="creator" defaultValue={this.props.creator}  className="w3-input"  placeholder="creator"/><br/><br/></div>
       <input type="file" id="myFile" name="image" multiple="multiple" accept=".png" onChange={this.handleSearch}/>  <br/><br/>
-      <input type="text" id="guides" defaultValue={this.props.guides}  className="w3-input"  placeholder="guides"/><br/><br/>
-      <input type="text" id="eateries" defaultValue={this.props.eateries}  className="w3-input"  placeholder="eateries"/><br/><br/>
+       <div className="col-sm-6" ><label><b>Guides</b></label></div><div className="col-sm-4" ><input type="text" id="guides" defaultValue={this.props.guides}  className="w3-input"  placeholder="guides"/><br/><br/></div>
+       <div className="col-sm-6" ><label><b>Eateries</b></label></div><div className="col-sm-4" ><input type="text" id="eateries" defaultValue={this.props.eateries}  className="w3-input"  placeholder="eateries"/><br/><br/></div>
       <button  className="w3-btn w3-round-large w3-large" onClick={()=>this.handleUpdate(id)}>Update</button>&nbsp;&nbsp;&nbsp;
       <button className="w3-btn w3-round-large w3-large" onClick={()=>this.handleBack()}>Back</button>
 

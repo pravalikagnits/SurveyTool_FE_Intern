@@ -1,16 +1,14 @@
-.UserLog{
+.SurveyList{
   padding: 10px;
-  background-image: url('/images/back17.jpeg');
   font-size: 40px;
   font-family: serif;
-  color:	#CFB53B;
-
-
-}
-
-.surveymain{
+  width:85%;
+  background-color:rgb(160,160,160);
+  height: auto;
+  width: auto;
 
 }
+
 button{
   background-color: #E0FFFF;
   color:black;

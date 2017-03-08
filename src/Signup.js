@@ -97,6 +97,8 @@ class Signup extends React.Component {
 render(){
 
   return(
+    <div className="SignUp">
+    <br/><br/><br/><br/><center>
     <div className="Signup w3-container w3-animate-top ">
     <center>
     <br/><br/><br/>
@@ -117,6 +119,9 @@ render(){
     </center>
 
     </div>
+    </center>
+      <br/><br/>
+      </div>
   );
 }
 }

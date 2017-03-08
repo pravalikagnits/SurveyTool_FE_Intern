@@ -13,10 +13,7 @@ class UsrNewEntry extends React.Component {
             constructor(props){
               super(props);
               this.state = {position:'',sid:'',image:''};
-              this.handleGet = this.handleGet.bind(this);
-              this.showPosition= this.showPosition.bind(this);
-              this.AddMarker = this.AddMarker.bind(this);
-              this.getMap=this.getMap.bind(this);
+
               this.handleBack=this.handleBack.bind(this);
               this.handleSearch=this.handleSearch.bind(this);
               this.handleFeature=this.handleFeature.bind(this);
@@ -54,24 +51,6 @@ class UsrNewEntry extends React.Component {
 
 
 
-            handleGet(){
-
-                          if (navigator.geolocation) {
-                              navigator.geolocation.getCurrentPosition(this.showPosition);
-                          }
-                          else {
-                            alert("Geolocation is not supported by this browser.");
-                          }
-
-            }
-            showPosition(position)
-            {
-                      var lat= position.coords.latitude ;
-                      var lon= position.coords.longitude;
-                      document.getElementById("lat").value=lat;
-                      document.getElementById("long").value=lon;
-            }
-
 
 
             componentWillUpdate(){
@@ -85,46 +64,53 @@ class UsrNewEntry extends React.Component {
 
 
 
-            getMap(){
+            componentDidMount(){
+              if (navigator.geolocation) {
+                  navigator.geolocation.getCurrentPosition(function(position){
+                    var lat= position.coords.latitude ;
+                    var lon= position.coords.longitude;
+                    document.getElementById("lat").value=lat;
+                    document.getElementById("long").value=lon;
 
-                                var mapOptions = {
-                                    center: new google.maps.LatLng(51.5, -0.12),
-                                    zoom: 10,
-                                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                              }
-                              var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+                  });
+                  var mylatlng=new google.maps.LatLng(document.getElementById("lat").value,document.getElementById("long").value);
+                                  var mapOptions = {
+                                        center:mylatlng,
+                                        zoom: 10,
+                                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                                  }
+                                  console.log(mylatlng.lat());
+                                var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+                                var geocoder = new google.maps.Geocoder();
 
-                                var mapOptions = {
-                                      center: new google.maps.LatLng(document.getElementById("lat").value,document.getElementById("long").value),
-                                      zoom: 10,
-                                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                                }
-                              var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-                              this.state.position=mapOptions.center;
-                              this.AddMarker(mapOptions);
+                                     var marker = new google.maps.Marker({
+                                     position:mylatlng,
+                                     map: map,
+                                     draggable:true
+                               });
+                               google.maps.event.addListener(marker,"dragend",function(){
+
+                               console.log(geocoder);
+                               geocoder.geocode({'latLng': marker.getPosition()}, function(results,status) {
+                                  if (status == google.maps.GeocoderStatus.OK) {
+                                    if(results[0]){
+                                    document.getElementById("lat").value=marker.getPosition().lat();
+                                    document.getElementById("long").value=marker.getPosition().lng();
+                                   }
+                                  }
+                               })
+
+
+
+                               })
+              }
+
+
+
 
 
                   }
 
-
-
-                        AddMarker(mapOptions)
-                        {
-                                var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-                                var marker = new google.maps.Marker({
-                                position:this.state.position,
-                                map: map,
-                                draggable:true
-                          });
-                          google.maps.event.addListener(marker,"dragend",function(e){
-                            console.log(e);
-                            // document.getElementById("lat").value=e.LatLng.lat();
-                            // document.getElementById("long").value=e.LatLng.lng();
-
-
-                          })
-
-                        }
 
 
 
@@ -165,76 +151,117 @@ class UsrNewEntry extends React.Component {
 
          render() {
             return (
+              <div className="UsrNewEntry">
+              <center>
+                                <p id="para">
+                                    <form name="Entries" id="UsrNewEntry" novalidate>
+                                    <div className="form-group">
+                                      <div className="col-sm-6" ><label><b> Name</b></label></div>
+                                      <div className="col-sm-4" ><input  type="text"  className="form-control" placeholder="Name" id="Name" required data-validation-required-message="Please enter your name."/><br/><br/></div>
+                                      <p className="help-block text-danger"></p>
+                                      </div>
 
-                    <div className="UsrNewEntry">
-                    <p id="para">
+                                      <div className="form-group">
+                                      <div className="col-sm-6" ><label><b>Latitude</b></label></div>
+                                      <div className="col-sm-4" ><input  type="text" className="form-control textbox" defaultValue="17.411"  placeholder="Latitude" id="lat"  /><br/><br/></div>
+                                      <p className="help-block text-danger"></p>
+                                      </div>
 
-                          <label><b> Name</b></label>
-                          <input  type="text"  className="textbox" placeholder="Name" id="Name"/><br/><br/>
-
-                          <label><b>Latitude</b></label>
-                          <input  type="text" className="textbox" id="lat" placeholder="latitude" /><br/><br/>
-
-                          <label> <b>Longitude: </b></label>
-                          <input  type="text" className="textbox" id="long" placeholder="longitude" /><br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;
-
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button  className="w3-btn w3-round-large w3-small" onClick={()=>this.handleGet()}><i className="fa fa-globe"></i></button>&nbsp;&nbsp;
-
-                          <button className="w3-btn w3-round-large w3-small" onClick={()=>this.getMap()}><i className="fa fa-map-pin"></i></button>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id="map" className="map" ref="map"> </div>
-
-
-
-                          <label><b>Country</b></label>
-                          <input  type="text" className="textbox" placeholder="Country" id="Country"/><br/><br/>
-
-                          <label><b>State</b></label>
-                          <input  type="text" className="textbox"  placeholder="State" id="State"/><br/><br/>
-
-                          <label><b>District</b></label>
-                          <input  type="text" className="textbox" placeholder="District" id="District"/><br/><br/>
-
-                          <label><b>Primary Deities</b></label>
-                          <input  type="text" className="textbox" placeholder="Deities" id="Deities"/><br/><br/>
+                                      <div className="form-group">
+                                      <div className="col-sm-6" ><label><b>Longitude</b></label></div>
+                                      <div className="col-sm-4" ><input  type="text" className="form-control textbox" defaultValue="78.38" placeholder="Longitude" id="long"  /><br/><br/></div>
+                                      <p className="help-block text-danger"></p>
+                                      </div>
+                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id="map" className="map" ref="map"> </div>
 
 
-                         <label><b>Important Festivals</b></label>
-                         <input  type="text" className="textbox" placeholder="Festivals" id="Festivals"/><br/><br/>
-
-                         <label><b>Architectual Styles</b> </label>
-                         <input  type="text" className="textbox" placeholder="architecture" id="architecture"/><br/><br/>
-
-                         <label><b>Date Built</b></label>
-                         <input  type="text" className="textbox" placeholder="datebuilt" id="datebuilt"/><br/><br/>
-
-                         <label><b>Creator</b></label>
-                         <input  type="text" className="textbox" placeholder="Creator" id="Creator"/><br/><br/>
 
 
-                         <input type="file" id="myFile" name="image" multiple="multiple" accept=".png" onChange={this.handleSearch}/>
-                                                <br/><br/>
 
-                         <label><b>Availability Of Tourist Guide</b></label>
-                         <select id="Guides" >
-                                    <option value="NULL">--</option>
-                                    <option value="YES">YES</option>
-                                    <option value="NO">NO</option>
-                          </select><br/><br/>
+                                      <div className="form-group">
+                                      <div className="col-sm-6" ><label><b>Country</b></label></div>
+                                      <div className="col-sm-4" ><input  type="text" className="form-control textbox" placeholder="Country" id="Country" required data-validation-required-message="Please enter your name."/><br/><br/></div>
+                                      <p className="help-block text-danger"></p>
+                                      </div>
 
-                          <label>Availability of Eateries:</label>
-                          <select id="Eateries" >
-                                                    <option value="NULL">--</option>
-                                                    <option value="YES">YES</option>
-                                                    <option value="NO">NO</option>
-                          </select><br/><br/>
+                                      <div className="form-group">
+                                      <div className="col-sm-6" ><label><b>State</b></label></div>
+                                      <div className="col-sm-4" ><input  type="text" className="form-control textbox"  placeholder="State" id="State" required data-validation-required-message="Please enter your name."/><br/><br/></div>
+                                      <p className="help-block text-danger"></p>
+                                      </div>
+
+                                      <div className="form-group">
+                                      <div className="col-sm-6" ><label><b>District</b></label></div>
+                                      <div className="col-sm-4" ><input  type="text" className="form-control textbox" placeholder="District" id="District" required data-validation-required-message="Please enter your name."z/><br/><br/></div>
+                                      <p className="help-block text-danger"></p>
+                                      </div>
+
+                                      <div className="form-group">
+                                      <div className="col-sm-6" ><label><b>Primary Deities</b></label></div>
+                                      <div className="col-sm-4" ><input  type="text" className="form-control textbox" placeholder="Deities" id="Deities" required data-validation-required-message="Please enter your name."/><br/><br/></div>
+                                      <p className="help-block text-danger"></p>
+                                      </div>
 
 
-                          <button className="w3-btn w3-round-large w3-large" onClick={()=>this.handleFeature(this.props.sid)} >Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <button className="w3-btn w3-round-large w3-large" onClick={()=>this.handleBack()} >Back</button><br/><br/>
+                                      <div className="form-group">
+                                     <div className="col-sm-6" ><label><b>Important Festivals</b></label></div>
+                                     <div className="col-sm-4" ><input  type="text" className="form-control textbox" placeholder="Festivals" id="Festivals" required data-validation-required-message="Please enter your name."/><br/><br/></div>
+                                     <p className="help-block text-danger"></p>
+                                     </div>
 
+                                     <div className="form-group">
+                                     <div className="col-sm-6" ><label><b>Architectual Styles</b> </label></div>
+                                     <div className="col-sm-4" ><input  type="text" className="form-control textbox" placeholder="architecture" id="architecture" required data-validation-required-message="Please enter your name."/><br/><br/></div>
+                                     <p className="help-block text-danger"></p>
+                                     </div>
 
-                          </p>
-                  </div>
+                                     <div className="form-group">
+                                     <div className="col-sm-6" ><label><b>Date Built</b></label></div>
+                                     <div className="col-sm-4" ><input  type="text" className="form-control textbox" placeholder="datebuilt" id="datebuilt" required data-validation-required-message="Please enter your name."/><br/><br/></div>
+                                     <p className="help-block text-danger"></p>
+                                     </div>
+
+                                     <div className="form-group">
+                                     <div className="col-sm-6" ><label><b>Creator</b></label></div>
+                                     <div className="col-sm-4" ><input  type="text" className="form-control textbox" placeholder="Creator" id="Creator" required data-validation-required-message="Please enter your name."/><br/><br/></div>
+                                     <p className="help-block text-danger"></p>
+                                     </div>
+
+                                     <div className="form-group">
+                                     <input type="file" id="myFile" name="image" multiple="multiple" accept=".png" onChange={this.handleSearch}/>
+                                                            <br/><br/>
+                                    <p className="help-block text-danger"></p>
+                                    </div>
+
+                                      <div className="form-group">
+                                     <div className="col-sm-6" ><label><b>Availability Of Tourist Guide</b></label></div>
+                                     <div className="col-sm-4" ><select id="Guides" >
+                                                <option value="NULL">--</option>
+                                                <option value="YES">YES</option>
+                                                <option value="NO">NO</option>
+                                      </select><br/><br/></div>
+                                      <p className="help-block text-danger"></p>
+                                      </div>
+
+                                      <div className="form-group">
+                                      <div className="col-sm-6" ><label>Availability of Eateries:</label></div>
+                                      <div className="col-sm-4" ><select id="Eateries" >
+                                                                <option value="NULL">--</option>
+                                                                <option value="YES">YES</option>
+                                                                <option value="NO">NO</option>
+                                      </select><br/><br/></div>
+                                      <p className="help-block text-danger"></p>
+                                      </div>
+                                        <br/><br/><br/><br/>
+                                        <center>
+                                      <button type="submit" className="w3-btn w3-round-large w3-large" onClick={()=>this.handleFeature(this.props.sid)} >Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <button className="w3-btn w3-round-large w3-large" onClick={()=>this.handleBack()} >Back</button><br/><br/>
+                                      </center>
+                                      </form>
+                                      </p>
+                                      </center>
+                              </div>
+
 
 
                       );
