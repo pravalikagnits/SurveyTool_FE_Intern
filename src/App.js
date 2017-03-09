@@ -46,7 +46,7 @@ class App extends Component {
                 <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span className="sr-only">Toggle navigation</span> Menu <i className="fa fa-bars"></i>
                 </button>
-                <a className="mapsurvey page-scroll" href="#content">Map Survey Tool</a>
+                <a className="mapsurvey page-scroll" href="#">Map Survey Tool</a>
             </div>
 
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

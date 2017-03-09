@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  import ReactDOM from 'react-dom';
 import './AdminList.css';
 import Index6 from './Index6.js';
 import UsrNewEntry from './UsrNewEntry.js';
 import AdminFeatureList from './AdminFeatureList.js';
 import UpdateFeatureList from './UpdateFeatureList.js';
+import jsonreport from './jsonreport.js';
 
 class AdminList extends Component {
 
-            constructor(props) {
+                                                                                                                                                                                                                                                                constructor(props) {
                                   super(props);
                             this.state = {
                                 Features:[],
                                 details:[],
                                 id:'',
+                                report:'',
                             };
 
                             this.handleView=this.handleView.bind(this);
@@ -181,8 +183,13 @@ class AdminList extends Component {
     polylineFeature.properties={"name:":json[i].name};
       geoJson.features.push(polylineFeature);
   }
+var geojson=JSON.stringify(geoJson,null,4);
+  console.log(this.state.report);
+  this.state.report=geojson;
+  console.log(this.state.report);
 
-  console.log(JSON.stringify(geoJson));
+var downloadLink = document.getElementById('download-link');
+         downloadLink.href = "data:;base64," + btoa(JSON.stringify(geoJson,null,4));
 }
 
   render() {
@@ -244,8 +251,10 @@ class AdminList extends Component {
                   <center>
                   <button  className="w3-btn w3-round-large w3-large" onClick={()=>this.mapview()}>map view</button>&nbsp;&nbsp;
                   <button  className="w3-btn w3-round-large w3-large" onClick={()=>this.exportGeoJson()}>EXPORT</button>&nbsp;&nbsp;&nbsp;<br/><br/>
-
+                  <a id="download-link" href='' target="_blank" download="geojson.json">Download</a>
+                     <div id="report" >{this.state.report}</div>
                      <div id="map1" className="map1" ref="map"> </div>
+
                      </center>
 
             </div>

@@ -9,6 +9,9 @@
     margin-top: 10px;
 
 }
+#report{
+  width: auto;
+}
 
 .AdminList{
   background-image: url('/images/back17.jpeg');
