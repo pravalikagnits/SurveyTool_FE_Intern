@@ -112,7 +112,7 @@ class UpdateFeatureList extends Component {
 
       <h1 className="Updatefeature">Update Feature</h1><br/><br/>
        <div className="col-sm-6" ><label><b>Name</b></label></div>
-       <div className="col-sm-6" ><input type="text" id="names" defaultValue={this.props.name}  className="w3-input"  placeholder="name"/><br/><br/></div>
+       <div className="col-sm-4" ><input type="text" id="names" defaultValue={this.props.name}  className="w3-input"  placeholder="name"/><br/><br/></div>
        <div className="col-sm-6" ><label><b>Latitude</b></label></div><div className="col-sm-4" ><input type="text" id="latitude" defaultValue ={this.props.latitude}    className="w3-input" placeholder="latitude"/><br/><br/></div>
        <div className="col-sm-6" ><label><b>Longitude</b></label></div><div className="col-sm-4" ><input type="text" id="longitude" defaultValue={this.props.longitude}  className="w3-input"  placeholder="longitude"/><br/><br/></div>
        <div className="col-sm-6" ><label><b>Country</b></label></div><div className="col-sm-4" ><input type="text" id="country" defaultValue={this.props.country}  className="w3-input"  placeholder="country"/><br/><br/></div>

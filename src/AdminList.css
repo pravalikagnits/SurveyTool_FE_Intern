@@ -9,12 +9,39 @@
     margin-top: 10px;
 
 }
+.card1{
+    background:white;
+
+    width: 80%;
+
+    margin: auto;
+    text-align: justify;
+    margin-top: 10px;
+
+}
 #report{
-  width: auto;
+
+  height: auto;
+
+}
+.fa fa-download{
+ zoom:2.0;
+}
+#report1{
+  float: left;
+  margin-right: 20px;
+  margin-left: 50px;
 }
 
+.container1{
+  margin-bottom: 10px;
+}
 .AdminList{
   background-image: url('/images/back17.jpeg');
+}
+.back{
+  float: left;
+  margin-left: 170px;
 }
 
 

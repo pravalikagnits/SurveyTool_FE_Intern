@@ -97,11 +97,11 @@ class Index5 extends Component {
   render() {
     return (
 
-
+<center>
       <div className="surveymain w3-container">
 
 
-      <div><center>
+      <center>
       <br/>
       &nbsp;<table className="moduleSection">
       <tbody className="border">
@@ -126,10 +126,11 @@ class Index5 extends Component {
     <br/>
     <button  className="w3-btn w3-round-large w3-large" onClick={()=>this.createnewsurvey()}>Create New Survey</button>&nbsp;&nbsp;&nbsp;
 
-    </center></div>
+    </center>
 
 
     </div>
+    </center>
 
 
 

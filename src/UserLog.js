@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import ReactDOM from 'react-dom';
-import SurveyList from './UserLog.css'
+import './UserLog.css';
 import Index6 from './Index6.js';
 import Index7 from './Index7.js';
 import UsrNewEntry from './UsrNewEntry.js';
@@ -40,7 +40,7 @@ class UserLog extends Component {
 
   render() {
       return (
-
+<center>
               <div className="SurveyList">
                 <center>
 
@@ -74,7 +74,7 @@ class UserLog extends Component {
                    </div>
                   </center>
              </div>
-
+</center>
 
 
 
