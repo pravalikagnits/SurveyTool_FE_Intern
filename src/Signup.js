@@ -42,15 +42,7 @@ class Signup extends React.Component {
   }
 
   validate(username,password,confirmp){
-    var salt=Math.random().toString(36).substr(2, 15);
-    var sec_pass=SHA256(password +salt);
-    //  console.log(sec_pass);
-    var repeat=100;
-    for(var i=1;i<repeat;i++)
-    {
-      var sec_pass=SHA256(sec_pass +salt);
-    }
-    //  console.log(sec_pass);
+
 
 
     var l=username.length;
@@ -77,9 +69,8 @@ class Signup extends React.Component {
         body: JSON.stringify({
 
           uname: this.state.data,
-          upwd:sec_pass,
-          salt:salt,
-          num:repeat
+          upwd:this.state.passwd,
+
         })
       }).then(alert('Successful registation!!you can login now!!')
     )

@@ -32,10 +32,18 @@ class Index6 extends React.Component {
   }
 
   handlePost(){
+    var auth = window.sessionStorage.getItem('token');
+  var uname = window.sessionStorage.getItem('uname');
+ console.log(auth+"//////");
+ console.log(uname+"/////");
+
     fetch('http://localhost:9000/Surveys', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+          "Accept" :"application/json",
+        "Authentication" : auth,
+      "id" : uname
       },
       body: JSON.stringify({
         sname: this.state.sname,
