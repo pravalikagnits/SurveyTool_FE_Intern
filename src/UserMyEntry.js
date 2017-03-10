@@ -6,7 +6,7 @@ import UsrNewEntry from './UsrNewEntry.js';
 import UserFeatureList from './UserFeatureList.js';
 import UpdateFeatureList2 from './UpdateFeatureList2.js';
 
-
+  var xyz;
 class UserMyEntry extends Component {
 
             constructor(props) {
@@ -16,30 +16,47 @@ class UserMyEntry extends Component {
                                 MyEntries:[],
                                 id:'',
                             };
+                              this.some=this.some.bind(this);
                }
 
 
 
 
-     componentWillMount(){
-          var id=this.props.uid;
-          console.log(id);
-            fetch(`http://localhost:9000/users/`+id )
-            .then(response => response.json())
-            .then(json=>this.setState({MyEntries:json}))
+     componentDidMount(){
+       var auth = window.sessionStorage.getItem('token');
+     var uname = window.sessionStorage.getItem('uname');
+     var entry;
+     var that=this;
 
-            console.log(this.state.MyEntries);
+     console.log(uname);
+            fetch(`http://localhost:9000/users/`+ uname )
+            .then(response => response.json().then((data)=>{
+              that.setState({MyEntries:data});
+              console.log("bi",that.state.MyEntries);
+              xyz=that.state.MyEntries;
+
+            })
+          );
+
+
+
+
+
+     }
+
+     some()
+     {
+         console.log("hi",xyz);
+         document.getElementById("ab").value=xyz.features[0].country;
+        var entry=document.getElementById("xx");
+        entry.innerHTML=xyz.features.length;
+
+
 
      }
 
 
-     componentWillUpdate(){
-       var id=this.props.uid;
-       fetch(`http://localhost:9000/users/`+id)
-       .then(response => response.json())
-       .then(json=>this.setState({MyEntries:json}))
 
-     }
 
   render() {
       return (
@@ -47,46 +64,10 @@ class UserMyEntry extends Component {
 
             <div className="UserMyEntry w3-container">
 
-                  <div> <center>
-                      <br/>
-                      <div className="header">
-                          <p>LIST OF ENTRIES</p>
-                      </div>
 
-                      {this.state.MyEntries.length ?
-                        this.state.MyEntries.map((items,i)=>
-                                    <div className="card">
-
-                                        <div key={i} className="container1" >
-
-                                               <h3><strong><a>Name: {items.name}</a></strong></h3>
-                                               <hr/>
-
-                                               <div className="row">
-                                                  <div className="col-sm-4" ><strong>Country:</strong></div>
-                                                  <div className="col-sm-8"><strong> {items.name}</strong></div><br/>
-                                               </div>
-
-                                               <div className="row">
-                                                  <div className="col-sm-4" ><strong>State:</strong></div>
-                                                  <div className="col-sm-8"> <strong>{items.name}</strong></div><br/>
-                                               </div>
-
-                                               <div className="row">
-                                                  <div className="col-sm-4" ><strong>District:</strong></div>
-                                                  <div className="col-sm-8"><strong> {items.name}</strong></div><br/>
-                                               </div>
-
-
-                                      </div>
-                                    </div>
-
-                                  )
-                                  : <p> loading..</p>
-                                }
-
-                    <br/>
-                  </center></div>
+                      <button className="w3-btn w3-round-large w3-large" onClick={()=>this.some()}>My Entries</button>
+                      <input type="text" id="ab"/>
+                    <div id="xx"></div>
 
             </div>
 

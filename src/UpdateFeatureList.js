@@ -43,6 +43,8 @@ class UpdateFeatureList extends Component {
 
 
   handleUpdate(id){
+    var auth = window.sessionStorage.getItem('token');
+  var uname = window.sessionStorage.getItem('uname');
     console.log(id);
     console.log(this.state.image);
 
@@ -52,7 +54,9 @@ class UpdateFeatureList extends Component {
       method: 'PUT',
       headers: {
         "Content-Type": "application/json",
-        "Accept":"application/json"
+        "Accept":"application/json",
+        "Authentication" : auth,
+        "id" : uname
       },
       body: JSON.stringify({
         name:names.value,

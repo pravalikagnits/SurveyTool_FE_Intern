@@ -30,23 +30,23 @@ class UpdateFeatureList2 extends Component {
                                  body: form
                                }).then(response=>response.json())
                                .then(function(json){
-                                console.log(json);
-                                // json=json.toString();
-                                xxx=json;
-                              //  that.setState({image:xxx})
-                                // console.log(this.state.image);
+                                 console.log(json);
+                                 that.setState({image:json})
+                                 console.log(that.state.image);
+                                })
+                                }
 
-                               })
-                               that.setState({image:xxx});
-
-                               }
 
              }
 
 
      handleUpdate(id){
+       var auth = window.sessionStorage.getItem('token');
+     var uname = window.sessionStorage.getItem('uname');
+     console.log(auth+"//////");
+     console.log(uname+"/////");
        console.log(id);
-       console.log(this.state.image);
+       console.log("bjkb",this.state.image);
 
                                 fetch('http://localhost:9000/Features/'+ id, {
 
@@ -54,7 +54,9 @@ class UpdateFeatureList2 extends Component {
                                  method: 'PUT',
                                  headers: {
                                     "Content-Type": "application/json",
-                                    "Accept":"application/json"
+                                    "Accept":"application/json",
+                                    "Authentication" : auth,
+                                    "id" : uname
                                  },
                                  body: JSON.stringify({
                                     name:names.value,
@@ -73,8 +75,8 @@ class UpdateFeatureList2 extends Component {
                                     eateries:eateries.value
 
                                  })
-                               })
-                               alert("Features updated!!!!");
+                               }).then( alert("Features updated!!!!"))
+
 
                      }
 

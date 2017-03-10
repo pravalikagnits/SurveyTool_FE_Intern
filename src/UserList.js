@@ -29,11 +29,10 @@ class UserList extends Component {
 
 
                MyEntries(){
-                  var id=this.props.uid;
-                  console.log(id);
+
 
                   var c=document.getElementById("content");
-                  ReactDOM.render(<UserMyEntry uid={this.props.uid}/>,c);
+                  ReactDOM.render(<UserMyEntry/>,c);
 
 
 
@@ -124,7 +123,8 @@ class UserList extends Component {
 
                                         <div key={i} className="container1" >
 
-                                               <h3><strong><a onClick={() => this.handleView(item.fid)}>Name: {item.name}</a></strong>&nbsp;<button  className="w3-btn w3-round-large w3-large  button1" onClick={()=>this.handleUpdate(item.fid,item.name,item.latitude,item.longitude,item.country,item.state,
+                                               <h3><strong><a onClick={() => this.handleView(item.fid)}>Name: {item.name}</a></strong>&nbsp;
+                                               <button  className="w3-btn w3-round-large w3-large  button1" onClick={()=>this.handleUpdate(item.fid,item.name,item.latitude,item.longitude,item.country,item.state,
                                                item.district,item.deities,item.festivals,item.archstyle,item.datebuilt,item.creator,item.image,
                                              item.guides,item.eateries)}><i className="fa fa-refresh "></i></button>
 </h3>

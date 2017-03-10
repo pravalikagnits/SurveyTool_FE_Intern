@@ -167,6 +167,7 @@ class AdminList extends Component {
 
     }
     exportGeoJson() {
+      console.log("hiymktm,t");
       var json=new Array();
       var geoJson = {
         "type": "FeatureCollection",
@@ -257,11 +258,10 @@ class AdminList extends Component {
         </center></div>
         <center>
         <button  className="w3-btn w3-round-large w3-large" onClick={()=>this.mapview()}>MAP VIEW</button>&nbsp;&nbsp;
-        <button><a id="download-link" className="w3-btn w3-round-large w3-large" onClick={()=>this.exportGeoJson()} href='' target="_blank" download="geojson.json"></a>EXPORT<i className="fa fa-download"></i></button><br/><br/><br/>
+        <button  className="w3-btn w3-round-large w3-large" onClick={()=>this.exportGeoJson()}><a id="download-link" href='' target="_blank" download="geojson.json">Download</a><i className="fa fa-download"></i></button>&nbsp;&nbsp;&nbsp;<br/><br/>
 
 
-
-      <div  className="container1" >
+                     <div  className="container1" >
         <div id="map1" className="map1" ref="map"> </div>
 
         </div>

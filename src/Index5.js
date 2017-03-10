@@ -41,6 +41,10 @@ class Index5 extends Component {
 
 
   handleDelete(id){
+    var auth = window.sessionStorage.getItem('token');
+  var uname = window.sessionStorage.getItem('uname');
+ console.log(auth+"//////");
+ console.log(uname+"/////");
 
     var r = confirm("Move to Trash!");
     if (r == true) {
@@ -51,7 +55,9 @@ class Index5 extends Component {
 
         headers: {
           "Content-Type": "application/json",
-          "Accept":"application/json"
+          "Accept":"application/json",
+          "Authentication" : auth,
+          "id" : uname
         },
         method: "DELETE"
 

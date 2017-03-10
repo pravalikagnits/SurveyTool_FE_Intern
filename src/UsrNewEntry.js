@@ -36,9 +36,10 @@ class UsrNewEntry extends React.Component {
                            .then(function(json){
                             console.log(json);
                             that.setState({image:json})
-
+                            console.log(that.state.image);
                            })
                            }
+                          
 
          }
 
@@ -115,15 +116,19 @@ class UsrNewEntry extends React.Component {
 
 
             handleFeature(id){
+              var auth = window.sessionStorage.getItem('token');
+            var uname = window.sessionStorage.getItem('uname');
               this.state.sid=id;
-              var id=this.props.uid;
-              console.log(id);
+console.log("img",this.state.image);
+
 
                       fetch('http://localhost:9000/Features', {
                                     method: 'POST',
                                     headers: {
                                         "Content-Type": "application/json",
-                                        "Accept":"application/json"
+                                        "Accept":"application/json",
+                                        "Authentication" : auth,
+                                        "id" : uname
                                     },
                                     body: JSON.stringify({
 
@@ -140,12 +145,12 @@ class UsrNewEntry extends React.Component {
                                                     image:this.state.image,
                                                     creator:Creator.value,
                                                     guides:Guides.value,
-                                                    uid:id,
+                                                    uname:uname,
                                                     eateries:Eateries.value,
                                                     s_id:this.state.id
                                     })
-                                  })
-                                  alert("entry added");
+                                  }).then(  alert("entry added"))
+
             }
 
 

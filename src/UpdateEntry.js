@@ -25,13 +25,17 @@ class UpdateEntry extends Component {
 
 
      handleUpdate(id){
+       var auth = window.sessionStorage.getItem('token');
+     var uname = window.sessionStorage.getItem('uname');
         console.log(id);
 
                                fetch('http://localhost:9000/Surveys/'+ id, {
                                  method: 'PUT',
                                  headers: {
                                     "Content-Type": "application/json",
-                                    "Accept":"application/json"
+                                    "Accept":"application/json",
+                                    "Authentication" : auth,
+                                    "id" : uname
                                  },
                                  body: JSON.stringify({
                                    sname:sname.value,

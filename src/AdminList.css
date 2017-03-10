@@ -9,6 +9,15 @@
     margin-top: 10px;
 
 }
+a:link {
+     text-decoration: none ;
+  }
+#download-link:hover
+  {
+    color:white;
+    text-decoration:none;
+    cursor:pointer;
+   }
 .card1{
     background:white;
 
