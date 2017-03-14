@@ -10,162 +10,183 @@ import UserMyEntry from './UserMyEntry.js';
 
 class UserList extends Component {
 
-            constructor(props) {
-                                  super(props);
-                            this.state = {
-                                Features:[],
-                                details:[],
-                                id:'',
-                            };
+  constructor(props) {
+    super(props);
+    this.state = {
+      Features:[],
+      details:[],
+      MyEntries:[],
+      id:'',
+    };
 
-                            this.handleView=this.handleView.bind(this);
-                            this.handleUpdate=this.handleUpdate.bind(this);
-                            this.AddNewEntry=this.AddNewEntry.bind(this);
-                            this.AddNewEntry=this.AddNewEntry.bind(this);
-                            this.MyEntries=this.MyEntries.bind(this);
+    this.handleView=this.handleView.bind(this);
+    this.handleUpdate=this.handleUpdate.bind(this);
+    this.AddNewEntry=this.AddNewEntry.bind(this);
+    this.AddNewEntry=this.AddNewEntry.bind(this);
+    this.MyEntries1=this.MyEntries1.bind(this);
 
-               }
-
-
-
-               MyEntries(){
-
-
-                  var c=document.getElementById("content");
-                  ReactDOM.render(<UserMyEntry/>,c);
+  }
 
 
 
+  MyEntries1(){
 
-               }
+
+    var c=document.getElementById("content");
+    ReactDOM.render(<UserMyEntry/>,c);
 
 
 
 
-               AddNewEntry(id){
-                  this.state.sid=id;
-                  console.log(this.state.sid);
-                  console.log(this.props.uid);
-                  var c=document.getElementById("content");
-                  ReactDOM.render(<UsrNewEntry sid={this.state.sid} uid={this.props.uid}/>,c);
-               }
-
-
-           handleView(id){
-             console.log(id);
-             this.state.id=id;
-             var c=document.getElementById("content");
-             ReactDOM.render(<UserFeatureList fid={this.state.id}/>,c);
-
-            }
+  }
 
 
 
-           handleUpdate(fid,name,lat,long,country,state,district,deities,festivals,archstyle,datebuilt,creator,image,guides,eateries){
-                        this.state.fid=fid
-                        this.state.name=name;
-                        this.state.lat=lat;
-                        this.state.long=long;
-                        this.state.country=country;
-                        this.state.state=state;
-                        this.state.district=district;
-                        this.state.deities=deities;
-                        this.state.festivals=festivals;
-                        this.state.archstyle=archstyle;
-                        this.state.datebuilt=datebuilt;
-                        this.state.creator=creator;
-                        this.state.image=image;
-                        this.state.guides=guides;
-                        this.state.eateries=eateries;
 
-             console.log("UserFeatureList",this.state.id);
-             var c=document.getElementById("content");
-             ReactDOM.render(<UpdateFeatureList2 fid={this.state.fid} name={this.state.name} latitude={this.state.lat} longitude={this.state.long} country={this.state.country} state={this.state.state} district={this.state.district} festivals={this.state.festivals}  deities={this.state.deities} archstyle={this.state.archstyle}
-               datebuilt={this.state.datebuilt} creator={this.state.creator} image={this.state.image} guides={this.state.guides} eateries={this.state.eateries}  />,c);
-
-           }
+  AddNewEntry(id){
+    this.state.sid=id;
+    console.log(this.state.sid);
+    console.log(this.props.uid);
+    var c=document.getElementById("content");
+    ReactDOM.render(<UsrNewEntry sid={this.state.sid} uid={this.props.uid}/>,c);
+  }
 
 
-     componentWillMount(){
+  handleView(id){
+    console.log(id);
+    this.state.id=id;
+    var c=document.getElementById("content");
+    ReactDOM.render(<UserFeatureList fid={this.state.id}/>,c);
 
-            fetch(`http://localhost:9000/Features`)
-            .then(response => response.json())
-            .then(json=>this.setState({Features:json}))
-            // console.log(this.state.Features)
-
-     }
+  }
 
 
-     componentWillUpdate(){
-       fetch(`http://localhost:9000/Features`)
-       .then(response => response.json())
-       .then(json=>this.setState({Features:json}))
 
-     }
+  handleUpdate(fid,name,lat,long,country,state,district,deities,festivals,archstyle,datebuilt,creator,image,guides,eateries){
+    this.state.fid=fid
+    this.state.name=name;
+    this.state.lat=lat;
+    this.state.long=long;
+    this.state.country=country;
+    this.state.state=state;
+    this.state.district=district;
+    this.state.deities=deities;
+    this.state.festivals=festivals;
+    this.state.archstyle=archstyle;
+    this.state.datebuilt=datebuilt;
+    this.state.creator=creator;
+    this.state.image=image;
+    this.state.guides=guides;
+    this.state.eateries=eateries;
+
+    console.log("UserFeatureList",this.state.id);
+    var c=document.getElementById("content");
+    ReactDOM.render(<UpdateFeatureList2 fid={this.state.fid} name={this.state.name} latitude={this.state.lat} longitude={this.state.long} country={this.state.country} state={this.state.state} district={this.state.district} festivals={this.state.festivals}  deities={this.state.deities} archstyle={this.state.archstyle}
+      datebuilt={this.state.datebuilt} creator={this.state.creator} image={this.state.image} guides={this.state.guides} eateries={this.state.eateries}  />,c);
+
+    }
+
+
+    componentWillMount(){
+
+      fetch(`http://localhost:9000/Features`)
+      .then(response => response.json())
+      .then(json=>this.setState({Features:json}))
+      // console.log(this.state.Features)
+      var auth = window.sessionStorage.getItem('token');
+      var uname = window.sessionStorage.getItem('uname');
+      var entry;
+      var that=this;
+
+      console.log(uname);
+      fetch(`http://localhost:9000/users/`+ uname )
+      .then(response => response.json().then((data)=>{
+        that.setState({MyEntries:data});
+        console.log("bi",that.state.MyEntries);
+        xyz=that.state.MyEntries;
+
+      })
+    );
+
+
+
+
+  }
+
+
+  componentWillUpdate(){
+    fetch(`http://localhost:9000/Features`)
+    .then(response => response.json())
+    .then(json=>this.setState({Features:json}))
+
+  }
 
   render() {
-      return (
+    return (
 
 
-            <div className="UserList w3-container">
-
-                {this.state.Features.name}
-                  <div> <center>
-                      <br/>
-                      <div className="header">
-                          <p>LIST OF ENTRIES</p>
-                      </div>
+      <div className="UserList w3-container">
 
 
-                      {this.state.Features.length ?
-                        this.state.Features.map((item,i)=>
-                                    <div className="card">
+      <div> <center>
+      <br/>
+      <div className="header">
+      <p>LIST OF ENTRIES</p>
 
-                                        <div key={i} className="container1" >
-
-                                               <h3><strong><a onClick={() => this.handleView(item.fid)}>Name: {item.name}</a></strong>&nbsp;
-                                               <button  className="w3-btn w3-round-large w3-large  button1" onClick={()=>this.handleUpdate(item.fid,item.name,item.latitude,item.longitude,item.country,item.state,
-                                               item.district,item.deities,item.festivals,item.archstyle,item.datebuilt,item.creator,item.image,
-                                             item.guides,item.eateries)}><i className="fa fa-refresh "></i></button>
-</h3>
-                                               <hr/>
-
-                                               <div className="row">
-                                                  <div className="col-sm-4" ><strong>Country:</strong></div>
-                                                  <div className="col-sm-8"><strong> {item.country}</strong></div><br/>
-                                               </div>
-
-                                               <div className="row">
-                                                  <div className="col-sm-4" ><strong>State:</strong></div>
-                                                  <div className="col-sm-8"> <strong>{item.state}</strong></div><br/>
-                                               </div>
-
-                                               <div className="row">
-                                                  <div className="col-sm-4" ><strong>District:</strong></div>
-                                                  <div className="col-sm-8"><strong> {item.district}</strong></div><br/>
-                                               </div>
+      </div>
 
 
+      {this.state.Features.length ?
+        this.state.Features.map((item,i)=>
+        <div className="card">
 
-                                      </div>
-                                    </div>
+        <div key={i} className="container1" >
+          <h3><img  className="image" src={item.image} alt="image not available!!"/>&nbsp;&nbsp;
+        <strong><a onClick={() => this.handleView(item.fid)}>Name: {item.name}</a></strong>&nbsp;
+        <button  className="w3-btn w3-round-large w3-large  button1" onClick={()=>this.handleUpdate(item.fid,item.name,item.latitude,item.longitude,item.country,item.state,
+          item.district,item.deities,item.festivals,item.archstyle,item.datebuilt,item.creator,item.image,
+          item.guides,item.eateries)}><i className="fa fa-refresh "></i></button>
 
-                                  )
-                                  : <p> loading..</p>
-                                }
+          </h3>
+          <hr/>
 
-                    <br/>
-                  </center></div>
-                  <center>
-                  <button className="w3-btn w3-round-large w3-large" onClick={()=>this.MyEntries()}>My Entries</button>
-                  <button className="w3-btn w3-round-large w3-large" onClick={()=>this.AddNewEntry()}>Add Entry</button>
-                  </center>
-            </div>
+          <div className="row">
+          <div className="col-sm-4" ><strong>Country:</strong></div>
+          <div className="col-sm-8"><strong> {item.country}</strong></div><br/>
+          </div>
 
-           );
+          <div className="row">
+          <div className="col-sm-4" ><strong>State:</strong></div>
+          <div className="col-sm-8"> <strong>{item.state}</strong></div><br/>
+          </div>
+
+          <div className="row">
+          <div className="col-sm-4" ><strong>District:</strong></div>
+          <div className="col-sm-8"><strong> {item.district}</strong></div><br/>
+          </div>
 
 
-}
+
+          </div>
+          </div>
+
+        )
+        : <p> loading..</p>
+      }
+
+      <br/>
+      </center></div>
+
+      <center>
+      <button className="w3-btn w3-round-large w3-large" onClick={()=>this.MyEntries1()}>My Entries</button>
+      <button className="w3-btn w3-round-large w3-large" onClick={()=>this.AddNewEntry()}>Add Entry</button>
+      </center>
+      </div>
+
+    );
+
+
+  }
 }
 
 

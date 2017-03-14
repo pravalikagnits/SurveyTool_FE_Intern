@@ -16,6 +16,9 @@ font-size: 20px;
 border-radius: 12px;
 
 }*/
+a:link,a::after {
+     text-decoration: none ;
+  }
 
 
 #mapsurvey{
@@ -67,7 +70,13 @@ button:hover{
 .navbar-custom .navbar-collapse {
   border-color: rgba(255, 255, 255, 0.02);
 }
+.item{
 
+}
+img{
+  height: 400px;
+  width: 400px;
+}
 
 
 .navbar-custom .navbar-toggle {

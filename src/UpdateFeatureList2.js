@@ -46,8 +46,7 @@ class UpdateFeatureList2 extends Component {
      console.log(auth+"//////");
      console.log(uname+"/////");
        console.log(id);
-       console.log("bjkb",this.state.image);
-
+      
                                 fetch('http://localhost:9000/Features/'+ id, {
 
 
@@ -75,10 +74,18 @@ class UpdateFeatureList2 extends Component {
                                     eateries:eateries.value
 
                                  })
-                               }).then( alert("Features updated!!!!"))
+                               }).then(response => {
+                                 if(200 == response.status){
+                                   alert("Successfully updated");
+                                 }
+                                         else{
+                                         alert("permission Denied to update this entry");
+                                            }
 
 
-                     }
+
+                               })
+                   }
 
                      componentWillUpdate(){
                                    fetch(`http://localhost:9000/Features`)

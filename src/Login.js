@@ -78,6 +78,13 @@ fetch('http://localhost:9000/users/validate/'+username+"?upwd="+password)
   })
 
     .catch(error => console.log(error));
+  console.log(document.getElementById("mn").innerHTML);
+    if(document.getElementById("mn").innerHTML=="LOGIN")
+    document.getElementById("mn").innerHTML="LOGOUT";
+    else {
+        document.getElementById("mn").innerHTML="LOGIN";
+
+    }
 
 
     //  var i,flag=0;
@@ -123,10 +130,11 @@ fetch('http://localhost:9000/users/validate/'+username+"?upwd="+password)
 
     return(
       <div className="Login">
-      <br/><br/><br/><br/><center>
+      <br/><br/><center>
       <div className="loginpage w3-container w3-animate-top">
       <center>
-      <br/>  <br/><br/> <br/>
+     <br/>     <br/>
+      <img  className="image" src='/src/images/default-user.png' alt="image not available!!"/>
 
       <h1 id="title" className="logintext" >Login</h1>
       <br/>

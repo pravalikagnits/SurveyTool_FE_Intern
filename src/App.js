@@ -24,6 +24,9 @@ class App extends Component {
 
 
   Handlelogin(){
+    if(document.getElementById("mn").innerHTML=="LOGOUT")
+    document.getElementById("mn").innerHTML="LOGIN";
+
     var c=document.getElementById("content");
     ReactDOM.render(<Login />,c);
 
@@ -67,7 +70,7 @@ class App extends Component {
       <a className="page-scroll" id="link" onClick = {()=>this.HandleSignin()}>SignUp</a>
       </li>
       <li>
-      <a className="page-scroll" id="link"  onClick = {()=>this.Handlelogin()}>LogIn</a>
+      <a className="page-scroll " id="link"  onClick = {()=>this.Handlelogin()}><div id="mn">LOGIN</div></a>
       </li>
       </ul>
       </div>
@@ -78,17 +81,59 @@ class App extends Component {
       <section id="content">
       <header>
       <div className="container">
+  <br/>
+
+  <div id="myCarousel" className="carousel slide" data-ride="carousel">
+    <ol className="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" className="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4" ></li>
+    </ol>
+    <div className="carousel-inner" role="listbox">
+      <div className="item active">
       <div className="intro-text">
-      <div className="intro-heading"> Create Survey !!! Get Answers</div>
-      <a href="#services" className="page-scroll btn btn-xl">More>>></a>
+        <div className="intro-heading"> Create Survey !!! Get Answers</div>
+        <a href="#services" className="page-scroll btn btn-xl">More>>></a>
       </div>
       </div>
+
+
+      <div className="item  intro-text ">
+        <img src="/img/about/6.png" alt="Chania" />
+      </div>
+
+      <div className="item intro-text">
+        <img src="/img/about/5.png" alt="Chania" height="40px" width="80px" />
+      </div>
+      <div className="item intro-text">
+        <img src="/img/about/3.jpg" alt="Chania" />
+      </div>
+      <div className="item intro-text">
+        <img src="/img/about/4.jpg" alt="Chania" />
+      </div>
+      <a className="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span className="sr-only">Previous</span>
+    </a>
+    <a className="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span className="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span className="sr-only">Next</span>
+    </a>
+
+
+    </div>
+    </div>
+
+    </div>
       </header>
       </section>
 
       <section id="services">
       <div className="container">
       <div className="row">
+
       <div className="col-lg-12 text-center">
       <h2 className="section-heading">Services</h2>
       <h3 className="section-subheading text-muted">Introducing map survey tool.</h3>
@@ -120,7 +165,7 @@ class App extends Component {
       <i className="fa fa-lock fa-stack-1x fa-inverse"></i>
       </span>
       <h4 className="service-heading">Fast & Easy</h4>
-      <p className="text-muted">We have done our best to make creating surveys as enjoyable as possible.Map Survey Toolis very fast and easily accessible</p>
+      <p className="text-muted">We have done our best to make creating surveys as enjoyable as possible.Map Survey Tool is very fast and easily accessible</p>
       </div>
       </div>
       </div>

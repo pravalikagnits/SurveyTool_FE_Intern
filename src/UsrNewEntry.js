@@ -37,9 +37,10 @@ class UsrNewEntry extends React.Component {
                             console.log(json);
                             that.setState({image:json})
                             console.log(that.state.image);
+                            document.getElementById("im").src=that.state.image;
                            })
                            }
-                          
+
 
          }
 
@@ -147,7 +148,7 @@ console.log("img",this.state.image);
                                                     guides:Guides.value,
                                                     uname:uname,
                                                     eateries:Eateries.value,
-                                                    s_id:this.state.id
+
                                     })
                                   }).then(  alert("entry added"))
 
@@ -156,7 +157,7 @@ console.log("img",this.state.image);
 
          render() {
             return (
-              <div className="UsrNewEntry">
+              <div className="UsrNewEntry w3-container">
               <center>
                                 <p id="para">
                                     <form name="Entries" id="UsrNewEntry" novalidate>
@@ -177,7 +178,7 @@ console.log("img",this.state.image);
                                       <div className="col-sm-4" ><input  type="text" className="form-control textbox" defaultValue="78.38" placeholder="Longitude" id="long"  /><br/><br/></div>
                                       <p className="help-block text-danger"></p>
                                       </div>
-                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id="map" className="map" ref="map"> </div>
+                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id="map" className="map " ref="map"> </div>
 
 
 
@@ -237,7 +238,7 @@ console.log("img",this.state.image);
                                                             <br/><br/>
                                     <p className="help-block text-danger"></p>
                                     </div>
-
+                                    <img id="im" className="image" src='' alt="image not available!!"/>
                                       <div className="form-group">
                                      <div className="col-sm-6" ><label><b>Availability Of Tourist Guide</b></label></div>
                                      <div className="col-sm-4" ><select id="Guides" >
