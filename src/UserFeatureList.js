@@ -117,7 +117,7 @@ class UserFeatureList extends Component {
                               <div className="col-sm-8"><strong> {this.state.item.eateries}</strong></div><br/>
                            </div>
                            <center>
-                           <button  className="w3-btn w3-round-large w3-large button2" onClick={()=>this.handleBack()}>Back</button>&nbsp;&nbsp;&nbsp;
+                           <button  className="button" onClick={()=>this.handleBack()}>Back</button>&nbsp;&nbsp;&nbsp;
                            </center>
 
 

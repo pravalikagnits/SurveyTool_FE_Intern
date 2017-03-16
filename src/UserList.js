@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './UserList.css';
+import UserLog from './UserLog.js';
 import Index6 from './Index6.js';
 import UsrNewEntry from './UsrNewEntry.js';
 import UserFeatureList from './UserFeatureList.js';
 import UpdateFeatureList2 from './UpdateFeatureList2.js';
-import UserMyEntry from './UserMyEntry.js';
+
 
 
 class UserList extends Component {
@@ -15,29 +16,19 @@ class UserList extends Component {
     this.state = {
       Features:[],
       details:[],
-      MyEntries:[],
       id:'',
     };
 
     this.handleView=this.handleView.bind(this);
     this.handleUpdate=this.handleUpdate.bind(this);
     this.AddNewEntry=this.AddNewEntry.bind(this);
-    this.AddNewEntry=this.AddNewEntry.bind(this);
-    this.MyEntries1=this.MyEntries1.bind(this);
+    this.handleBack=this.handleBack.bind(this);
 
   }
-
-
-
-  MyEntries1(){
-
+  handleBack(){
 
     var c=document.getElementById("content");
-    ReactDOM.render(<UserMyEntry/>,c);
-
-
-
-
+    ReactDOM.render(<UserLog/>,c);
   }
 
 
@@ -99,18 +90,17 @@ class UserList extends Component {
       var that=this;
 
       console.log(uname);
-      fetch(`http://localhost:9000/users/`+ uname )
-      .then(response => response.json().then((data)=>{
-        that.setState({MyEntries:data});
-        console.log("bi",that.state.MyEntries);
-        xyz=that.state.MyEntries;
-
-      })
-    );
 
 
 
 
+
+  }
+  componentDidMount(){
+     var uname = window.sessionStorage.getItem('uname');
+
+    console.log(uname);
+    console.log(this.state.Features.uname);
   }
 
 
@@ -126,49 +116,59 @@ class UserList extends Component {
 
 
       <div className="UserList w3-container">
+      {this.state.Features.name}
 
+      <div>
+                      <div className="header">
+                          <button className="back1" onClick={()=>this.handleBack()}><center><i className="abc fa fa-backward"></i></center></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <center>
+                          <h1>LIST OF ENTRIES</h1>
+                          </center>
+                      </div>
 
-      <div> <center>
-      <br/>
-      <div className="header">
-      <p>LIST OF ENTRIES</p>
-
-      </div>
-
+                      <center>
 
       {this.state.Features.length ?
         this.state.Features.map((item,i)=>
-        <div className="card">
 
-        <div key={i} className="container1" >
-          <h3><img  className="image" src={item.image} alt="image not available!!"/>&nbsp;&nbsp;
-        <strong><a onClick={() => this.handleView(item.fid)}>Name: {item.name}</a></strong>&nbsp;
-        <button  className="w3-btn w3-round-large w3-large  button1" onClick={()=>this.handleUpdate(item.fid,item.name,item.latitude,item.longitude,item.country,item.state,
-          item.district,item.deities,item.festivals,item.archstyle,item.datebuilt,item.creator,item.image,
-          item.guides,item.eateries)}><i className="fa fa-refresh "></i></button>
+                  <div className="card">
 
-          </h3>
-          <hr/>
+                  <div key={i} className="container1" >
 
-          <div className="row">
-          <div className="col-sm-4" ><strong>Country:</strong></div>
-          <div className="col-sm-8"><strong> {item.country}</strong></div><br/>
-          </div>
+                  <div className="grid">
+                  <figure>
+                    <img  className="image12" src={item.image} alt="image not available!!"/>&nbsp;&nbsp;
+                    </figure>
+                  </div>
 
-          <div className="row">
-          <div className="col-sm-4" ><strong>State:</strong></div>
-          <div className="col-sm-8"> <strong>{item.state}</strong></div><br/>
-          </div>
 
-          <div className="row">
-          <div className="col-sm-4" ><strong>District:</strong></div>
-          <div className="col-sm-8"><strong> {item.district}</strong></div><br/>
-          </div>
+                        <h2>
+                  <strong><a className="aname" onClick={() => this.handleView(item.fid)}>Name: {item.name}</a></strong><button  className="b9 w3-btn w3-round-large w3-large  button1"disabled={(item.uname==window.sessionStorage.getItem('uname'))?false:true}  onClick={()=>this.handleUpdate(item.fid,item.name,item.latitude,item.longitude,item.country,item.state,
+                    item.district,item.deities,item.festivals,item.archstyle,item.datebuilt,item.creator,item.image,
+                    item.guides,item.eateries)}><i className="fa fa-refresh "></i></button>&nbsp;&nbsp;
 
 
 
-          </div>
-          </div>
+                    <p className="Name" >~{item.uname}</p>
+                    </h2>
+
+
+                    <div className="col-sm-4" ><strong>Country:</strong></div>
+                    <div className="col-sm-4"> {item.country}</div><br/>
+
+
+
+                    <div className="col-sm-4" ><strong>State:</strong></div>
+                    <div className="col-sm-4"> {item.state}</div><br/>
+
+
+
+                    <div className="col-sm-4" ><strong>District:</strong></div>
+                    <div className="col-sm-4">{item.district}</div><br/>
+
+
+                      </div>
+                    </div>
 
         )
         : <p> loading..</p>
@@ -178,8 +178,8 @@ class UserList extends Component {
       </center></div>
 
       <center>
-      <button className="w3-btn w3-round-large w3-large" onClick={()=>this.MyEntries1()}>My Entries</button>
-      <button className="w3-btn w3-round-large w3-large" onClick={()=>this.AddNewEntry()}>Add Entry</button>
+
+                  <button className="b1 w3-btn w3-round-large w3-large" onClick={()=>this.AddNewEntry()}><i className="fa fa-plus-circle"></i> Add Entry</button>
       </center>
       </div>
 

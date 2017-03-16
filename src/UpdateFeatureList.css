@@ -7,13 +7,21 @@ label{
 }
 
 .UpdateFeatureList{
-
     background:rgba(0,0,0,0.7);
-  height:auto;
-  width: 500px;
-margin-left: 350px;
+    height:auto;
+    width: 600px;
+
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: black;
+}
+.button{
+  background-color: #0EBFE9;
+  color:black;
+  font-weight: bold;
+  border-radius: 15px;
+}
+.c10{
+  margin-left: 180px;
 }

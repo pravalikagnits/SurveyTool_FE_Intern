@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 import ReactDOM from 'react-dom';
 import './UpdateFeatureList.css';
-
 import Index6 from './Index6.js';
 import Index7 from './Index7.js';
 import Index5 from './Index5.js';
 import AdminList from './AdminList.js';
+var flag=0;
 
 class UpdateFeatureList extends Component {
 
@@ -18,65 +18,87 @@ class UpdateFeatureList extends Component {
   }
 
   handleSearch(){
-    var x = document.getElementById("myFile");
-    var form = new FormData();
-    var that=this;
-    var xxx;
-    for (var i = 0; i < x.files.length; i++) {
-      var file = x.files[i];
-      form.set('image',file);
-      console.log(file);
-      fetch('http://localhost:9000/images', {
-        method: 'POST',
-        body: form
-      }).then(response=>response.json())
-      .then(function(json){
-        console.log(json);
-        xxx=json;
+   var x = document.getElementById("myFile");
+   var form = new FormData();
+   var that=this;
+   var xxx;
+     for (var i = 0; i < x.files.length; i++) {
+       var file = x.files[i];
+       form.set('image',file);
+       console.log(file);
+       fetch('http://localhost:9000/images', {
+                   method: 'POST',
+                   body: form
+                 }).then(response=>response.json())
+                 .then(function(json){
+                   console.log(json);
+                   that.setState({image:json})
 
-      })
-      that.setState({image:xxx});
-      console.log(this.state.image);
-    }
+                   flag=1;
+                console.log(flag);
+                  })
+                  }
 
-  }
+
+}
 
 
   handleUpdate(id){
     var auth = window.sessionStorage.getItem('token');
   var uname = window.sessionStorage.getItem('uname');
+  var img;
+  console.log(auth+"//////");
+  console.log(uname+"/////");
+console.log(flag);
     console.log(id);
-    console.log(this.state.image);
+    if(flag==1)
+    {
+      img=this.state.image;
+      console.log(img);
+      flag=0;
+    }
+    else {
+      img=this.props.image;
+      console.log(img);}
 
-    fetch('http://localhost:9000/Features/'+ id, {
+                             fetch('http://localhost:9000/Features/'+ id, {
 
 
-      method: 'PUT',
-      headers: {
-        "Content-Type": "application/json",
-        "Accept":"application/json",
-        "Authentication" : auth,
-        "id" : uname
-      },
-      body: JSON.stringify({
-        name:names.value,
-        latitude:latitude.value,
-        longitude:longitude.value,
-        country:country.value,
-        state:state.value,
-        district:district.value,
-        deities:deities.value,
-        festivals:festivals.value,
-        archstyle:archstyle.value,
-        datebuilt:datebuilt.value,
-        creator:creator.value,
-        image:this.state.image,
-        guides:guides.value,
-        eateries:eateries.value
+                              method: 'PUT',
+                              headers: {
+                                 "Content-Type": "application/json",
+                                 "Accept":"application/json",
+                                 "Authentication" : auth,
+                                 "id" : uname
+                              },
+                              body: JSON.stringify({
+                                 name:names.value,
+                                 latitude:latitude.value,
+                                 longitude:longitude.value,
+                                 country:country.value,
+                                 state:state.value,
+                                 district:district.value,
+                                 deities:deities.value,
+                                 festivals:festivals.value,
+                                 archstyle:archstyle.value,
+                                 datebuilt:datebuilt.value,
+                                 creator:creator.value,
+                                 image:img,
+                                 guides:guides.value,
+                                 eateries:eateries.value
 
-      })
-    })
-    alert("Features updated!!!!");
+                              })
+                            }).then(response => {
+                              if(200 == response.status){
+                                alert("Successfully updated");
+                              }
+                                      else{
+                                      alert("permission Denied to update this entry");
+                                         }
+
+
+
+                            })
 
   }
 
@@ -110,7 +132,7 @@ class UpdateFeatureList extends Component {
 
     return (
 
-
+      <center>
       <div className="UpdateFeatureList w3-container">
       <center>
 
@@ -127,16 +149,17 @@ class UpdateFeatureList extends Component {
        <div className="col-sm-6" ><label><b>Architecture</b></label></div><div className="col-sm-4" ><input type="text" id="archstyle" defaultValue={this.props.archstyle}  className="w3-input"  placeholder="architecture"/><br/><br/></div>
        <div className="col-sm-6" ><label><b>Date Built</b></label></div><div className="col-sm-4" ><input type="text" id="datebuilt" defaultValue={this.props.datebuilt}  className="w3-input"  placeholder="datebuilt"/><br/><br/></div>
        <div className="col-sm-6" ><label><b>Creator</b></label></div><div className="col-sm-4" ><input type="text" id="creator" defaultValue={this.props.creator}  className="w3-input"  placeholder="creator"/><br/><br/></div>
-      <input type="file" id="myFile" name="image" multiple="multiple" accept=".png" onChange={this.handleSearch}/>  <br/><br/>
+      <input className="c10" type="file" id="myFile" defaultValue={this.props.image} name="image" multiple="multiple" accept=".png" onChange={this.handleSearch}/> <br/><br/>
        <div className="col-sm-6" ><label><b>Guides</b></label></div><div className="col-sm-4" ><input type="text" id="guides" defaultValue={this.props.guides}  className="w3-input"  placeholder="guides"/><br/><br/></div>
        <div className="col-sm-6" ><label><b>Eateries</b></label></div><div className="col-sm-4" ><input type="text" id="eateries" defaultValue={this.props.eateries}  className="w3-input"  placeholder="eateries"/><br/><br/></div>
-      <button  className="w3-btn w3-round-large w3-large" onClick={()=>this.handleUpdate(id)}>Update</button>&nbsp;&nbsp;&nbsp;
-      <button className="w3-btn w3-round-large w3-large" onClick={()=>this.handleBack()}>Back</button>
+      <br/><br/><br/><br/><br/><br/><br/><button  className="button" onClick={()=>this.handleUpdate(id)}>Update</button>&nbsp;&nbsp;&nbsp;
+      <button className="button" onClick={()=>this.handleBack()}>Back</button>
 
-      <br/>
+      <br/><br/><br/>
       </center>
 
       </div>
+      </center>
 
     );
   }

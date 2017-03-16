@@ -59,7 +59,7 @@ class UserLog1 extends Component {
 
                     <br/>
 
-                   <button  className="w3-btn w3-round-large w3-large" onClick={()=>this.AddNewFeature()}>Create New Survey</button>&nbsp;&nbsp;&nbsp;
+                   <button  className="b15 w3-btn w3-round-large w3-large" onClick={()=>this.AddNewFeature()}><i className="fa fa-plus-circle"></i> Create New Survey</button>&nbsp;&nbsp;&nbsp;
 
                    </center></div>
 

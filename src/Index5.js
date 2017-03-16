@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './Index5.css';
 import Index6 from './Index6.js';
-import Index7 from './Index7.js';
+
 import UserFeatureList from './UserFeatureList.js';
 import UpdateEntry from './UpdateEntry.js';
 import AdminList  from './AdminList.js';
@@ -102,13 +102,16 @@ class Index5 extends Component {
 
   render() {
     return (
-
+      <center>
+      <h1><b>LIST OF SURVEYS</b></h1>
+            <div className="SurveyMain">
 <center>
+    
       <div className="surveymain w3-container">
 
 
-      <center>
       <br/>
+      <center>
       &nbsp;<table className="moduleSection">
       <tbody className="border">
       <tr> <th>Survey Name</th>  <th>Survey Description</th>  <th>Deadline</th></tr>
@@ -130,12 +133,15 @@ class Index5 extends Component {
     </tbody>
     </table>
     <br/>
-    <button  className="w3-btn w3-round-large w3-large" onClick={()=>this.createnewsurvey()}>Create New Survey</button>&nbsp;&nbsp;&nbsp;
+    <button  className="b4 w3-btn w3-round-large w3-large" onClick={()=>this.createnewsurvey()}>Create New Survey</button>&nbsp;&nbsp;&nbsp;
 
     </center>
-
+    <br/>
 
     </div>
+    </center>
+    </div>
+
     </center>
 
 

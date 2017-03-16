@@ -127,7 +127,7 @@ class AdminFeatureList extends Component {
       </div>
       <center>
 
-      <button  className="w3-btn w3-round-large w3-large back" onClick={()=>this.handleBack()}>Back</button>&nbsp;&nbsp;&nbsp;
+      <button  className="b14" onClick={()=>this.handleBack()}><i className="fa fa-backward"></i> Back</button>&nbsp;&nbsp;&nbsp;
       </center>
       </div>
 

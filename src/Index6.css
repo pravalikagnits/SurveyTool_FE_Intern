@@ -3,10 +3,12 @@
   background:rgba(0,0,0,0.7);
   height: 400px;
   width: 500px;
-margin-left: 350px;
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: black;
+}
+.abc{
+  background-image: url('/src/images/back.jpeg');
 }
 
 .newsurveycreate h1{
@@ -16,9 +18,50 @@ margin-left: 350px;
 
 .newsurveycreate label{
   color:white;
+  float: left;
   margin-left: 40px;
   text-align: justify;
+  font-size: 18px;
 }
 input{
   display: inline-block;
+}
+.label{
+ float: left;
+ margin-left: 50px;
+}
+.b5{
+  background-color: #0EBFE9;
+  color:black;
+  font-weight: bold;
+  border-radius: 15px;
+
+border: 2px solid black;
+font-size: 15px;
+font-weight: normal;
+border-radius: 10px;
+}
+.b5:hover {
+    background-color: white;
+    color: red;
+}
+.b6{
+  background-color: #0EBFE9;
+  color:black;
+  font-weight: bold;
+  border-radius: 15px;
+  border: 2px solid black;
+  font-size: 15px;
+  font-weight: normal;
+  border-radius: 10px;
+}
+.b6:hover {
+    background-color: white;
+    color: red;
+}
+.t1{
+  width: 260px;
+  float: right;
+  margin-right: 80px;
+  height: 34px;
 }

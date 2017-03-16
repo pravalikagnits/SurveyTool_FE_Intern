@@ -27,5 +27,8 @@ h1{
   color:white;
   background-color: green;
   background-image: linear-gradient(green,lightgreen);
-  border-radius: none;
+  border-radius: 6px;
+  font-size: 20px;
+  height: 42px;
+  width: 250px;
 }

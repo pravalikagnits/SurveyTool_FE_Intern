@@ -58,8 +58,9 @@ button:hover{
   color: #fed136;
 
 }
-
-
+.item{
+  margin-top: -200px;
+}
 
 .navbar-custom .navbar-brand:hover,
 .navbar-custom .navbar-brand:focus,
@@ -70,12 +71,10 @@ button:hover{
 .navbar-custom .navbar-collapse {
   border-color: rgba(255, 255, 255, 0.02);
 }
-.item{
 
-}
 img{
-  height: 400px;
-  width: 400px;
+  height: 100px;
+  width: 100px;
 }
 
 

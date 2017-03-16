@@ -77,21 +77,22 @@ class UpdateEntry extends Component {
 
       return (
 
-
+        <center>
+        <h2><b>Update Survey</b></h2>
             <div className="UpdateEntry w3-container">
 
-                <h2><b>Update Survey</b></h2><br/><br/>
+            <br/><br/>
                   {this.props.uid}
-                    <input type="text" id="sname" defaultValue={this.props.sname}  className="w3-input" ref="name" placeholder="surveyname"/><br/><br/>
-                    <input type="text" id="sdescription" defaultValue ={this.props.sdesc}  mode="multiline" ref="description" className="w3-input" placeholder="description"/><br/><br/>
-                    <input type="text" id="date" defaultValue={this.props.date}  className="w3-input" ref="date" placeholder="final date"/><br/><br/>
-                    <button  className="w3-btn w3-round-large w3-large" onClick={()=>this.handleUpdate(id)}>Update</button>&nbsp;&nbsp;&nbsp;
-                    <button className="w3-btn w3-round-large w3-large" onClick={()=>this.handleBack()}>Back</button>
+                    <div className="col-sm-6" ><label>Name:</label></div><input type="text" id="sname" defaultValue={this.props.sname}  className="w3-input" ref="name" placeholder="surveyname"/><br/><br/>
+                    <div className="col-sm-6" ><label>Description:</label></div><input type="text" id="sdescription" defaultValue ={this.props.sdesc}  mode="multiline" ref="description" className="w3-input" placeholder="description"/><br/><br/>
+                    <div className="col-sm-6" ><label>Last Date:</label></div><input type="date" id="date" defaultValue={this.props.date}  className="w3-input" ref="date" placeholder="final date"/><br/><br/>
+                    <button  className="button" onClick={()=>this.handleUpdate(id)}>Update</button>&nbsp;&nbsp;&nbsp;
+                    <button className="button" onClick={()=>this.handleBack()}>Back</button>
 
                     <br/>
 
              </div>
-
+             </center>
 
 
            );

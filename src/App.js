@@ -101,17 +101,17 @@ class App extends Component {
 
 
       <div className="item  intro-text ">
-        <img src="/img/about/6.png" alt="Chania" />
+        <img src="/img/about/1.jpg" alt="Chania" height="40px" width="80px" />
       </div>
 
       <div className="item intro-text">
-        <img src="/img/about/5.png" alt="Chania" height="40px" width="80px" />
+        <img src="/img/about/2.jpg" alt="Chania" height="40px" width="80px" />
       </div>
       <div className="item intro-text">
-        <img src="/img/about/3.jpg" alt="Chania" />
+        <img src="/img/about/3.jpeg" alt="Chania" height="40px" width="80px" />
       </div>
       <div className="item intro-text">
-        <img src="/img/about/4.jpg" alt="Chania" />
+        <img src="/img/about/4.jpg" alt="Chania" height="40px" width="80px" />
       </div>
       <a className="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
       <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>

@@ -72,6 +72,19 @@
   border-radius: 6px;
   width: 100%;
 }
+.b14{
+  background-color: #0EBFE9;
+  color:black;
+  font-weight: bold;
+  border-radius: 15px;
+  border: 2px solid black;
+  font-weight: normal;
+  border-radius: 10px;
+}
+.b14:hover {
+    background-color: white;
+    color: red;
+}
 
 /*.tablerow:hover{
 background:#c0c0c0;

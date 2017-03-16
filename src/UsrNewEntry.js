@@ -150,14 +150,24 @@ console.log("img",this.state.image);
                                                     eateries:Eateries.value,
 
                                     })
-                                  }).then(  alert("entry added"))
+                                  }).then(function(data){
+
+                                                  var c=document.getElementById("content");
+                                                  ReactDOM.render(<UserList/>,c);
+                                                  alert("entry added");
+
+                                  }  )
+
 
             }
 
 
          render() {
             return (
-              <div className="UsrNewEntry w3-container">
+
+              <div className="UsrNewEntry1">
+              <div className="UsrNewEntry">
+
               <center>
                                 <p id="para">
                                     <form name="Entries" id="UsrNewEntry" novalidate>
@@ -178,7 +188,7 @@ console.log("img",this.state.image);
                                       <div className="col-sm-4" ><input  type="text" className="form-control textbox" defaultValue="78.38" placeholder="Longitude" id="long"  /><br/><br/></div>
                                       <p className="help-block text-danger"></p>
                                       </div>
-                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id="map" className="map " ref="map"> </div>
+                                      <center><div id="map" className="map " ref="map"> </div></center>
 
 
 
@@ -260,13 +270,15 @@ console.log("img",this.state.image);
                                       </div>
                                         <br/><br/><br/><br/>
                                         <center>
-                                      <button type="submit" className="w3-btn w3-round-large w3-large" onClick={()=>this.handleFeature(this.props.sid)} >Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                      <button className="w3-btn w3-round-large w3-large" onClick={()=>this.handleBack()} >Back</button><br/><br/>
+                                      <button type="submit" className="button" onClick={()=>this.handleFeature(this.props.sid)} >Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <button className="button" onClick={()=>this.handleBack()} >Back</button><br/><br/>
                                       </center>
                                       </form>
                                       </p>
                                       </center>
                               </div>
+                              </div>
+
 
 
 

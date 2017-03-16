@@ -40,7 +40,7 @@ class UserLog extends Component {
 
   render() {
       return (
-<center>
+<center><h1><b>LIST OF SURVEYS</b></h1>
               <div className="SurveyList">
                 <center>
 
@@ -48,8 +48,8 @@ class UserLog extends Component {
 
 
                    <div><center>
-                   <br/>
-                   <h1><b>LIST OF SURVEYS</b></h1>
+                   
+
                    <br/><center>
                     <table className="moduleSection">
 

@@ -43,6 +43,8 @@ class AdminList extends Component {
 
 
   handleDelete(id){
+    var auth = window.sessionStorage.getItem('token');
+    var uname = window.sessionStorage.getItem('uname');
 
     var r = confirm("Move to Trash!");
     if (r == true) {
@@ -52,7 +54,9 @@ class AdminList extends Component {
 
         headers: {
           "Content-Type": "application/json",
-          "Accept":"application/json"
+          "Accept":"application/json",
+          "Authentication" : auth,
+          "id" : uname
         },
         method: "DELETE"
 
@@ -209,7 +213,7 @@ class AdminList extends Component {
         <div> <center>
         <br/>
         <div className="header">
-        <button className="back" onClick={()=>this.handleBack()}><i className="fa fa-backward"></i></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1><b>LIST OF ENTRIES</b></h1>
+        <button className="back" onClick={()=>this.handleBack()}><i className="m fa fa-backward"></i></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1><b>LIST OF ENTRIES</b></h1>
 
         </div>
 
@@ -221,33 +225,42 @@ class AdminList extends Component {
 
           <div key={i} className="container1" >
 
-          <h3><strong><a onClick={() => this.handleView(item.fid)}>Name: {item.name}</a></strong><button  className="w3-btn w3-round-large w3-large  button1" onClick={()=>this.handleUpdate(item.fid,item.name,item.latitude,item.longitude,item.country,item.state,
+          <div className="grid">
+          <figure>
+            <img  className="image12" src={item.image} alt="image not available!!"/>&nbsp;&nbsp;
+            </figure>
+          </div>
+
+
+                <h2>
+          <strong><a className="aname" onClick={() => this.handleView(item.fid)}>Name: {item.name}</a></strong><button  className="b9 w3-btn w3-round-large w3-large  button1" onClick={()=>this.handleUpdate(item.fid,item.name,item.latitude,item.longitude,item.country,item.state,
             item.district,item.deities,item.festivals,item.archstyle,item.datebuilt,item.creator,item.image,
             item.guides,item.eateries)}><i className="fa fa-refresh "></i></button>&nbsp;&nbsp;
-            <button  className="w3-btn w3-round-large w3-large button2" onClick={()=>this.handleDelete(item.fid)}><i className="fa fa-close"></i></button>&nbsp;&nbsp;&nbsp;
-            </h3>
-            <hr/>
 
-            <div className="row">
+
+            <button  className="b9 w3-btn w3-round-large w3-large button2" onClick={()=>this.handleDelete(item.fid)}><i className="fa fa-close"></i></button>&nbsp;&nbsp;&nbsp;
+            <p className="Name" >~{item.uname}</p>
+            </h2>
+
+
             <div className="col-sm-4" ><strong>Country:</strong></div>
-            <div className="col-sm-8"><strong> {item.country}</strong></div><br/>
-            </div>
+            <div className="col-sm-4"> {item.country}</div><br/>
 
-            <div className="row">
+
+
             <div className="col-sm-4" ><strong>State:</strong></div>
-            <div className="col-sm-8"> <strong>{item.state}</strong></div><br/>
-            </div>
+            <div className="col-sm-4"> {item.state}</div><br/>
 
-            <div className="row">
+
+
             <div className="col-sm-4" ><strong>District:</strong></div>
-            <div className="col-sm-8"><strong> {item.district}</strong></div><br/>
+            <div className="col-sm-4">{item.district}</div><br/>
+            
+
+              </div>
             </div>
 
 
-
-            </div>
-
-            </div>
 
 
           )
@@ -257,8 +270,8 @@ class AdminList extends Component {
         <br/>
         </center></div>
         <center>
-        <button  className="w3-btn w3-round-large w3-large" onClick={()=>this.mapview()}>MAP VIEW</button>&nbsp;&nbsp;
-        <button  className="w3-btn w3-round-large w3-large" onClick={()=>this.exportGeoJson()}><a id="download-link" href='' target="_blank" download="geojson.json">Download</a><i className="fa fa-download"></i></button>&nbsp;&nbsp;&nbsp;<br/><br/>
+        <button  className="b10 w3-btn w3-round-large w3-large" onClick={()=>this.mapview()}>MAP VIEW</button>&nbsp;&nbsp;
+      <button  className="b10 w3-btn w3-round-large w3-large" onClick={()=>this.exportGeoJson()}><a className="l" id="download-link" href='' target="_blank" download="geojson.json">Download</a><i className="fa fa-download"></i></button>&nbsp;&nbsp;&nbsp;<br/><br/>
 
 
                      <div  className="container1" >

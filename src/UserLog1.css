@@ -46,3 +46,15 @@ border: 1px;
 border-bottom-right-radius: 10% 5%;
 border-top-right-radius: 10px;
 }
+.b15{
+  border-radius:6px;
+  height: 45px;
+  width: 100px;
+  background-color: blue;
+  color: black;
+  border: 2px solid violet;
+}
+.b15:hover {
+    background-color: white;
+    color: red;
+}

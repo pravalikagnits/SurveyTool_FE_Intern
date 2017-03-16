@@ -7,7 +7,42 @@
     margin: auto;
     text-align: justify;
     margin-top: 10px;
+    height: 250px;
 
+}
+
+
+.grid figure {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	margin: 10px 1%;
+
+	text-align: center;
+	cursor: pointer;
+}
+
+.grid figure img {
+	position: relative;
+	display: block;
+  height: 120px;
+  width: 100px;
+	/*min-height: 100%;
+	max-width: 100%;*/
+	opacity: 0.8;
+}
+
+.aname{
+  color:black;
+}
+
+.image:hover{
+  -moz-transform:scale(1.3);
+  -webkit-transform:scale(1.3);
+  transform:scale(1.3);
+}
+.Name{
+  float: right;
 }
 a:link {
      text-decoration: none ;
@@ -28,6 +63,7 @@ a:link {
     margin-top: 10px;
 
 }
+
 #report{
 
   height: auto;
@@ -35,6 +71,9 @@ a:link {
 }
 .fa fa-download{
  zoom:2.0;
+}
+.back{
+  zoom:1.5;
 }
 #report1{
   float: left;
@@ -50,7 +89,11 @@ a:link {
 }
 .back{
   float: left;
-  margin-left: 170px;
+  margin-left: 120px;
+  background-color: transparent;
+  border: 0px;
+  width: 25px;
+  border-radius: 300%;
 }
 
 
@@ -91,11 +134,39 @@ h3{
   align-items: center;
 
 }
-
+.back{
+  background-color: black;
+  color:white;
+}
 .button2{
   color:red;
   visibility: hidden;
 }
 .card:hover .button2{
   visibility: visible;
+}
+.b9{
+  background-color: transparent;
+  border: 0px;
+}
+.b10{
+  background-color: #0EBFE9;
+  color:black;
+  font-weight: bold;
+  border-radius: 15px;
+  border: 2px solid black;
+  font-weight: normal;
+  border-radius: 10px;
+
+}
+.b1:hover {
+    background-color: white;
+    color: red;
+}
+.m{
+    zoom:10%;
+}
+.l:hover{
+  text-decoration: none;
+
 }

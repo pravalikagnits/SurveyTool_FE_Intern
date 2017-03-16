@@ -4,17 +4,19 @@ label{
 }
 .Updatefeature{
   color:white;
+  font-style: normal;
+  font-size: 30px;
 }
 
 .UpdateFeatureList2{
 
-    background:rgba(0,0,0,0.7);
+  background:rgba(0,0,0,0.7);
   height:auto;
-  width: 600px;
-margin-left: 350px;
+  width: 1000px;
+
 }
 
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+::-webkit-input-placeholder {
   color: black;
 }
 
@@ -27,4 +29,21 @@ margin-left: 350px;
 
   text-align: justify;
 
+}
+.b6{
+  background-color: #0EBFE9;
+  color:black;
+  font-weight: bold;
+  border-radius: 8px;
+  border: 2px solid black;
+  height: 30px;
+  font-size: 15px;
+}
+.b6:hover {
+    background-color:white;
+
+}
+.choose{
+  margin-left: 38px;
+  color: white;
 }

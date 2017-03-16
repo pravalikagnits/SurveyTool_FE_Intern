@@ -59,20 +59,24 @@ class Index6 extends React.Component {
 
   render() {
     return (
-      <div className=" newsurveycreate w3-container">
       <center>
+
+      <div className=" newsurveycreate w3-container">
+
 
       &nbsp;&nbsp;<h1>Survey details</h1><br/><br/>
 
-      <label>Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="name" value = {this.state.sname} onChange = {this.updatename} className="w3-input" ref="name" placeholder="surveyname"  /><br/><br/>
-      <label>Description</label>&nbsp;&nbsp;<input type="text" value ={this.state.sdescription} onChange = {this.updatedescription} mode="multiline" ref="description" className="w3-input" placeholder="description"/><br/><br/>
-      <label>Date</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="date" value ={this.state.date} onChange = {this.updatedate} className="w3-input" ref="date" placeholder="dd-mm-yyyy"/><br/><br/>
+      <label>Name</label><input type="text" id="name" value = {this.state.sname} onChange = {this.updatename} className="t1 w3-input" ref="name" placeholder="surveyname"  /><br/><br/>
+      <label>Description</label><input type="text" value ={this.state.sdescription} onChange = {this.updatedescription} mode="multiline" ref="description" className="t1 w3-input" placeholder="description"/><br/><br/>
+      <label>Date</label><input type="date" value ={this.state.date} onChange = {this.updatedate} className="t1 w3-input" ref="date" placeholder="dd-mm-yyyy"/><br/><br/><br/>
 
-      <button  className="w3-btn w3-round-large w3-large" onClick={()=>this.handlePost()}>Create New Survey</button>&nbsp;&nbsp;
-      <button  className="w3-btn w3-round-large w3-large" onClick={()=>this.goBack()}>Back</button>
+      <button  className="b6 w3-btn w3-round-large w3-large" onClick={()=>this.handlePost()}>Create</button>&nbsp;&nbsp;
+      <button  className="b5 w3-btn w3-round-large w3-large" onClick={()=>this.goBack()}><i className="fa fa-backward"></i> Back</button>
 
-      </center>
+
       </div>
+      
+      </center>
     )
   }
 }

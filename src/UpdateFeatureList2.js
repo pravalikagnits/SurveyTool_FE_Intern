@@ -6,6 +6,7 @@ import Index6 from './Index6.js';
 import Index7 from './Index7.js';
 import Index5 from './Index5.js';
 import UserList from './UserList.js';
+var flag=0;
 
 class UpdateFeatureList2 extends Component {
 
@@ -32,7 +33,8 @@ class UpdateFeatureList2 extends Component {
                                .then(function(json){
                                  console.log(json);
                                  that.setState({image:json})
-                                 console.log(that.state.image);
+                                 flag=1;
+                              console.log(flag);
                                 })
                                 }
 
@@ -45,8 +47,19 @@ class UpdateFeatureList2 extends Component {
      var uname = window.sessionStorage.getItem('uname');
      console.log(auth+"//////");
      console.log(uname+"/////");
-       console.log(id);
-      
+     console.log(flag);
+         console.log(id);
+         var img;
+         if(flag==1)
+         {
+           img=this.state.image;
+           console.log(img);
+           flag=0;
+         }
+         else {
+           img=this.props.image;
+           console.log(img);}
+
                                 fetch('http://localhost:9000/Features/'+ id, {
 
 
@@ -69,7 +82,7 @@ class UpdateFeatureList2 extends Component {
                                     archstyle:archstyle.value,
                                     datebuilt:datebuilt.value,
                                     creator:creator.value,
-                                    image:this.state.image,
+                                    image:img,
                                     guides:guides.value,
                                     eateries:eateries.value
 
@@ -118,8 +131,8 @@ class UpdateFeatureList2 extends Component {
     return (
          <div>
   <center>
-
-          <center><h1 className="Updatefeature">Update Feature</h1></center><br/><br/>
+              <h1>UPDATE SURVEY ENTRY</h1>
+          <br/>
           <div className="UpdateFeatureList2 w3-container">
 
           <p id="para1">
@@ -137,12 +150,12 @@ class UpdateFeatureList2 extends Component {
                    <div className="col-sm-6" ><label>Architecture</label></div><div className="col-sm-4" > <input type="text" id="archstyle" defaultValue={this.props.archstyle}  className="w3-input"  placeholder="architecture"/></div><br/><br/>
                    <div className="col-sm-6" ><label>Date Built</label></div> <div className="col-sm-4" ><input type="text" id="datebuilt" defaultValue={this.props.datebuilt}  className="w3-input"  placeholder="datebuilt"/></div><br/><br/>
                    <div className="col-sm-6" ><label>Creator</label></div><div className="col-sm-4" > <input type="text" id="creator" defaultValue={this.props.creator}  className="w3-input"  placeholder="creator"/></div><br/><br/>
-                   <input type="file" id="myFile" name="image" multiple="multiple" accept=".png" onChange={this.handleSearch}/>  <br/><br/>
+                   <input className="choose" type="file" id="myFile" name="image" multiple="multiple" accept=".png" onChange={this.handleSearch}/>  <br/><br/>
                    <div className="col-sm-6" ><label>Guides</label></div><div className="col-sm-4" > <input type="text" id="guides" defaultValue={this.props.guides}  className="w3-input"  placeholder="guides"/></div><br/><br/>
                    <div className="col-sm-6" ><label>Eateries</label></div><div className="col-sm-4" > <input type="text" id="eateries" defaultValue={this.props.eateries}  className="w3-input"  placeholder="eateries"/></div><br/><br/>
                    <center>
-                   <button  className="w3-btn w3-round-large w3-large" onClick={()=>this.handleUpdate(id)}>Update</button>&nbsp;&nbsp;&nbsp;
-                   <button className="w3-btn w3-round-large w3-large" onClick={()=>this.handleBack()}>Back</button>
+                   <button  className="b6 w3-btn w3-round-large w3-large" onClick={()=>this.handleUpdate(id)}>Update</button>&nbsp;&nbsp;&nbsp;
+                   <button className="b6 w3-btn w3-round-large w3-large" onClick={()=>this.handleBack()}><i className="fa fa-backward"></i> Back</button>
                    </center>
                     <br/>
 

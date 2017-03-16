@@ -1,29 +1,45 @@
 
 
-.surveymain{
+.SurveyMain{
 
-  background:rgb(160,160,160);
-  height:auto;
-  width: 600px;
-margin-left: 350px;
-}
-button{
-  background-color: #E0FFFF;
-  color:black;
-  font-weight: bold;
-  border-radius: 15px;
-}
+  padding: 10px;
+  font-size: 40px;
+  font-family: serif;
+  width:65%;
+  background-color:rgb(160,160,160);
+  height: auto;
 
-.fa-close{
-  background: none;
+
+}
+.b4{
+    background-color: #0EBFE9;
+    color:black;
+    font-weight: bold;
+    border-radius: 15px;
+
+  border: 2px solid black;
+  height: 40px;
+  width: 250px;
+  font-size: 22px;
+  font-weight: normal;
+  border-radius: 10px;
+}
+.b4:hover{
+  background-color: white;
   color: red;
 }
 
-.fa-refresh{
-  background: none;
-    color:green;
-}
+.fa-close{
+    background: none;
+    color: red;
 
+  }
+
+  .fa-refresh{
+    background: none;
+      color:green;
+
+  }
 
 
 .anchor{
@@ -34,9 +50,8 @@ button{
 }
 .moduleSection th{
   font-size: 20px;
-  color:;
-}
 
+}
 
 
 tr td .td2{
@@ -59,10 +74,9 @@ th,.td1{
 }
 
 .moduleSection {
-
   border: 1px solid black;
   border-radius: 6px;
-  width: 100%;
+  width:65%;
 }
 
 i{
@@ -71,12 +85,16 @@ i{
 
 .delete{
   visibility: hidden;
+
 }
 tr:hover button{
    visibility: visible;
+   border: 0px;
+   background-color: transparent;
  }
  .update{
    visibility: hidden;
+
  }
 
 

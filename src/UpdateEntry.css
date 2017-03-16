@@ -1,6 +1,6 @@
 .UpdateEntry{
-  margin-top: -200px;
-  margin-left: -10px;
+  height:300px;
+  width:700px;
   top: 50%;
   left: 60%;
 
@@ -9,4 +9,14 @@
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: black;
+}
+.button{
+  background-color: #0EBFE9;
+  color:black;
+  font-weight: bold;
+  border-radius: 8px;
+  border: 2px solid black;
+  height: 30px;
+  font-size: 15px;
+
 }

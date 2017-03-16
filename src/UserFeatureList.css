@@ -24,13 +24,16 @@ tr:hover button{
    visibility: hidden;
  }
 
+ .button{
+   background-color: #0EBFE9;
+   color:black;
+   font-weight: bold;
+   border-radius: 15px;
+ }
 
 
 
  .card {
-
-
-
      box-shadow: 0 4px 8px 0 rgba(245,255,250,0.2);
      transition: 0.3s;
      width: 85%;
@@ -52,9 +55,6 @@ tr:hover button{
  .col-sm-4,.col-sm-8{
    color: black;
  }
-
-
-
 
 .imagetext img{
 
