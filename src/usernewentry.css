@@ -1,6 +1,7 @@
 .UsrNewEntry{
   padding: 100px;
-  background:rgba(0,0,0,0.8);
+  background-image: url('/img/about/abc.jpeg');
+  background-size: cover;
   font-size: 4vw;
   margin-left: 200px;
   margin-right: 200px;
@@ -16,11 +17,12 @@
 
 }
 .button{
-  background-color: #0EBFE9;
-  color:black;
-  font-weight: bold;
-  border-radius: 15px;
-  font-size: 15px;
+  color:white;
+  background-color: green;
+  background-image: linear-gradient(#68feff ,#e0ffff );
+  border-radius: 6px;
+    font-size: 20px;
+    color: black;
 }
 
 
@@ -53,4 +55,8 @@ right: 40;
  }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: rgb(128,128,128);
+}
+.cp{
+  color: white;
+  margin-left: 20px;
 }

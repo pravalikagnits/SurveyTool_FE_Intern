@@ -1,6 +1,6 @@
 .UpdateEntry{
   height:300px;
-  width:700px;
+  width:600px;
   top: 50%;
   left: 60%;
 
@@ -11,12 +11,17 @@
   color: black;
 }
 .button{
-  background-color: #0EBFE9;
-  color:black;
-  font-weight: bold;
-  border-radius: 8px;
-  border: 2px solid black;
-  height: 30px;
-  font-size: 15px;
+  color:white;
+  background-color: green;
+  background-image: linear-gradient(#68feff ,#e0ffff );
+  border-radius: 6px;
+    font-size: 20px;
+    color: black;
+
+}
+.l10{
+  float: left;
+  margin-left: 50px;
+  font-size: 20px;
 
 }

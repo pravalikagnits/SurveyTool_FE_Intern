@@ -214,7 +214,7 @@ class AdminList extends Component {
         <div> <center>
         <br/>
         <div className="header">
-        <button className="back" onClick={()=>this.handleBack()}><i className="m fa fa-backward"></i></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1><b>LIST OF ENTRIES</b></h1>
+        <button className="back" onClick={()=>this.handleBack()}><i className="abc fa fa-backward"></i></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1><b>LIST OF ENTRIES</b></h1>
 
         </div>
 
@@ -272,7 +272,7 @@ class AdminList extends Component {
         </center></div>
         <center>
         <button  className="b10 w3-btn w3-round-large w3-large" onClick={()=>this.mapview()}>MAP VIEW</button>&nbsp;&nbsp;
-      <button  className="b10 w3-btn w3-round-large w3-large" onClick={()=>this.exportGeoJson()}><a className="l" id="download-link" href='' target="_blank" download="geojson.json">Download</a><i className="fa fa-download"></i></button>&nbsp;&nbsp;&nbsp;<br/><br/>
+      <button  className="b10 w3-btn w3-round-large w3-large" onClick={()=>this.exportGeoJson()}><a className="l" id="download-link" href='' target="_blank" download="geojson.json">DOWNLOAD</a><i className="fa fa-download"></i></button>&nbsp;&nbsp;&nbsp;<br/><br/>
 
 
                      <div  className="container1" >

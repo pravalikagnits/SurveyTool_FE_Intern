@@ -55,7 +55,7 @@ class AdminFeatureList extends Component {
     return (
 
 
-      <div className="AdminFeatureList w3-container">
+      <div className="AdminFeatureList w3-container">  <br/>
       <div className="card">
 
       <div  className="container1" >
@@ -128,8 +128,9 @@ class AdminFeatureList extends Component {
       <center>
 
       <button  className="b14" onClick={()=>this.handleBack()}><i className="fa fa-backward"></i> Back</button>&nbsp;&nbsp;&nbsp;
-      </center>
+      </center>   <br/>
       </div>
+
 
 
 

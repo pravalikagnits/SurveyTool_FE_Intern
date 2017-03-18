@@ -83,11 +83,11 @@ class UpdateEntry extends Component {
 
             <br/><br/>
                   {this.props.uid}
-                    <div className="col-sm-6" ><label>Name:</label></div><input type="text" id="sname" defaultValue={this.props.sname}  className="w3-input" ref="name" placeholder="surveyname"/><br/><br/>
-                    <div className="col-sm-6" ><label>Description:</label></div><input type="text" id="sdescription" defaultValue ={this.props.sdesc}  mode="multiline" ref="description" className="w3-input" placeholder="description"/><br/><br/>
-                    <div className="col-sm-6" ><label>Last Date:</label></div><input type="date" id="date" defaultValue={this.props.date}  className="w3-input" ref="date" placeholder="final date"/><br/><br/>
+                    <div className="col-sm-4" ><label className="l10">Name:</label></div><input type="text" id="sname" defaultValue={this.props.sname}  className="w3-input" ref="name" placeholder="surveyname"/><br/><br/>
+                    <div className="col-sm-4" ><label className="l10">Description:</label></div><input type="text" id="sdescription" defaultValue ={this.props.sdesc}  mode="multiline" ref="description" className="w3-input" placeholder="description"/><br/><br/>
+                    <div className="col-sm-4" ><label className="l10">Last Date:</label></div><input type="date" id="date" defaultValue={this.props.date}  className="w3-input" ref="date" placeholder="final date"/><br/><br/>
                     <button  className="button" onClick={()=>this.handleUpdate(id)}>Update</button>&nbsp;&nbsp;&nbsp;
-                    <button className="button" onClick={()=>this.handleBack()}>Back</button>
+                    <button className="button" onClick={()=>this.handleBack()}><i className="fa fa-backward"></i> Back</button>
 
                     <br/>
 

@@ -9,12 +9,6 @@
 
 }
 
-button{
-  background-color: #E0FFFF;
-  color:black;
-  font-weight: bold;
-  border-radius: 15px;
-}
 input[type=checkbox] {
     zoom: 2.5;
 }
@@ -43,4 +37,5 @@ border: 1px;
   border-top-left-radius: 10px 5px;
 border-bottom-right-radius: 10% 5%;
 border-top-right-radius: 10px;
+text-align: center;
 }

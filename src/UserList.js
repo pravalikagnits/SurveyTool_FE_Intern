@@ -119,7 +119,7 @@ class UserList extends Component {
       {this.state.Features.name}
 
       <div>
-                      <div className="header">
+                      <div className="header"><br/>
                           <button className="back1" onClick={()=>this.handleBack()}><center><i className="abc fa fa-backward"></i></center></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                           <center>
                           <h1>LIST OF ENTRIES</h1>
@@ -179,7 +179,7 @@ class UserList extends Component {
 
       <center>
 
-                  <button className="b1 w3-btn w3-round-large w3-large" onClick={()=>this.AddNewEntry()}><i className="fa fa-plus-circle"></i> Add Entry</button>
+                  <button className="b41 w3-btn w3-round-large w3-large" onClick={()=>this.AddNewEntry()}><i className="fa fa-plus-circle"></i> Add Entry</button><br/><br/><br/>
       </center>
       </div>
 

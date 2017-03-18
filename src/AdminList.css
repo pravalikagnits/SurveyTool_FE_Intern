@@ -21,7 +21,11 @@
 	text-align: center;
 	cursor: pointer;
 }
-
+.AdminList{
+    background-image: url('/img/about/bcd.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 .grid figure img {
 	position: relative;
 	display: block;
@@ -72,9 +76,7 @@ a:link {
 .fa fa-download{
  zoom:2.0;
 }
-.back{
-  zoom:1.5;
-}
+
 #report1{
   float: left;
   margin-right: 20px;
@@ -83,19 +85,15 @@ a:link {
 
 .container1{
   margin-bottom: 10px;
-}
-.AdminList{
-  background-image: url('/images/back17.jpeg');
-}
-.back{
-  float: left;
-  margin-left: 120px;
-  background-color: transparent;
-  border: 0px;
-  width: 25px;
-  border-radius: 300%;
+  background-color: #f5f5f5;
+  opacity: 0.8;
 }
 
+.back{
+  background-color: black;
+  zoom:1.5;
+  color: white;
+}
 
 hr{
   border:1px solid black;
@@ -137,6 +135,11 @@ h3{
 .back{
   background-color: black;
   color:white;
+  margin-left: 110px;
+  float: left;
+  border: 0px;
+  width: 25px;
+  border-radius: 300%;
 }
 .button2{
   color:red;
@@ -145,26 +148,18 @@ h3{
 .card:hover .button2{
   visibility: visible;
 }
-.b9{
-  background-color: transparent;
-  border: 0px;
-}
-.b10{
-  background-color: #0EBFE9;
-  color:black;
-  font-weight: bold;
-  border-radius: 15px;
-  border: 2px solid black;
-  font-weight: normal;
-  border-radius: 10px;
 
+.b10{
+  color:white;
+  background-color: green;
+  background-image: linear-gradient(#68feff ,#e0ffff );
+  border-radius: 6px;
+    font-size: 20px;
+    color: black;
 }
-.b1:hover {
-    background-color: white;
-    color: red;
-}
-.m{
-    zoom:10%;
+
+.abc{
+    zoom:1;
 }
 .l:hover{
   text-decoration: none;

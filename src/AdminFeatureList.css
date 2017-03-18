@@ -1,5 +1,7 @@
 .AdminFeatureList{
-  background-image: url('/images/back17.jpeg');
+  background-image: url('/img/about/efg.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .image{
@@ -26,6 +28,7 @@
   height:auto;
   border-radius: 5px;
   margin: auto;
+  opacity: 0.7;
   text-align: justify
 
 }
@@ -34,7 +37,7 @@
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 .container1 {
-
+  opacity: 1;
   padding: 15px 10px;
 }
 
@@ -73,25 +76,10 @@
   width: 100%;
 }
 .b14{
-  background-color: #0EBFE9;
-  color:black;
-  font-weight: bold;
-  border-radius: 15px;
-  border: 2px solid black;
-  font-weight: normal;
-  border-radius: 10px;
+  color:white;
+  background-color: green;
+  background-image: linear-gradient(#68feff ,#e0ffff );
+  border-radius: 6px;
+    font-size: 20px;
+    color: black;
 }
-.b14:hover {
-    background-color: white;
-    color: red;
-}
-
-/*.tablerow:hover{
-background:#c0c0c0;
-}*/
-/*
-.td1 label{
-
-color:#1A0C52;
-
-}*/

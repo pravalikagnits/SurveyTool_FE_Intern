@@ -49,7 +49,7 @@ class UserFeatureList extends Component {
     return (
 
 
-      <div className="UserFeatureList w3-container">
+      <div className="UserFeatureList w3-container"><br/>
                 <div className="card">
 
                     <div  className="container1" >
@@ -116,15 +116,16 @@ class UserFeatureList extends Component {
                               <div className="col-sm-4" ><strong>Eateries:</strong></div>
                               <div className="col-sm-8"><strong> {this.state.item.eateries}</strong></div><br/>
                            </div>
-                           <center>
-                           <button  className="button" onClick={()=>this.handleBack()}>Back</button>&nbsp;&nbsp;&nbsp;
-                           </center>
 
 
 
                   </div>
-                </div>
 
+                </div>
+                <center>
+                <button  className="b40" onClick={()=>this.handleBack()}><i className="fa fa-backward"></i> Back</button>&nbsp;&nbsp;&nbsp;
+                </center>
+                <br/>
 
       </div>
 

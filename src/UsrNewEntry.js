@@ -244,7 +244,7 @@ console.log("img",this.state.image);
                                      </div>
 
                                      <div className="form-group">
-                                     <input type="file" id="myFile" name="image" multiple="multiple" accept=".png" onChange={this.handleSearch}/>
+                                     <input className="cp" type="file" id="myFile" name="image" multiple="multiple" accept=".png" onChange={this.handleSearch}/>
                                                             <br/><br/>
                                     <p className="help-block text-danger"></p>
                                     </div>
@@ -271,7 +271,7 @@ console.log("img",this.state.image);
                                         <br/><br/><br/><br/>
                                         <center>
                                       <button type="submit" className="button" onClick={()=>this.handleFeature(this.props.sid)} >Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                      <button className="button" onClick={()=>this.handleBack()} >Back</button><br/><br/>
+                                      <button className="button" onClick={()=>this.handleBack()} ><i className="fa fa-backward"></i> Back</button><br/><br/>
                                       </center>
                                       </form>
                                       </p>

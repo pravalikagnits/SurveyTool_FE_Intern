@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 
 import ReactDOM from 'react-dom';
@@ -8,7 +9,7 @@ import './App.css';
 import Signup from './Signup.js';
 import Survey from './Survey.js';
 import Login from  './Login.js';
-
+var Carousel = require('react-responsive-carousel').Carousel;
 
 
 
@@ -49,7 +50,8 @@ class App extends Component {
       <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
       <span className="sr-only">Toggle navigation</span> Menu <i className="fa fa-bars"></i>
       </button>
-      <a className="mapsurvey page-scroll" id="mapsurvey" href="#">Map Survey Tool</a>
+
+      <a className="mapsurvey page-scroll" id="mapsurvey" href="#"><img id="lg" src="/img/logo.png" alt=""/>&nbsp;Survey Gate</a>
       </div>
 
       <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -67,10 +69,10 @@ class App extends Component {
       <a className="page-scroll"  id="link" href="#contact">Contact</a>
       </li>
       <li>
-      <a className="page-scroll" id="link" onClick = {()=>this.HandleSignin()}>SignUp</a>
+      <a className="page-scroll" id="link" href="#link" onClick = {()=>this.HandleSignin()}>SignUp</a>
       </li>
       <li>
-      <a className="page-scroll " id="link"  onClick = {()=>this.Handlelogin()}><div id="mn">LOGIN</div></a>
+      <a className="page-scroll " id="link" href="#link" onClick = {()=>this.Handlelogin()}><div id="mn">LOGIN</div></a>
       </li>
       </ul>
       </div>
@@ -80,22 +82,42 @@ class App extends Component {
 
       <section id="content">
       <header>
-      <div className="container">
-  <br/>
+
+      <Carousel  showThumbs={false} showArrows={false} showStatus={false} autoPlay = {true} infiniteLoop = {true} >
 
 
+          <div>
+              <img src="img/header-bg.jpg" />
+              <div className="w3-display-middle w3-large w3-container w3-padding-16 ">
+             <div className="intro-text">
+                  <div className="intro-heading"> Create Survey!!!<br/> Get Answers...</div>
+                    <a href="#services" className="page-scroll btn btn-xl">More>>></a>
+              </div>
 
-      <div className="item active">
-      <div className="intro-text">
-        <div className="intro-heading"> Create Survey !!! Get Answers</div>
-        <a href="#services" className="page-scroll btn btn-xl">More>>></a>
+            </div>
+            </div>
+
+      <div>
+          <img src="img/about/2.jpg" />
+
       </div>
+      <div>
+          <img src="img/about/1.jpg" />
+
       </div>
+             <div>
+                 <img src="img/road.jpeg" />
+
+             </div>
+
+             <div>
+                 <img src="img/malls.jpeg" />
+
+             </div>
 
 
+         </Carousel>
 
-
-    </div>
       </header>
       </section>
 
@@ -105,7 +127,7 @@ class App extends Component {
 
       <div className="col-lg-12 text-center">
       <h2 className="section-heading">Services</h2>
-      <h3 className="section-subheading text-muted">Introducing map survey tool.</h3>
+      <h3 className="section-subheading text-muted">Introducing Survey Gate.</h3>
       </div>
       </div>
       <div className="row text-center">
@@ -134,7 +156,7 @@ class App extends Component {
       <i className="fa fa-lock fa-stack-1x fa-inverse"></i>
       </span>
       <h4 className="service-heading">Fast & Easy</h4>
-      <p className="text-muted">We have done our best to make creating surveys as enjoyable as possible.Map Survey Tool is very fast and easily accessible</p>
+      <p className="text-muted">We have done our best to make creating surveys as enjoyable as possible.Survey Gate is very fast and easily accessible</p>
       </div>
       </div>
       </div>
@@ -144,7 +166,7 @@ class App extends Component {
       <div className="container">
       <div className="row">
       <div className="col-lg-12 text-center">
-      <h2 className="section-heading">About</h2>
+      <h2 className="section-heading">About Us</h2>
       </div>
       </div>
       <div className="row">
@@ -152,25 +174,25 @@ class App extends Component {
       <ul className="timeline">
       <li>
       <div className="timeline-image">
-      <img className="img-circle img-responsive" src="img/about/5.png" alt="image not available"/>
+      <img className="img-circle img-responsive" id="abtimg" src="img/about/5.png" alt="image not available"/>
       </div>
       <div className="timeline-panel">
       <div className="timeline-heading">
       <h4></h4>
       </div>
       <div className="timeline-body">
-      <p className="text-muted">Map Survey Tool is basically used to peform surveys online.It allows the users to add entries to the survey</p>
+      <p className="text-muted">Survey Gate is basically used to peform surveys online.It allows the users to add entries to the survey</p>
       </div>
       </div>
       </li>
       <li className="timeline-inverted">
       <div className="timeline-image">
-      <img className="img-circle img-responsive" src="img/about/8.jpg" alt=""/>
+      <img className="img-circle img-responsive" id="abtimg" src="img/about/8.jpg" alt=""/>
       </div>
       <div className="timeline-panel">
 
       <div className="timeline-body">
-      <p className="text-muted">Map Survey Tool allows user to specify the location.</p>
+      <p className="text-muted">Survey Gate allows user to specify the location.</p>
       </div>
       </div>
       </li>
@@ -218,7 +240,7 @@ class App extends Component {
       <div className="clearfix"></div>
       <div className="col-lg-12 text-center">
       <div id="success"></div>
-      <button type="submit" className="btn btn-xl">Send Message</button>
+      <button type="submit" id="l" className="btn btn-xl">Send Message</button>
       </div>
       </div>
       </form>
@@ -231,13 +253,13 @@ class App extends Component {
       <div className="container">
       <div className="row">
       <div className="col-md-4">
-      <span className="copyright">Copyright &copy; Your Website 2016</span>
+      <span className="copyright">Copyright &copy; Survey Gate 2017</span>
       </div>
       <div className="col-md-4">
       <ul className="list-inline social-buttons">
-      <li><a href="https://www.facebook.com/login/" target="_blank"><i className="fa fa-twitter"></i></a>
+      <li><a href="https://twitter.com/login" target="_blank"><i className="fa fa-twitter"></i></a>
       </li>
-      <li><a href="https://twitter.com/login" target="_blank"><i className="fa fa-facebook"></i></a>
+      <li><a href="https://www.facebook.com/login/" target="_blank"><i className="fa fa-facebook"></i></a>
       </li>
       <li><a href="https://www.linkedin.com/uas/login" target="_ blank"><i className="fa fa-linkedin"></i></a>
       </li>

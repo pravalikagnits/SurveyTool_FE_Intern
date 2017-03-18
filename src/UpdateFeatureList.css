@@ -17,11 +17,18 @@ label{
   color: black;
 }
 .button{
-  background-color: #0EBFE9;
-  color:black;
-  font-weight: bold;
-  border-radius: 15px;
+  color:white;
+  background-color: green;
+  background-image: linear-gradient(#68feff ,#e0ffff );
+  border-radius: 6px;
+    font-size: 20px;
+    color: black;
 }
 .c10{
-  margin-left: 180px;
+  margin-left: -100px;
+  font: white;
+}
+.m{
+  float: left;
+  margin-left: 50px;
 }
