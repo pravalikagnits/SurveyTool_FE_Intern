@@ -8,6 +8,11 @@ h1{
 p{
   color: white;
 }
+
+
+#contact{
+  background-image: url('/img/contact/contact.jpg');
+}
 /*button.contactbtn,.news,.home,.signup1,.login1,.aboutus{
 background-color: black;
 color: white;

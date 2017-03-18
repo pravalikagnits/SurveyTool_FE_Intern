@@ -125,7 +125,7 @@ class AdminList extends Component {
       var infoWindow = new google.maps.InfoWindow();
       var mapOptions = {
         center: new google.maps.LatLng(this.state.Features[0].latitude,this.state.Features[0].longitude),
-        zoom: 10,
+        zoom: 5,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
 
@@ -187,7 +187,8 @@ class AdminList extends Component {
           },
           "properties": {}
         };
-        json[i]={lat:this.state.Features[i].latitude,long:this.state.Features[i].longitude,name:this.state.Features[i].name}
+        json[i]={lat:this.state.Features[i].latitude,long:this.state.Features[i].longitude,name:this.state.Features[i].name,country:this.state.Features[i].country,state:this.state.Features[i].state,district:this.state.Features[i].district,deities:this.state.Features[i].deities,
+          festivals:this.state.Features[i].festivals,archstyle:this.state.Features[i].archstyle,datebuilt:this.state.Features[i].datebuilt,creator:this.state.Features[i].creator,guides:this.state.Features[i].guides,eateries:this.state.Features[i].eateries}
         polylineFeature.geometry.coordinates.push(
           json[i].long,json[i].lat
         );
@@ -255,7 +256,7 @@ class AdminList extends Component {
 
             <div className="col-sm-4" ><strong>District:</strong></div>
             <div className="col-sm-4">{item.district}</div><br/>
-            
+
 
               </div>
             </div>
