@@ -3,7 +3,9 @@
   font-size: 40px;
   font-family: serif;
   width:85%;
-  background-color:rgb(160,160,160);
+  background-image: url('/img/about/bcde.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
   height: auto;
   width: 80%;
 

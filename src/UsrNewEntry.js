@@ -82,7 +82,7 @@ class UsrNewEntry extends React.Component {
                                         mapTypeId: google.maps.MapTypeId.ROADMAP
                                   }
                                   console.log(mylatlng.lat());
-                                var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+                                var map = new google.maps.Map(document.getElementById("map23"), mapOptions);
                                 var geocoder = new google.maps.Geocoder();
 
                                      var marker = new google.maps.Marker({
@@ -166,6 +166,9 @@ console.log("img",this.state.image);
             return (
 
               <div className="UsrNewEntry1">
+              <center>
+            <h1><b>NEW ENTRY</b></h1>
+            </center>
               <div className="UsrNewEntry">
 
               <center>
@@ -188,7 +191,7 @@ console.log("img",this.state.image);
                                       <div className="col-sm-4" ><input  type="text" className="form-control textbox" defaultValue="78.38" placeholder="Longitude" id="long"  /><br/><br/></div>
                                       <p className="help-block text-danger"></p>
                                       </div>
-                                      <center><div id="map" className="map " ref="map"> </div></center>
+                                      <center><div id="map23" className="map21" ref="map"> </div></center>
 
 
 

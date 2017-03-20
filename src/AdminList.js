@@ -275,7 +275,7 @@ class AdminList extends Component {
       <button  className="b10 w3-btn w3-round-large w3-large" onClick={()=>this.exportGeoJson()}><a className="l" id="download-link" href='' target="_blank" download="geojson.json">DOWNLOAD</a><i className="fa fa-download"></i></button>&nbsp;&nbsp;&nbsp;<br/><br/>
 
 
-                     <div  className="container1" >
+                     <div  className="container2" >
         <div id="map1" className="map1" ref="map"> </div>
 
         </div>

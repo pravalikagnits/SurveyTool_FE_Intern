@@ -59,72 +59,84 @@ class AdminFeatureList extends Component {
       <div className="card">
 
       <div  className="container1" >
-
-      <img  className="image" src={this.state.item.image} alt="image not available!!"/>
+      <table className="abcdef">
+      <tbody className="fgh">
+      <td className="tdata1">
 
       <h3><strong>Name: {this.state.item.name}</strong></h3>
 
       <div className="row">
-      <div className="col-sm-4" ><strong>Latitude:</strong></div>
+      <div className="col-sm-6" ><strong>Latitude:</strong></div>
       <div className="col-sm-6"><strong> {this.state.item.latitude}</strong></div>
       </div>
 
       <div className="row">
-      <div className="col-sm-4" ><strong>longitude:</strong></div>
-      <div className="col-sm-8"><strong> {this.state.item.longitude}</strong></div><br/>
+      <div className="col-sm-6" ><strong>longitude:</strong></div>
+      <div className="col-sm-5"><strong> {this.state.item.longitude}</strong></div><br/>
       </div>
 
       <div className="row">
-      <div className="col-sm-4" ><strong>Country:</strong></div>
-      <div className="col-sm-8"><strong> {this.state.item.country}</strong></div><br/>
+      <div className="col-sm-6" ><strong>Country:</strong></div>
+      <div className="col-sm-6"><strong> {this.state.item.country}</strong></div><br/>
       </div>
 
       <div className="row">
-      <div className="col-sm-4" ><strong>State:</strong></div>
-      <div className="col-sm-8"> <strong>{this.state.item.state}</strong></div><br/>
+      <div className="col-sm-6" ><strong>State:</strong></div>
+      <div className="col-sm-6"> <strong>{this.state.item.state}</strong></div><br/>
       </div>
 
       <div className="row">
-      <div className="col-sm-4" ><strong>District:</strong></div>
-      <div className="col-sm-8"><strong> {this.state.item.district}</strong></div><br/>
+      <div className="col-sm-6" ><strong>District:</strong></div>
+      <div className="col-sm-6"><strong> {this.state.item.district}</strong></div><br/>
       </div>
 
       <div className="row">
-      <div className="col-sm-4" ><strong>Deities:</strong></div>
-      <div className="col-sm-8"><strong> {this.state.item.deities}</strong></div><br/>
+      <div className="col-sm-6" ><strong>Deities:</strong></div>
+      <div className="col-sm-6"><strong> {this.state.item.deities}</strong></div><br/>
       </div>
 
       <div className="row">
-      <div className="col-sm-4" ><strong>Festivals:</strong></div>
-      <div className="col-sm-8"><strong> {this.state.item.festivals}</strong></div><br/>
+      <div className="col-sm-6" ><strong>Festivals:</strong></div>
+      <div className="col-sm-6"><strong> {this.state.item.festivals}</strong></div><br/>
       </div>
 
       <div className="row">
-      <div className="col-sm-4" ><strong>Architecture:</strong></div>
-      <div className="col-sm-8"><strong> {this.state.item.archstyle}</strong></div><br/>
+      <div className="col-sm-6" ><strong>Architecture:</strong></div>
+      <div className="col-sm-6"><strong> {this.state.item.archstyle}</strong></div><br/>
       </div>
       <div className="row">
-      <div className="col-sm-4" ><strong>Date Built</strong></div>
-      <div className="col-sm-8"><strong> {this.state.item.datebuilt}</strong></div><br/>
+      <div className="col-sm-6" ><strong>Date Built</strong></div>
+      <div className="col-sm-6"><strong> {this.state.item.datebuilt}</strong></div><br/>
       </div>
 
       <div className="row">
-      <div className="col-sm-4" ><strong>Creator:</strong></div>
-      <div className="col-sm-8"><strong> {this.state.item.creator}</strong></div><br/>
+      <div className="col-sm-6" ><strong>Creator:</strong></div>
+      <div className="col-sm-6"><strong> {this.state.item.creator}</strong></div><br/>
       </div>
 
       <div className="row">
-      <div className="col-sm-4" ><strong>Guides:</strong></div>
-      <div className="col-sm-8"><strong> {this.state.item.guides}</strong></div><br/>
+      <div className="col-sm-6" ><strong>Guides:</strong></div>
+      <div className="col-sm-6"><strong> {this.state.item.guides}</strong></div><br/>
       </div>
 
       <div className="row">
-      <div className="col-sm-4" ><strong>Eateries:</strong></div>
-      <div className="col-sm-8"><strong> {this.state.item.eateries}</strong></div><br/>
+      <div className="col-sm-6" ><strong>Eateries:</strong></div>
+      <div className="col-sm-6"><strong> {this.state.item.eateries}</strong></div><br/>
+      </div>
+      </td>
+      <td className="tdata2">
+      <div className="grid1">
+      <figure>
+      <img  className="images" src={this.state.item.image} alt="image not available!!"/>
+      </figure>
       </div>
 
+      </td>
+      </tbody>
+      </table>
       </div>
       </div>
+
       <center>
 
       <button  className="b14" onClick={()=>this.handleBack()}><i className="fa fa-backward"></i> Back</button>&nbsp;&nbsp;&nbsp;

@@ -78,19 +78,23 @@ class UpdateEntry extends Component {
       return (
 
         <center>
-        <h2><b>Update Survey</b></h2>
+        <br/>
+          <div className="UpdateEntry1"><br/>
+          <h1><b>UPDATE SURVEY</b></h1>
             <div className="UpdateEntry w3-container">
+
 
             <br/><br/>
                   {this.props.uid}
-                    <div className="col-sm-4" ><label className="l10">Name:</label></div><input type="text" id="sname" defaultValue={this.props.sname}  className="w3-input" ref="name" placeholder="surveyname"/><br/><br/>
-                    <div className="col-sm-4" ><label className="l10">Description:</label></div><input type="text" id="sdescription" defaultValue ={this.props.sdesc}  mode="multiline" ref="description" className="w3-input" placeholder="description"/><br/><br/>
-                    <div className="col-sm-4" ><label className="l10">Last Date:</label></div><input type="date" id="date" defaultValue={this.props.date}  className="w3-input" ref="date" placeholder="final date"/><br/><br/>
+                    <div className="col-sm-4" ><label className="l10">Name:</label></div><input type="text" id="sname" defaultValue={this.props.sname}  className="ghk w3-input" ref="name" placeholder="surveyname"/><br/><br/>
+                    <div className="col-sm-4" ><label className="l10">Description:</label></div><input type="text" id="sdescription" defaultValue ={this.props.sdesc}  mode="multiline" ref="description" className="ghk w3-input" placeholder="description"/><br/><br/>
+                    <div className="col-sm-4" ><label className="l10">Last Date:</label></div><input type="date" id="date" defaultValue={this.props.date}  className="ghk w3-input" ref="date" placeholder="final date"/><br/><br/>
                     <button  className="button" onClick={()=>this.handleUpdate(id)}>Update</button>&nbsp;&nbsp;&nbsp;
                     <button className="button" onClick={()=>this.handleBack()}><i className="fa fa-backward"></i> Back</button>
 
-                    <br/>
+                    <br/><br/>
 
+             </div><br/><br/>
              </div>
              </center>
 

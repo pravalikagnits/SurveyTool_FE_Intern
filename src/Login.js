@@ -133,7 +133,7 @@ fetch('http://localhost:9000/users/validate/'+username+"?upwd="+password)
       <br/><br/><center>
       <div className="loginpage w3-container w3-animate-top">
       <center>
-     <br/>     <br/>
+     <br/>  
       <img  className="image" src='/src/images/default-user.png' alt="image not available!!"/>
 
       <h1 id="title" className="logintext" >Login</h1>

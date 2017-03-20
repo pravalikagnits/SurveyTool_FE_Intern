@@ -53,70 +53,81 @@ class UserFeatureList extends Component {
                 <div className="card">
 
                     <div  className="container1" >
+                    <table className="abcdef">
+                    <tbody className="fgh">
+                    <td className="tdata3">
 
-                          <img  className="image" src={this.state.item.image} alt="image not available!!"/>
 
                            <h3><strong>Name: {this.state.item.name}</strong></h3>
 
                            <div className="row">
-                              <div className="col-sm-4" ><strong>Latitude:</strong></div>
-                              <div className="col-sm-6"><strong> {this.state.item.latitude}</strong></div><br/>
+                              <div className="col-sm-6" ><strong>Latitude:</strong></div>
+                              <div className="col-sm-6">{this.state.item.latitude}</div><br/>
                            </div>
 
                            <div className="row">
-                              <div className="col-sm-4" ><strong>longitude:</strong></div>
-                              <div className="col-sm-8"><strong> {this.state.item.longitude}</strong></div><br/>
+                              <div className="col-sm-6" ><strong>Longitude:</strong></div>
+                              <div className="col-sm-6">{this.state.item.longitude}</div><br/>
                            </div>
 
                            <div className="row">
-                              <div className="col-sm-4" ><strong>Country:</strong></div>
-                              <div className="col-sm-8"><strong> {this.state.item.country}</strong></div><br/>
+                              <div className="col-sm-6" ><strong>Country:</strong></div>
+                              <div className="col-sm-6">{this.state.item.country}</div><br/>
                            </div>
 
                            <div className="row">
-                              <div className="col-sm-4" ><strong>State:</strong></div>
-                              <div className="col-sm-8"> <strong>{this.state.item.state}</strong></div><br/>
+                              <div className="col-sm-6" ><strong>State:</strong></div>
+                              <div className="col-sm-6"> {this.state.item.state}</div><br/>
                            </div>
 
                            <div className="row">
-                              <div className="col-sm-4" ><strong>District:</strong></div>
-                              <div className="col-sm-8"><strong> {this.state.item.district}</strong></div><br/>
+                              <div className="col-sm-6" ><strong>District:</strong></div>
+                              <div className="col-sm-6">{this.state.item.district}</div><br/>
                            </div>
 
                            <div className="row">
-                              <div className="col-sm-4" ><strong>Deities:</strong></div>
-                              <div className="col-sm-8"><strong> {this.state.item.deities}</strong></div><br/>
+                              <div className="col-sm-6" ><strong>Deities:</strong></div>
+                              <div className="col-sm-6">{this.state.item.deities}</div><br/>
                            </div>
 
                            <div className="row">
-                              <div className="col-sm-4" ><strong>Festivals:</strong></div>
-                              <div className="col-sm-8"><strong> {this.state.item.festivals}</strong></div><br/>
+                              <div className="col-sm-6" ><strong>Festivals:</strong></div>
+                              <div className="col-sm-6">{this.state.item.festivals}</div><br/>
                            </div>
 
                            <div className="row">
-                              <div className="col-sm-4" ><strong>Architecture:</strong></div>
-                              <div className="col-sm-8"><strong> {this.state.item.archstyle}</strong></div><br/>
+                              <div className="col-sm-6" ><strong>Architecture:</strong></div>
+                              <div className="col-sm-6">{this.state.item.archstyle}</div><br/>
                            </div>
                            <div className="row">
-                              <div className="col-sm-4" ><strong>Date Built</strong></div>
-                              <div className="col-sm-8"><strong> {this.state.item.datebuilt}</strong></div><br/>
+                              <div className="col-sm-6" ><strong>Date Built</strong></div>
+                              <div className="col-sm-6"> {this.state.item.datebuilt}</div><br/>
                            </div>
 
                            <div className="row">
-                              <div className="col-sm-4" ><strong>Creator:</strong></div>
-                              <div className="col-sm-8"><strong> {this.state.item.creator}</strong></div><br/>
+                              <div className="col-sm-6" ><strong>Creator:</strong></div>
+                              <div className="col-sm-6">{this.state.item.creator}</div><br/>
                            </div>
 
                            <div className="row">
-                              <div className="col-sm-4" ><strong>Guides:</strong></div>
-                              <div className="col-sm-8"><strong> {this.state.item.guides}</strong></div><br/>
+                              <div className="col-sm-6" ><strong>Guides:</strong></div>
+                              <div className="col-sm-6">{this.state.item.guides}</div><br/>
                            </div>
 
                            <div className="row">
-                              <div className="col-sm-4" ><strong>Eateries:</strong></div>
-                              <div className="col-sm-8"><strong> {this.state.item.eateries}</strong></div><br/>
+                              <div className="col-sm-6" ><strong>Eateries:</strong></div>
+                              <div className="col-sm-6">{this.state.item.eateries}</div><br/>
                            </div>
-
+                           </td>
+                           <td className="tdata4">
+                           <div className="grid2">
+                             <figure>
+                             <img  className="image1" src={this.state.item.image} alt="image not available!!"/>
+                             </figure>
+                           </div>
+                           </td>
+                           </tbody>
+                           </table>
 
 
                   </div>

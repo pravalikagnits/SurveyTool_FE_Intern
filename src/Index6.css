@@ -1,14 +1,21 @@
 .newsurveycreate{
+  font-family: serif;
+  background-color: #f5f5f5;
+  opacity: 0.8;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: black 1px;
+  height: auto;
+  width: 600px;
 
-  background-color:rgb(160,160,160);
-  height: 400px;
-  width: 500px;
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: black;
 }
-.abc{
-  background-image: url('/src/images/back.jpeg');
+.Index6{
+  background-image: url('/img/about/bcde.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .newsurveycreate h1{
@@ -17,7 +24,7 @@
 }
 
 .newsurveycreate label{
-  color:white;
+  color:black;
   float: left;
   margin-left: 40px;
   text-align: justify;
@@ -36,13 +43,13 @@ input{
   background-color: green;
   background-image: linear-gradient(#68feff ,#e0ffff );
   border-radius: 6px;
-    font-size: 20px;
-    color: black;
+  font-size: 20px;
+  color: black;
 }
 
-.t1{
-  width: 260px;
-  float: right;
-  margin-right: 80px;
-  height: 34px;
+
+.ghk{
+  border: 1px;
+  border-color: black;
+  border-style: solid;
 }

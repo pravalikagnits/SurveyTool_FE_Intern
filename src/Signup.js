@@ -89,11 +89,11 @@ render(){
 
   return(
     <div className="SignUp">
-    <br/><br/><br/><br/><center>
+    <br/><br/>><center>
     <div className="Signup w3-container w3-animate-top ">
     <center>
-    <br/><br/><br/>
-    
+    <br/>
+
     <form>
     <h1 className="signuptext">
     Sign Up

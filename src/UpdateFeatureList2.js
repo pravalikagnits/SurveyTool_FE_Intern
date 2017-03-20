@@ -129,8 +129,8 @@ class UpdateFeatureList2 extends Component {
 
 
     return (
-         <div>
-  <center>
+         <div className="updatefeaturelist2">
+  <center><br/>
               <h1>UPDATE SURVEY ENTRY</h1>
           <br/>
           <div className="UpdateFeatureList2 w3-container">
@@ -139,30 +139,30 @@ class UpdateFeatureList2 extends Component {
 
 
           <br/>
-                  <div className="col-sm-4" ><label className="l9">Name</label></div><div className="col-sm-6" > <input type="text" id="names" defaultValue={this.props.name}  className="w3-input"  placeholder="name"/><br/><br/></div>
-                   <div className="col-sm-4" ><label className="l9">Latitude</label></div><div className="col-sm-6" > <input type="text" id="latitude" defaultValue ={this.props.latitude}    className="w3-input" placeholder="latitude"/><br/><br/></div>
-                   <div className="col-sm-4" ><label className="l9">Longitude</label></div><div className="col-sm-6" > <input type="text" id="longitude" defaultValue={this.props.longitude}  className="w3-input"  placeholder="longitude"/><br/><br/></div>
-                   <div className="col-sm-4" ><label className="l9">Country</label></div><div className="col-sm-6" > <input type="text" id="country" defaultValue={this.props.country}  className="w3-input"  placeholder="country"/><br/><br/></div>
+                  <div className="col-sm-4" ><label className="l9">Name</label></div><div className="col-sm-6" > <input type="text" id="names" defaultValue={this.props.name}  className="ghk w3-input"  placeholder="name"/><br/><br/></div>
+                   <div className="col-sm-4" ><label className="l9">Latitude</label></div><div className="col-sm-6" > <input type="text" id="latitude" defaultValue ={this.props.latitude}    className="ghk w3-input" placeholder="latitude"/><br/><br/></div>
+                   <div className="col-sm-4" ><label className="l9">Longitude</label></div><div className="col-sm-6" > <input type="text" id="longitude" defaultValue={this.props.longitude}  className="ghk w3-input"  placeholder="longitude"/><br/><br/></div>
+                   <div className="col-sm-4" ><label className="l9">Country</label></div><div className="col-sm-6" > <input type="text" id="country" defaultValue={this.props.country}  className="ghk w3-input"  placeholder="country"/><br/><br/></div>
 
-                   <div className="col-sm-4" ><label className="l9">State</label></div><div className="col-sm-6" > <input type="text" id="state" defaultValue={this.props.state}  className="w3-input"  placeholder="state"/><br/><br/></div>
+                   <div className="col-sm-4" ><label className="l9">State</label></div><div className="col-sm-6" > <input type="text" id="state" defaultValue={this.props.state}  className=" ghk w3-input"  placeholder="state"/><br/><br/></div>
 
-                   <div className="col-sm-4" ><label className="l9">District</label></div><div className="col-sm-6" > <input type="text" id="district" defaultValue={this.props.district}  className="w3-input"  placeholder="district"/><br/><br/></div>
+                   <div className="col-sm-4" ><label className="l9">District</label></div><div className="col-sm-6" > <input type="text" id="district" defaultValue={this.props.district}  className="ghk w3-input"  placeholder="district"/><br/><br/></div>
 
-                   <div className="col-sm-4" ><label className="l9">Deities</label></div><div className="col-sm-6" > <input type="text" id="deities" defaultValue={this.props.deities}  className="w3-input"  placeholder="primary deities"/><br/><br/></div>
+                   <div className="col-sm-4" ><label className="l9">Deities</label></div><div className="col-sm-6" > <input type="text" id="deities" defaultValue={this.props.deities}  className="ghk w3-input"  placeholder="primary deities"/><br/><br/></div>
 
-                   <div className="col-sm-4" ><label className="l9">Festivals</label></div> <div className="col-sm-6" ><input type="text" id="festivals" defaultValue={this.props.festivals}  className="w3-input"  placeholder="Important festivals"/><br/><br/></div>
+                   <div className="col-sm-4" ><label className="l9">Festivals</label></div> <div className="col-sm-6" ><input type="text" id="festivals" defaultValue={this.props.festivals}  className="ghk w3-input"  placeholder="Important festivals"/><br/><br/></div>
 
-                   <div className="col-sm-4" ><label className="l9">Architecture</label></div><div className="col-sm-6" > <input type="text" id="archstyle" defaultValue={this.props.archstyle}  className="w3-input"  placeholder="architecture"/><br/><br/></div>
+                   <div className="col-sm-4" ><label className="l9">Architecture</label></div><div className="col-sm-6" > <input type="text" id="archstyle" defaultValue={this.props.archstyle}  className="ghk w3-input"  placeholder="architecture"/><br/><br/></div>
 
-                   <div className="col-sm-4" ><label className="l9">Date Built</label></div> <div className="col-sm-6" ><input type="text" id="datebuilt" defaultValue={this.props.datebuilt}  className="w3-input"  placeholder="datebuilt"/><br/><br/></div>
+                   <div className="col-sm-4" ><label className="l9">Date Built</label></div> <div className="col-sm-6" ><input type="text" id="datebuilt" defaultValue={this.props.datebuilt}  className="ghk w3-input"  placeholder="datebuilt"/><br/><br/></div>
 
-                   <div className="col-sm-4" ><label className="l9">Creator</label></div><div className="col-sm-6" > <input type="text" id="creator" defaultValue={this.props.creator}  className="w3-input"  placeholder="creator"/><br/><br/></div>
+                   <div className="col-sm-4" ><label className="l9">Creator</label></div><div className="col-sm-6" > <input type="text" id="creator" defaultValue={this.props.creator}  className="ghk w3-input"  placeholder="creator"/><br/><br/></div>
                    <input className="choose" type="file" id="myFile" name="image" multiple="multiple" accept=".png" onChange={this.handleSearch}/>  <br/><br/>
 
-                   <div className="col-sm-4" ><label className="l9">Guides</label></div><div className="col-sm-6" > <input type="text" id="guides" defaultValue={this.props.guides}  className="w3-input"  placeholder="guides"/><br/><br/></div>
+                   <div className="col-sm-4" ><label className="l9">Guides</label></div><div className="col-sm-6" > <input type="text" id="guides" defaultValue={this.props.guides}  className="ghk w3-input"  placeholder="guides"/><br/><br/></div>
 
-                   <div className="col-sm-4" ><label className="l9">Eateries</label></div><div className="col-sm-6" > <input type="text" id="eateries" defaultValue={this.props.eateries}  className="w3-input"  placeholder="eateries"/><br/><br/></div>
-                   <center><br/><br/><br/><br/><br/><br/><br/>
+                   <div className="col-sm-4" ><label className="l9">Eateries</label></div><div className="col-sm-6" > <input type="text" id="eateries" defaultValue={this.props.eateries}  className="ghk w3-input"  placeholder="eateries"/><br/><br/></div>
+                   <center><br/><br/><br/><br/><br/><br/><br/><br/>
                    <button  className="button" onClick={()=>this.handleUpdate(id)}>Update</button>&nbsp;&nbsp;&nbsp;
                    <button className="button" onClick={()=>this.handleBack()}><i className="fa fa-backward"></i> Back</button>
                    </center>
@@ -172,7 +172,7 @@ class UpdateFeatureList2 extends Component {
 
 
             </div>
-              </center>
+              </center><br/>
               </div>
            );
 }

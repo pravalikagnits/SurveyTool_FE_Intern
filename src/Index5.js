@@ -103,10 +103,11 @@ class Index5 extends Component {
   render() {
     return (
       <center>
-      <h1><b>LIST OF SURVEYS</b></h1>
-            <div className="SurveyMain">
+
+            <div className="SurveyMain"><br/>
+            <h1><b>LIST OF SURVEYS</b></h1>
 <center>
-    
+
       <div className="surveymain w3-container">
 
 
@@ -114,7 +115,7 @@ class Index5 extends Component {
       <center>
       &nbsp;<table className="moduleSection">
       <tbody className="border">
-      <tr> <th>Survey Name</th>  <th>Survey Description</th>  <th>Deadline</th></tr>
+      <tr> <th><center>Survey Name</center></th>  <th><center>Survey Description</center></th>  <th><center>Deadline</center></th></tr>
       {this.state.surveys.length ?
         this.state.surveys.map((item,i)=>  <tr >
         <td className="td1">
@@ -139,7 +140,7 @@ class Index5 extends Component {
     <br/>
 
     </div>
-    </center>
+    </center><br/>
     </div>
 
     </center>

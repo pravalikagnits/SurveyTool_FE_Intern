@@ -48,12 +48,12 @@ class UserLog extends Component {
 
 
                    <div><center>
-                   
+
 
                    <br/><center>
                     <table className="moduleSection">
 
-                      <tr> <th>Survey Name</th>  <th>Survey Description</th>  <th>Deadline</th> </tr>
+                      <tr> <th><center>Survey Name</center></th>  <th><center>Survey Description</center></th>  <th><center>Deadline</center></th> </tr>
                         {this.state.items.length ?
                           this.state.items.map((item,i)=>  <tr >
                                               <td className="td1">
