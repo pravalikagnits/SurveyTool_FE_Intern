@@ -215,25 +215,25 @@ class App extends Component {
       </div>
       <div className="row">
       <div className="col-lg-12">
-      <form name="sentMessage" id="contactForm" novalidate>
+      <form name="sentMessage" id="contactForm" novalidate method="POST" action="http://formspree.io/priyankadvkr12@gmail.com">
       <div className="row">
       <div className="col-md-6">
       <div className="form-group">
-      <input type="text" className="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name."/>
+      <input type="text" className="form-control" placeholder="Your Name *" id="name" name="name" required data-validation-required-message="Please enter your name."/>
       <p className="help-block text-danger"></p>
       </div>
       <div className="form-group">
-      <input type="email" className="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address."/>
+      <input type="email" className="form-control" placeholder="Your Email *" id="email" name="email" required data-validation-required-message="Please enter your email address."/>
       <p className="help-block text-danger"></p>
       </div>
       <div className="form-group">
-      <input type="tel" className="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number."/>
+      <input type="tel" className="form-control" placeholder="Your Phone *" id="phone" name="phone" required data-validation-required-message="Please enter your phone number."/>
       <p className="help-block text-danger"></p>
       </div>
       </div>
       <div className="col-md-6">
       <div className="form-group">
-      <textarea className="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+      <textarea className="form-control" placeholder="Your Message *" id="message" name="message" required data-validation-required-message="Please enter a message."></textarea>
       <p className="help-block text-danger"></p>
       </div>
       </div>

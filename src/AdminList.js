@@ -192,7 +192,10 @@ class AdminList extends Component {
         polylineFeature.geometry.coordinates.push(
           json[i].long,json[i].lat
         );
-        polylineFeature.properties={"name:":json[i].name};
+        polylineFeature.properties={"marker-color": "#ff0000",
+        "marker-size": "medium",
+        "marker-symbol": "religious-jewish","name:":json[i].name,"country":json[i].country,"state":json[i].state,"district":json[i].district,"deities":json[i].deities,"festivals":json[i].festivals,"archstyle":json[i].archstyle,"datebuilt":json[i].datebuilt,
+        "creator":json[i].creator,"guides":json[i].guides,"eateries":json[i].eateries};
         geoJson.features.push(polylineFeature);
       }
       var geojson=JSON.stringify(geoJson,null,4);

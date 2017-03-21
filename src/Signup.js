@@ -13,24 +13,12 @@ class Signup extends React.Component {
 
 
     this.state={data:'', passwd:'',cnfpasswd:'',res:''};
-    this.updateState=this.updateState.bind(this);
-    this.updatePasswd=this.updatePasswd.bind(this);
-    this.updatecnfPasswd=this.updatecnfPasswd.bind(this);
+
     this.validate=this.validate.bind(this);
     //this.handlesubmit=this.handlesubmit.bind(this);
   }
 
-  updateState(e){
-    this.setState({data:e.target.value});
-  }
 
-  updatePasswd(e){
-    this.setState({passwd:e.target.value});
-  }
-
-  updatecnfPasswd(e){
-    this.setState({cnfpasswd:e.target.value});
-  }
 
 
   componentWillUpdate(){
@@ -41,23 +29,61 @@ class Signup extends React.Component {
 
   }
 
-  validate(username,password,confirmp){
+  validate(){
+    var uname = document.querySelector('input[name="username"]');
+    var pwd=document.querySelector('input[name="password"]');
+    var cnf=document.querySelector('input[name="confirm"]');
+    var i=0,flag=0;
+    var l=uname.value.length;
+    var m=pwd.value.length;
+    var n=cnf.value.length;
+    console.log(l,m,n);
 
+    if(uname.value==''){
+      uname.setCustomValidity('please enter your username!');
+      flag=1;
+  }
+  else{
+    uname.setCustomValidity('');
+    flag=0;
+  }
 
+  if(uname.value!='' && uname.value.length<5){
+    uname.setCustomValidity('Username must be minimum of 5 characters!');
+    flag=1;
+}
+else{
+  uname.setCustomValidity('');
+  flag=0;
+}
 
-    var l=username.length;
-    var m=password.length;
-    var n=confirmp.length;
+  if(pwd.value==''){
+    pwd.setCustomValidity('please enter your password!');
+    flag=1;
+}
+else{
+  pwd.setCustomValidity('');
+  flag=0;
 
-    if(username==''|| password==''||confirmp=='')
-    this.setState({res:'username or password cannot be empty'})
-    else if(l<5 && username!='')
-    this.setState({res:'username is too short(min 8 char)'})
-    else if((m < 5 || n < 5)&&(password!=''&&confirmp!=''))
-    this.setState({res:'password too short'})
-    else if(password!=confirmp)
-    this.setState({res:'password doesnt match'})
-    else{
+}
+if(cnf.value==''){
+  cnf.setCustomValidity('please retype the password!');
+  flag=1;
+}
+else{
+cnf.setCustomValidity('');
+flag=0;
+
+}
+// if(pwd.value!=cnf.value){
+//  this.setState({res:'passwords do not match'});
+//  flag=1;}
+//  else{
+//    flag=0;
+//  }
+  console.log(flag,"flag");
+
+    if(flag==0){
 
       fetch('http://localhost:9000/users', {
         method: 'POST',
@@ -68,12 +94,22 @@ class Signup extends React.Component {
         },
         body: JSON.stringify({
 
-          uname: this.state.data,
-          upwd:this.state.passwd,
+          uname: uname.value,
+          upwd:pwd.value,
 
         })
-      }).then(alert('Successful registation!!you can login now!!')
-    )
+      }).then(response => {
+        console.log(response.status);
+        if(500==response.status)
+        {
+          alert("username already exists!!please chose a new one!!");
+        }
+        else if(200==response.status)
+        {
+          alert("succesfully registered!!you can Login now!");
+        }
+      })
+
   }
 
 
@@ -89,10 +125,10 @@ render(){
 
   return(
     <div className="SignUp">
-    <br/><br/>><center>
+    <br/><br/><br/><br/><center>
     <div className="Signup w3-container w3-animate-top ">
     <center>
-    <br/>
+    <br/><br/><br/>
 
     <form>
     <h1 className="signuptext">
@@ -101,12 +137,24 @@ render(){
     </h1>
     <br/>
     <p>{this.state.res}</p>
-    <input type="text" id="username" value = {this.state.data} onChange = {this.updateState} className="w3-input" placeholder="username"  /><br/><br/>
-    <input type="password" id="password" value ={this.state.passwd} onChange = {this.updatePasswd} className="w3-input" placeholder="password" /><br/><br/>
-    <input type="password" id="confirm" value ={this.state.cnfpasswd} onChange = {this.updatecnfPasswd} className="w3-input" placeholder="confirm password"  /><br/><br/>
-    <button  className="w3-btn w3-square-large w3-large" onClick={()=>this.validate(this.state.data,this.state.passwd,this.state.cnfpasswd)}>Sign Up</button><br/><br/>
+  <div className="form-group">
+  <input type="text" name="username" className=" w3-input" id="username"
+  placeholder="Username *" id="name" required data-validation-required-message="Please enter your name."/>&nbsp;
+  <p className="help-block text-danger"></p>
+  </div>
+  <div className="form-group">
+  <input  type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="password" className=" w3-input" id="password"
+  placeholder="Password * eg:Apple45" id="name" required data-validation-required-message="Please enter your Paasword" />
+  <p className="help-block text-danger"></p>
+  </div>
+  <div className="form-group">
+  <input  type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="confirm" className=" w3-input" id="confirm"
+  placeholder="Password *" id="name" required data-validation-required-message="Please retype your Paasword"/>
+  <p className="help-block text-danger"></p>
+  </div>
 
-    </form>
+  <button  className="w3-btn w3-square-large w3-large" onClick={()=>this.validate()}>Sign Up</button><br/><br/>
+</form>
 
     </center>
 
