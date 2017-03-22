@@ -13,7 +13,7 @@ class AdminFeatureList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      item:[],
+      item:[],sid:''
     };
     this.handleBack=this.handleBack.bind(this);
 
@@ -24,8 +24,9 @@ class AdminFeatureList extends Component {
 
 
   handleBack(){
+
     var c=document.getElementById("content");
-    ReactDOM.render(<AdminList />,c);
+    ReactDOM.render(<AdminList sid={this.state.item.sid} />,c);
   }
 
 
@@ -91,37 +92,13 @@ class AdminFeatureList extends Component {
       </div>
 
       <div className="row">
-      <div className="col-sm-6" ><strong>Deities:</strong></div>
-      <div className="col-sm-6"><strong> {this.state.item.deities}</strong></div><br/>
+      <div className="col-sm-6" ><strong>Landmark:</strong></div>
+      <div className="col-sm-6"><strong> {this.state.item.landmark}</strong></div><br/>
       </div>
-
+    
       <div className="row">
-      <div className="col-sm-6" ><strong>Festivals:</strong></div>
-      <div className="col-sm-6"><strong> {this.state.item.festivals}</strong></div><br/>
-      </div>
-
-      <div className="row">
-      <div className="col-sm-6" ><strong>Architecture:</strong></div>
-      <div className="col-sm-6"><strong> {this.state.item.archstyle}</strong></div><br/>
-      </div>
-      <div className="row">
-      <div className="col-sm-6" ><strong>Date Built</strong></div>
-      <div className="col-sm-6"><strong> {this.state.item.datebuilt}</strong></div><br/>
-      </div>
-
-      <div className="row">
-      <div className="col-sm-6" ><strong>Creator:</strong></div>
-      <div className="col-sm-6"><strong> {this.state.item.creator}</strong></div><br/>
-      </div>
-
-      <div className="row">
-      <div className="col-sm-6" ><strong>Guides:</strong></div>
-      <div className="col-sm-6"><strong> {this.state.item.guides}</strong></div><br/>
-      </div>
-
-      <div className="row">
-      <div className="col-sm-6" ><strong>Eateries:</strong></div>
-      <div className="col-sm-6"><strong> {this.state.item.eateries}</strong></div><br/>
+      <div className="col-sm-6" ><strong>Other Details:</strong></div>
+      <div className="col-sm-6"><strong> {this.state.item.others}</strong></div><br/>
       </div>
       </td>
       <td className="tdata2">

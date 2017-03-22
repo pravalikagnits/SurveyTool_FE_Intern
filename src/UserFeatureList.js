@@ -22,7 +22,7 @@ class UserFeatureList extends Component {
 
      handleBack(){
        var c=document.getElementById("content");
-        ReactDOM.render(<UserList />,c);
+        ReactDOM.render(<UserList sid={this.state.item.sid}/>,c);
      }
 
 
@@ -86,38 +86,16 @@ class UserFeatureList extends Component {
                            </div>
 
                            <div className="row">
-                              <div className="col-sm-6" ><strong>Deities:</strong></div>
-                              <div className="col-sm-6">{this.state.item.deities}</div><br/>
+                              <div className="col-sm-6" ><strong>Landmark:</strong></div>
+                              <div className="col-sm-6">{this.state.item.landmark}</div><br/>
                            </div>
 
                            <div className="row">
-                              <div className="col-sm-6" ><strong>Festivals:</strong></div>
-                              <div className="col-sm-6">{this.state.item.festivals}</div><br/>
+                              <div className="col-sm-6" ><strong>Other Details:</strong></div>
+                              <div className="col-sm-6">{this.state.item.others}</div><br/>
                            </div>
 
-                           <div className="row">
-                              <div className="col-sm-6" ><strong>Architecture:</strong></div>
-                              <div className="col-sm-6">{this.state.item.archstyle}</div><br/>
-                           </div>
-                           <div className="row">
-                              <div className="col-sm-6" ><strong>Date Built</strong></div>
-                              <div className="col-sm-6"> {this.state.item.datebuilt}</div><br/>
-                           </div>
 
-                           <div className="row">
-                              <div className="col-sm-6" ><strong>Creator:</strong></div>
-                              <div className="col-sm-6">{this.state.item.creator}</div><br/>
-                           </div>
-
-                           <div className="row">
-                              <div className="col-sm-6" ><strong>Guides:</strong></div>
-                              <div className="col-sm-6">{this.state.item.guides}</div><br/>
-                           </div>
-
-                           <div className="row">
-                              <div className="col-sm-6" ><strong>Eateries:</strong></div>
-                              <div className="col-sm-6">{this.state.item.eateries}</div><br/>
-                           </div>
                            </td>
                            <td className="tdata4">
                            <div className="grid2">

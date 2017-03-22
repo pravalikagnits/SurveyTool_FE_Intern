@@ -21,11 +21,14 @@ class UserLog extends Component {
        ReactDOM.render(<Index6/>,c);
      }
 
-     handleanchor(){
+     handleanchor(id){
+       this.state.sid=id;
 
        console.log(this.props.uid);
         var c=document.getElementById("content");
-        ReactDOM.render(<UserList uid={this.props.uid}/>,c);
+        ReactDOM.render(<UserList uid={this.props.uid} sid={this.state.sid}/>,c);
+        window.sessionStorage.setItem('sid', id);
+
      }
 
 
@@ -57,7 +60,7 @@ class UserLog extends Component {
                         {this.state.items.length ?
                           this.state.items.map((item,i)=>  <tr >
                                               <td className="td1">
-                                                  <a className="anchor" onClick={()=>this.handleanchor()}><b>{item.sname}</b></a>
+                                                  <a className="anchor" onClick={()=>this.handleanchor(item.sid)}><b>{item.sname}</b></a>
                                               </td>
                                               <td className="td1" >{item.sdescription}</td>
                                               <td className="td1">{item.date}</td>

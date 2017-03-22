@@ -11,7 +11,7 @@ class Index5 extends Component {
 
   constructor() {
     super();
-    this.state = {surveys:[],id:'',name:'',desc:'',date:''};
+    this.state = {surveys:[],id:'',ssid:'',name:'',desc:'',date:''};
     this.createnewsurvey=this.createnewsurvey.bind(this);
     this.handleanchor=this.handleanchor.bind(this);
     this.handleDelete=this.handleDelete.bind(this);
@@ -26,12 +26,13 @@ class Index5 extends Component {
     ReactDOM.render(<Index6/>,c);
   }
 
-  handleanchor(){
-    var c=document.getElementById("content");
-    ReactDOM.render(<AdminList />,c);
+  handleanchor(id){
+     this.state.ssid=id;
+     console.log(this.state.ssid);
+     var c=document.getElementById("content");
+     ReactDOM.render(<AdminList sid={this.state.ssid}/>,c);
 
-  }
-
+   }
 
   componentWillUpdate(){
     fetch(`http://localhost:9000/Surveys`)
@@ -119,7 +120,7 @@ class Index5 extends Component {
       {this.state.surveys.length ?
         this.state.surveys.map((item,i)=>  <tr >
         <td className="td1">
-        <a className="anchor" onClick={()=>this.handleanchor()}><b>{item.sname}</b></a>
+        <a className="anchor" onClick={()=>this.handleanchor(item.sid)}><b>{item.sname}</b></a>
         </td>
         <td className="td1" >{item.sdescription}
         </td>

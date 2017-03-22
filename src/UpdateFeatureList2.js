@@ -12,7 +12,7 @@ class UpdateFeatureList2 extends Component {
 
   constructor(props) {
                         super(props);
-                  this.state = {features:[],image:''};
+                  this.state = {features:[],image:'',sid:''};
                   this.handleUpdate=this.handleUpdate.bind(this);
                   this.handleSearch=this.handleSearch.bind(this);
                 }
@@ -77,14 +77,9 @@ class UpdateFeatureList2 extends Component {
                                     country:country.value,
                                     state:state.value,
                                     district:district.value,
-                                    deities:deities.value,
-                                    festivals:festivals.value,
-                                    archstyle:archstyle.value,
-                                    datebuilt:datebuilt.value,
-                                    creator:creator.value,
+                                    landmark:landmark.value,
                                     image:img,
-                                    guides:guides.value,
-                                    eateries:eateries.value
+                                    others:others.value
 
                                  })
                                }).then(response => {
@@ -110,8 +105,12 @@ class UpdateFeatureList2 extends Component {
 
                      handleBack()
                      {
+                       this.state.sid=this.props.sid;
+                       console.log(this.props.sid,"props");
+
+                       console.log(this.state.sid,"gjjvh");
                         var c=document.getElementById("content");
-                        ReactDOM.render(<UserList />,c);
+                        ReactDOM.render(<UserList sid={this.state.sid} />,c);
 
                      }
 
@@ -148,20 +147,13 @@ class UpdateFeatureList2 extends Component {
 
                    <div className="col-sm-4" ><label className="l9">District</label></div><div className="col-sm-6" > <input type="text" id="district" defaultValue={this.props.district}  className="ghk w3-input"  placeholder="district"/><br/><br/></div>
 
-                   <div className="col-sm-4" ><label className="l9">Deities</label></div><div className="col-sm-6" > <input type="text" id="deities" defaultValue={this.props.deities}  className="ghk w3-input"  placeholder="primary deities"/><br/><br/></div>
 
-                   <div className="col-sm-4" ><label className="l9">Festivals</label></div> <div className="col-sm-6" ><input type="text" id="festivals" defaultValue={this.props.festivals}  className="ghk w3-input"  placeholder="Important festivals"/><br/><br/></div>
+                   <div className="col-sm-4" ><label className="l9">Landmark</label></div><div className="col-sm-6" > <input type="text" id="landmark" defaultValue={this.props.landmark}  className="ghk w3-input"  placeholder="Landmark"/><br/><br/></div>
 
-                   <div className="col-sm-4" ><label className="l9">Architecture</label></div><div className="col-sm-6" > <input type="text" id="archstyle" defaultValue={this.props.archstyle}  className="ghk w3-input"  placeholder="architecture"/><br/><br/></div>
-
-                   <div className="col-sm-4" ><label className="l9">Date Built</label></div> <div className="col-sm-6" ><input type="text" id="datebuilt" defaultValue={this.props.datebuilt}  className="ghk w3-input"  placeholder="datebuilt"/><br/><br/></div>
-
-                   <div className="col-sm-4" ><label className="l9">Creator</label></div><div className="col-sm-6" > <input type="text" id="creator" defaultValue={this.props.creator}  className="ghk w3-input"  placeholder="creator"/><br/><br/></div>
                    <input className="choose" type="file" id="myFile" name="image" multiple="multiple" accept=".png" onChange={this.handleSearch}/>  <br/><br/>
 
-                   <div className="col-sm-4" ><label className="l9">Guides</label></div><div className="col-sm-6" > <input type="text" id="guides" defaultValue={this.props.guides}  className="ghk w3-input"  placeholder="guides"/><br/><br/></div>
 
-                   <div className="col-sm-4" ><label className="l9">Eateries</label></div><div className="col-sm-6" > <input type="text" id="eateries" defaultValue={this.props.eateries}  className="ghk w3-input"  placeholder="eateries"/><br/><br/></div>
+                   <div className="col-sm-4" ><label className="l9">Others</label></div><div className="col-sm-6" > <textarea defaultValue={this.props.others}  className="ghk w3-input"  placeholder="Other Details *" id="others" name="others" ></textarea><br/><br/></div>
                    <center><br/><br/><br/><br/><br/><br/><br/><br/>
                    <button  className="button" onClick={()=>this.handleUpdate(id)}>Update</button>&nbsp;&nbsp;&nbsp;
                    <button className="button" onClick={()=>this.handleBack()}><i className="fa fa-backward"></i> Back</button>

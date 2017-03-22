@@ -7,7 +7,8 @@ import UsrNewEntry from './UsrNewEntry.js';
 import AdminFeatureList from './AdminFeatureList.js';
 import UpdateFeatureList from './UpdateFeatureList.js';
 import jsonreport from './jsonreport.js';
-
+var ssid;
+var  latLng;
 class AdminList extends Component {
 
   constructor(props) {
@@ -16,6 +17,7 @@ class AdminList extends Component {
       Features:[],
       details:[],
       id:'',
+      sid:'',
       report:'',
     };
 
@@ -33,11 +35,12 @@ class AdminList extends Component {
   }
 
 
-  handleView(id){
+  handleView(id,sid){
     console.log(id);
     this.state.id=id;
+    this.state.sid=sid;
     var c=document.getElementById("content");
-    ReactDOM.render(<AdminFeatureList fid={this.state.id}/>,c);
+    ReactDOM.render(<AdminFeatureList fid={this.state.id} sid={this.state.sid}/>,c);
 
   }
 
@@ -78,7 +81,7 @@ class AdminList extends Component {
 
 
 
-  handleUpdate(fid,name,lat,long,country,state,district,deities,festivals,archstyle,datebuilt,creator,image,guides,eateries){
+  handleUpdate(fid,sid,name,lat,long,country,state,district,landmark,image,others){
     this.state.fid=fid
     this.state.name=name;
     this.state.lat=lat;
@@ -86,19 +89,16 @@ class AdminList extends Component {
     this.state.country=country;
     this.state.state=state;
     this.state.district=district;
-    this.state.deities=deities;
-    this.state.festivals=festivals;
-    this.state.archstyle=archstyle;
-    this.state.datebuilt=datebuilt;
-    this.state.creator=creator;
+    this.state.sid=sid;
+
+    this.state.landmark=landmark;
     this.state.image=image;
-    this.state.guides=guides;
-    this.state.eateries=eateries;
+    this.state.others=others;
 
     console.log("UserFeatureList",this.state.id);
     var c=document.getElementById("content");
-    ReactDOM.render(<UpdateFeatureList fid={this.state.fid} name={this.state.name} latitude={this.state.lat} longitude={this.state.long} country={this.state.country} state={this.state.state} district={this.state.district} festivals={this.state.festivals}  deities={this.state.deities} archstyle={this.state.archstyle}
-      datebuilt={this.state.datebuilt} creator={this.state.creator} image={this.state.image} guides={this.state.guides} eateries={this.state.eateries}  />,c);
+    ReactDOM.render(<UpdateFeatureList fid={this.state.fid} sid={this.state.sid} name={this.state.name} latitude={this.state.lat} longitude={this.state.long} country={this.state.country} state={this.state.state} district={this.state.district} landmark={this.state.landmark}
+     image={this.state.image} others={this.state.others} />,c);
 
     }
 
@@ -125,7 +125,7 @@ class AdminList extends Component {
       var infoWindow = new google.maps.InfoWindow();
       var mapOptions = {
         center: new google.maps.LatLng(this.state.Features[0].latitude,this.state.Features[0].longitude),
-        zoom: 5,
+        zoom: 3,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
 
@@ -133,17 +133,26 @@ class AdminList extends Component {
 
       var i=0;
       var json=new Array();
-      console.log(this.state.Features);
+      console.log(this.state.Features.length,"gjhg",this.state.Features[5].sid);
+      var snid=this.props.sid;
+       console.log(snid,"snid");
 
-      for(i=0;i<this.state.Features.length;i++)
+      for(i=0;i<this.state.Features.length  ;i++)
       {
-        json[i]={lat:this.state.Features[i].latitude,long:this.state.Features[i].longitude,name:this.state.Features[i].name,image:this.state.Features[i].image}
+            var j=0;
 
+        if(this.state.Features[i].sid == snid){
+
+        console.log("prift",this.state.Features[i].sid,snid);
+        json[j++]={lat:this.state.Features[i].latitude,long:this.state.Features[i].longitude,name:this.state.Features[i].name,image:this.state.Features[i].image}
       }
-
+      }
+      console.log(json,"list");
+      console.log(json.length,"length");
 
       for (var i = 0, length = json.length; i < length; i++) {
-        var data = json[i],
+        var data = json[i];
+        console.log(json[i]);
         latLng = new google.maps.LatLng(data.lat, data.long);
 
         // Creating a marker and putting it on the map
@@ -223,7 +232,7 @@ class AdminList extends Component {
 
 
         {this.state.Features.length ?
-          this.state.Features.map((item,i)=>
+          this.state.Features.map((item,i)=>(item.sid == this.props.sid?
 
           <div className="card">
 
@@ -237,9 +246,10 @@ class AdminList extends Component {
 
 
                 <h2>
-          <strong><a className="aname" onClick={() => this.handleView(item.fid)}>Name: {item.name}</a></strong><button  className="b9 w3-btn w3-round-large w3-large  button1" onClick={()=>this.handleUpdate(item.fid,item.name,item.latitude,item.longitude,item.country,item.state,
-            item.district,item.deities,item.festivals,item.archstyle,item.datebuilt,item.creator,item.image,
-            item.guides,item.eateries)}><i className="fa fa-refresh "></i></button>&nbsp;&nbsp;
+          <strong><a className="aname" onClick={() => this.handleView(item.fid,item.sid)}>Name: {item.name}</a></strong>
+          <button  className="b9 w3-btn w3-round-large w3-large  button1"
+          onClick={()=>this.handleUpdate(item.fid,item.sid,item.name,item.latitude,item.longitude,item.country,item.state,
+            item.district,item.landmark,item.image,item.others)}><i className="fa fa-refresh "></i></button>&nbsp;&nbsp;
 
 
             <button  className="b9 w3-btn w3-round-large w3-large button2" onClick={()=>this.handleDelete(item.fid)}><i className="fa fa-close"></i></button>&nbsp;&nbsp;&nbsp;
@@ -266,7 +276,8 @@ class AdminList extends Component {
 
 
 
-
+            :<p></p>
+                      )
           )
           : <p> loading..</p>
         }

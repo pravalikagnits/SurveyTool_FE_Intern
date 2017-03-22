@@ -17,6 +17,7 @@ class UserList extends Component {
       Features:[],
       details:[],
       id:'',
+      sid:'',
     };
 
     this.handleView=this.handleView.bind(this);
@@ -36,15 +37,14 @@ class UserList extends Component {
 
   AddNewEntry(id){
     this.state.sid=id;
-    console.log(this.state.sid);
-    console.log(this.props.uid);
+    console.log(this.state.sid,"sid in user lisst");
     var c=document.getElementById("content");
     ReactDOM.render(<UsrNewEntry sid={this.state.sid} uid={this.props.uid}/>,c);
   }
 
 
   handleView(id){
-    console.log(id);
+    console.log(id,"idvvfevfebe");
     this.state.id=id;
     var c=document.getElementById("content");
     ReactDOM.render(<UserFeatureList fid={this.state.id}/>,c);
@@ -53,7 +53,7 @@ class UserList extends Component {
 
 
 
-  handleUpdate(fid,name,lat,long,country,state,district,deities,festivals,archstyle,datebuilt,creator,image,guides,eateries){
+  handleUpdate(fid,sid,name,lat,long,country,state,district,landmark,image,others){
     this.state.fid=fid
     this.state.name=name;
     this.state.lat=lat;
@@ -61,19 +61,16 @@ class UserList extends Component {
     this.state.country=country;
     this.state.state=state;
     this.state.district=district;
-    this.state.deities=deities;
-    this.state.festivals=festivals;
-    this.state.archstyle=archstyle;
-    this.state.datebuilt=datebuilt;
-    this.state.creator=creator;
+    this.state.sid=sid;
+
+    this.state.landmark=landmark;
     this.state.image=image;
-    this.state.guides=guides;
-    this.state.eateries=eateries;
+    this.state.others=others;
 
     console.log("UserFeatureList",this.state.id);
     var c=document.getElementById("content");
-    ReactDOM.render(<UpdateFeatureList2 fid={this.state.fid} name={this.state.name} latitude={this.state.lat} longitude={this.state.long} country={this.state.country} state={this.state.state} district={this.state.district} festivals={this.state.festivals}  deities={this.state.deities} archstyle={this.state.archstyle}
-      datebuilt={this.state.datebuilt} creator={this.state.creator} image={this.state.image} guides={this.state.guides} eateries={this.state.eateries}  />,c);
+    ReactDOM.render(<UpdateFeatureList2 fid={this.state.fid} sid={this.state.sid} name={this.state.name} latitude={this.state.lat} longitude={this.state.long} country={this.state.country} state={this.state.state} district={this.state.district} landmark={this.state.landmark}
+     image={this.state.image} others={this.state.others} />,c);
 
     }
 
@@ -129,7 +126,8 @@ class UserList extends Component {
                       <center>
 
       {this.state.Features.length ?
-        this.state.Features.map((item,i)=>
+        this.state.Features.map((item,i)=>(item.sid == this.props.sid?
+
 
                   <div className="card">
 
@@ -143,9 +141,8 @@ class UserList extends Component {
 
 
                         <h2>
-                  <strong><a className="aname" onClick={() => this.handleView(item.fid)}>Name: {item.name}</a></strong><button  className="b9 w3-btn w3-round-large w3-large  button1"disabled={(item.uname==window.sessionStorage.getItem('uname'))?false:true}  onClick={()=>this.handleUpdate(item.fid,item.name,item.latitude,item.longitude,item.country,item.state,
-                    item.district,item.deities,item.festivals,item.archstyle,item.datebuilt,item.creator,item.image,
-                    item.guides,item.eateries)}><i className="fa fa-refresh "></i></button>&nbsp;&nbsp;
+                  <strong><a className="aname" onClick={() => this.handleView(item.fid)}>Name: {item.name}</a></strong><button  className="b9 w3-btn w3-round-large w3-large  button1"disabled={(item.uname==window.sessionStorage.getItem('uname'))?false:true}  onClick={()=>this.handleUpdate(item.fid,item.sid,item.name,item.latitude,item.longitude,
+                    item.country,item.state,item.district,item.landmark,item.image,item.others)}><i className="fa fa-refresh "></i></button>&nbsp;&nbsp;
 
 
 
@@ -169,6 +166,8 @@ class UserList extends Component {
 
                       </div>
                     </div>
+                    :<p></p>
+                              )
 
         )
         : <p> loading..</p>
@@ -179,7 +178,7 @@ class UserList extends Component {
 
       <center>
 
-                  <button className="b41 w3-btn w3-round-large w3-large" onClick={()=>this.AddNewEntry()}><i className="fa fa-plus-circle"></i> Add Entry</button><br/><br/><br/>
+                  <button className="b41 w3-btn w3-round-large w3-large" onClick={()=>this.AddNewEntry(this.props.sid)}><i className="fa fa-plus-circle"></i> Add Entry</button><br/><br/><br/>
       </center>
       </div>
 

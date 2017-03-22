@@ -104,7 +104,7 @@ flag=0;
         {
           alert("username already exists!!please chose a new one!!");
         }
-        else if(200==response.status)
+        else if(201==response.status)
         {
           alert("succesfully registered!!you can Login now!");
         }
@@ -146,7 +146,7 @@ render(){
   <input  type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="password" className=" w3-input" id="password"
   placeholder="Password * eg:Apple45" id="name" required data-validation-required-message="Please enter your Paasword" />
   <p className="help-block text-danger"></p>
-  </div>
+  </div><br/>
   <div className="form-group">
   <input  type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="confirm" className=" w3-input" id="confirm"
   placeholder="Password *" id="name" required data-validation-required-message="Please retype your Paasword"/>
