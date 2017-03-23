@@ -180,6 +180,9 @@ class AdminList extends Component {
 
     }
     exportGeoJson() {
+
+      var snid=this.props.sid;
+      var j=0;
       console.log("hiymktm,t");
       var json=new Array();
       var geoJson = {
@@ -196,17 +199,23 @@ class AdminList extends Component {
           },
           "properties": {}
         };
-        json[i]={lat:this.state.Features[i].latitude,long:this.state.Features[i].longitude,name:this.state.Features[i].name,country:this.state.Features[i].country,state:this.state.Features[i].state,district:this.state.Features[i].district,deities:this.state.Features[i].deities,
+        if(this.state.Features[i].sid == snid){
+
+        json[j++]={lat:this.state.Features[i].latitude,long:this.state.Features[i].longitude,name:this.state.Features[i].name,country:this.state.Features[i].country,state:this.state.Features[i].state,district:this.state.Features[i].district,deities:this.state.Features[i].deities,
           festivals:this.state.Features[i].festivals,archstyle:this.state.Features[i].archstyle,datebuilt:this.state.Features[i].datebuilt,creator:this.state.Features[i].creator,guides:this.state.Features[i].guides,eateries:this.state.Features[i].eateries}
+          console.log(json.length,"export");
+          for( var k=0;k<json.length;k++){
         polylineFeature.geometry.coordinates.push(
-          json[i].long,json[i].lat
+          json[k].long,json[k].lat
         );
         polylineFeature.properties={"marker-color": "#ff0000",
         "marker-size": "medium",
-        "marker-symbol": "religious-jewish","name:":json[i].name,"country":json[i].country,"state":json[i].state,"district":json[i].district,"deities":json[i].deities,"festivals":json[i].festivals,"archstyle":json[i].archstyle,"datebuilt":json[i].datebuilt,
-        "creator":json[i].creator,"guides":json[i].guides,"eateries":json[i].eateries};
+        "marker-symbol": "religious-jewish","name:":json[k].name,"country":json[k].country,"state":json[k].state,"district":json[k].district,"landmark":json[k].landmark,
+        "others":json[k].others};
         geoJson.features.push(polylineFeature);
       }
+      }
+    }
       var geojson=JSON.stringify(geoJson,null,4);
       console.log(this.state.report);
       this.state.report=geojson;
